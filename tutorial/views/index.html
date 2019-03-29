@@ -1,0 +1,1828 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Views - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#blueprints-and-views" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Views
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="欢迎来到 Flask" class="md-tabs__link">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Tutorial" class="md-tabs__link md-tabs__link--active">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../13.quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../blueprints/" title="Modular Applications with Blueprints" class="md-nav__link">
+      Modular Applications with Blueprints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" title="Cli" class="md-nav__link">
+      Cli
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../config/" title="Configuration Handling" class="md-nav__link">
+      Configuration Handling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../extensiondev/" title="Flask Extension Development" class="md-nav__link">
+      Flask Extension Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../upgrading/" title="Upgrading to Newer Releases" class="md-nav__link">
+      Upgrading to Newer Releases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35" checked>
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Views
+      </label>
+    
+    <a href="./" title="Views" class="md-nav__link md-nav__link--active">
+      Views
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-blueprint" title="Create a Blueprint" class="md-nav__link">
+    Create a Blueprint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-first-view-register" title="The First View: Register" class="md-nav__link">
+    The First View: Register
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-blueprint" title="Create a Blueprint" class="md-nav__link">
+    Create a Blueprint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-first-view-register" title="The First View: Register" class="md-nav__link">
+    The First View: Register
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>.. currentmodule:: flask</p>
+<h1 id="blueprints-and-views">Blueprints and Views<a class="headerlink" href="#blueprints-and-views" title="Permanent link">&para;</a></h1>
+<p>A view function is the code you write to respond to requests to your
+application. Flask uses patterns to match the incoming request URL to
+the view that should handle it. The view returns data that Flask turns
+into an outgoing response. Flask can also go the other direction and
+generate a URL to a view based on its name and arguments.</p>
+<h2 id="create-a-blueprint">Create a Blueprint<a class="headerlink" href="#create-a-blueprint" title="Permanent link">&para;</a></h2>
+<p>A :class:<code>Blueprint</code> is a way to organize a group of related views and
+other code. Rather than registering views and other code directly with
+an application, they are registered with a blueprint. Then the blueprint
+is registered with the application when it is available in the factory
+function.</p>
+<p>Flaskr will have two blueprints, one for authentication functions and
+one for the blog posts functions. The code for each blueprint will go
+in a separate module. Since the blog needs to know about authentication,
+you'll write the authentication one first.</p>
+<p>.. code-block:: python
+:caption: <code>flaskr/auth.py</code></p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Blueprint</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url_for</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">check_password_hash</span><span class="p">,</span> <span class="n">generate_password_hash</span>
+
+<span class="kn">from</span> <span class="nn">flaskr.db</span> <span class="kn">import</span> <span class="n">get_db</span>
+
+<span class="n">bp</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="s1">&#39;/auth&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This creates a :class:<code>Blueprint</code> named <code>'auth'</code>. Like the application
+object, the blueprint needs to know where it's defined, so <code>__name__</code>
+is passed as the second argument. The <code>url_prefix</code> will be prepended
+to all the URLs associated with the blueprint.</p>
+<p>Import and register the blueprint from the factory using
+:meth:<code>app.register_blueprint() &lt;Flask.register_blueprint&gt;</code>. Place the
+new code at the end of the factory function before returning the app.</p>
+<p>.. code-block:: python
+:caption: <code>flaskr/__init__.py</code></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">create_app</span><span class="p">():</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="c1"># existing code omitted</span>
+
+    <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">auth</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">auth</span><span class="o">.</span><span class="n">bp</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">app</span>
+</pre></div>
+
+
+<p>The authentication blueprint will have views to register new users and
+to log in and log out.</p>
+<h2 id="the-first-view-register">The First View: Register<a class="headerlink" href="#the-first-view-register" title="Permanent link">&para;</a></h2>
+<p>When the user visits the <code>/auth/register</code> URL, the <code>register</code> view
+will return <code>HTML</code>_ with a form for them to fill out. When they submit
+the form, it will validate their input and either show the form again
+with an error message or create the new user and go to the login page.</p>
+<p>.. _HTML: https://developer.mozilla.org/docs/Web/HTML</p>
+<p>For now you will just write the view code. On the next page, you'll
+write templates to generate the HTML form.</p>
+<p>.. code-block:: python
+:caption: <code>flaskr/auth.py</code></p>
+<div class="codehilite"><pre><span></span>@bp.route(&#39;/register&#39;, methods=(&#39;GET&#39;, &#39;POST&#39;))
+def register():
+    if request.method == &#39;POST&#39;:
+        username = request.form[&#39;username&#39;]
+        password = request.form[&#39;password&#39;]
+        db = get_db()
+        error = None
+
+        if not username:
+            error = &#39;Username is required.&#39;
+        elif not password:
+            error = &#39;Password is required.&#39;
+        elif db.execute(
+            &#39;SELECT id FROM user WHERE username = ?&#39;, (username,)
+        ).fetchone() is not None:
+            error = &#39;User {} is already registered.&#39;.format(username)
+
+        if error is None:
+            db.execute(
+                &#39;INSERT INTO user (username, password) VALUES (?, ?)&#39;,
+                (username, generate_password_hash(password))
+            )
+            db.commit()
+            return redirect(url_for(&#39;auth.login&#39;))
+
+        flash(error)
+
+    return render_template(&#39;auth/register.html&#39;)
+</pre></div>
+
+
+<p>Here's what the <code>register</code> view function is doing:</p>
+<h1 id="methbproute-ltblueprintroutegt-associates-the-url-register">. :meth:<code>@bp.route &lt;Blueprint.route&gt;</code> associates the URL <code>/register</code><a class="headerlink" href="#methbproute-ltblueprintroutegt-associates-the-url-register" title="Permanent link">&para;</a></h1>
+<p>with the <code>register</code> view function. When Flask receives a request
+to <code>/auth/register</code>, it will call the <code>register</code> view and use
+the return value as the response.</p>
+<h1 id="if-the-user-submitted-the-form">. If the user submitted the form,<a class="headerlink" href="#if-the-user-submitted-the-form" title="Permanent link">&para;</a></h1>
+<p>:attr:<code>request.method &lt;Request.method&gt;</code> will be <code>'POST'</code>. In this
+case, start validating the input.</p>
+<h1 id="attrrequestform-ltrequestformgt-is-a-special-type-of">. :attr:<code>request.form &lt;Request.form&gt;</code> is a special type of<a class="headerlink" href="#attrrequestform-ltrequestformgt-is-a-special-type-of" title="Permanent link">&para;</a></h1>
+<p>:class:<code>dict</code> mapping submitted form keys and values. The user will
+input their <code>username</code> and <code>password</code>.</p>
+<h1 id="validate-that-username-and-password-are-not-empty">. Validate that <code>username</code> and <code>password</code> are not empty.<a class="headerlink" href="#validate-that-username-and-password-are-not-empty" title="Permanent link">&para;</a></h1>
+<h1 id="validate-that-username-is-not-already-registered-by-querying-the">. Validate that <code>username</code> is not already registered by querying the<a class="headerlink" href="#validate-that-username-is-not-already-registered-by-querying-the" title="Permanent link">&para;</a></h1>
+<p>database and checking if a result is returned.
+:meth:<code>db.execute &lt;sqlite3.Connection.execute&gt;</code> takes a SQL query
+with <code>?</code> placeholders for any user input, and a tuple of values
+to replace the placeholders with. The database library will take
+care of escaping the values so you are not vulnerable to a
+<em>SQL injection attack</em>.</p>
+<div class="codehilite"><pre><span></span>:meth:`~sqlite3.Cursor.fetchone` returns one row from the query.
+If the query returned no results, it returns ``None``. Later,
+:meth:`~sqlite3.Cursor.fetchall` is used, which returns a list of
+all results.
+</pre></div>
+
+
+<h1 id="if-validation-succeeds-insert-the-new-user-data-into-the-database">. If validation succeeds, insert the new user data into the database.<a class="headerlink" href="#if-validation-succeeds-insert-the-new-user-data-into-the-database" title="Permanent link">&para;</a></h1>
+<p>For security, passwords should never be stored in the database
+directly. Instead,
+:func:<code>~werkzeug.security.generate_password_hash</code> is used to
+securely hash the password, and that hash is stored. Since this
+query modifies data, :meth:<code>db.commit() &lt;sqlite3.Connection.commit&gt;</code>
+needs to be called afterwards to save the changes.</p>
+<h1 id="after-storing-the-user-they-are-redirected-to-the-login-page">. After storing the user, they are redirected to the login page.<a class="headerlink" href="#after-storing-the-user-they-are-redirected-to-the-login-page" title="Permanent link">&para;</a></h1>
+<p>:func:<code>url_for</code> generates the URL for the login view based on its
+name. This is preferable to writing the URL directly as it allows
+you to change the URL later without changing all code that links to
+it. :func:<code>redirect</code> generates a redirect response to the generated
+URL.</p>
+<h1 id="if-validation-fails-the-error-is-shown-to-the-user-funcflash">. If validation fails, the error is shown to the user. :func:<code>flash</code><a class="headerlink" href="#if-validation-fails-the-error-is-shown-to-the-user-funcflash" title="Permanent link">&para;</a></h1>
+<p>stores messages that can be retrieved when rendering the template.</p>
+<h1 id="when-the-user-initially-navigates-to-authregister-or">. When the user initially navigates to <code>auth/register</code>, or<a class="headerlink" href="#when-the-user-initially-navigates-to-authregister-or" title="Permanent link">&para;</a></h1>
+<p>there was a validation error, an HTML page with the registration
+form should be shown. :func:<code>render_template</code> will render a template
+containing the HTML, which you'll write in the next step of the
+tutorial.</p>
+<h2 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h2>
+<p>This view follows the same pattern as the <code>register</code> view above.</p>
+<p>.. code-block:: python
+:caption: <code>flaskr/auth.py</code></p>
+<div class="codehilite"><pre><span></span>@bp.route(&#39;/login&#39;, methods=(&#39;GET&#39;, &#39;POST&#39;))
+def login():
+    if request.method == &#39;POST&#39;:
+        username = request.form[&#39;username&#39;]
+        password = request.form[&#39;password&#39;]
+        db = get_db()
+        error = None
+        user = db.execute(
+            &#39;SELECT * FROM user WHERE username = ?&#39;, (username,)
+        ).fetchone()
+
+        if user is None:
+            error = &#39;Incorrect username.&#39;
+        elif not check_password_hash(user[&#39;password&#39;], password):
+            error = &#39;Incorrect password.&#39;
+
+        if error is None:
+            session.clear()
+            session[&#39;user_id&#39;] = user[&#39;id&#39;]
+            return redirect(url_for(&#39;index&#39;))
+
+        flash(error)
+
+    return render_template(&#39;auth/login.html&#39;)
+</pre></div>
+
+
+<p>There are a few differences from the <code>register</code> view:</p>
+<h1 id="the-user-is-queried-first-and-stored-in-a-variable-for-later-use">. The user is queried first and stored in a variable for later use.<a class="headerlink" href="#the-user-is-queried-first-and-stored-in-a-variable-for-later-use" title="Permanent link">&para;</a></h1>
+<h1 id="funcwerkzeugsecuritycheck_password_hash-hashes-the-submitted">. :func:<code>~werkzeug.security.check_password_hash</code> hashes the submitted<a class="headerlink" href="#funcwerkzeugsecuritycheck_password_hash-hashes-the-submitted" title="Permanent link">&para;</a></h1>
+<p>password in the same way as the stored hash and securely compares
+them. If they match, the password is valid.</p>
+<h1 id="datasession-is-a-classdict-that-stores-data-across-requests">. :data:<code>session</code> is a :class:<code>dict</code> that stores data across requests.<a class="headerlink" href="#datasession-is-a-classdict-that-stores-data-across-requests" title="Permanent link">&para;</a></h1>
+<p>When validation succeeds, the user's <code>id</code> is stored in a new
+session. The data is stored in a <em>cookie</em> that is sent to the
+browser, and the browser then sends it back with subsequent requests.
+Flask securely <em>signs</em> the data so that it can't be tampered with.</p>
+<p>Now that the user's <code>id</code> is stored in the :data:<code>session</code>, it will be
+available on subsequent requests. At the beginning of each request, if
+a user is logged in their information should be loaded and made
+available to other views.</p>
+<p>.. code-block:: python
+:caption: <code>flaskr/auth.py</code></p>
+<div class="codehilite"><pre><span></span>@bp.before_app_request
+def load_logged_in_user():
+    user_id = session.get(&#39;user_id&#39;)
+
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = get_db().execute(
+            &#39;SELECT * FROM user WHERE id = ?&#39;, (user_id,)
+        ).fetchone()
+</pre></div>
+
+
+<p>:meth:<code>bp.before_app_request() &lt;Blueprint.before_app_request&gt;</code> registers
+a function that runs before the view function, no matter what URL is
+requested. <code>load_logged_in_user</code> checks if a user id is stored in the
+:data:<code>session</code> and gets that user's data from the database, storing it
+on :data:<code>g.user &lt;g&gt;</code>, which lasts for the length of the request. If
+there is no user id, or if the id doesn't exist, <code>g.user</code> will be
+<code>None</code>.</p>
+<h2 id="logout">Logout<a class="headerlink" href="#logout" title="Permanent link">&para;</a></h2>
+<p>To log out, you need to remove the user id from the :data:<code>session</code>.
+Then <code>load_logged_in_user</code> won't load a user on subsequent requests.</p>
+<p>.. code-block:: python
+:caption: <code>flaskr/auth.py</code></p>
+<div class="codehilite"><pre><span></span>@bp.route(&#39;/logout&#39;)
+def logout():
+    session.clear()
+    return redirect(url_for(&#39;index&#39;))
+</pre></div>
+
+
+<h2 id="require-authentication-in-other-views">Require Authentication in Other Views<a class="headerlink" href="#require-authentication-in-other-views" title="Permanent link">&para;</a></h2>
+<p>Creating, editing, and deleting blog posts will require a user to be
+logged in. A <em>decorator</em> can be used to check this for each view it's
+applied to.</p>
+<p>.. code-block:: python
+:caption: <code>flaskr/auth.py</code></p>
+<div class="codehilite"><pre><span></span>def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for(&#39;auth.login&#39;))
+
+        return view(**kwargs)
+
+    return wrapped_view
+</pre></div>
+
+
+<p>This decorator returns a new view function that wraps the original view
+it's applied to. The new function checks if a user is loaded and
+redirects to the login page otherwise. If a user is loaded the original
+view is called and continues normally. You'll use this decorator when
+writing the blog views.</p>
+<h2 id="endpoints-and-urls">Endpoints and URLs<a class="headerlink" href="#endpoints-and-urls" title="Permanent link">&para;</a></h2>
+<p>The :func:<code>url_for</code> function generates the URL to a view based on a name
+and arguments. The name associated with a view is also called the
+<em>endpoint</em>, and by default it's the same as the name of the view
+function.</p>
+<p>For example, the <code>hello()</code> view that was added to the app
+factory earlier in the tutorial has the name <code>'hello'</code> and can be
+linked to with <code>url_for('hello')</code>. If it took an argument, which
+you'll see later, it would be linked to using
+<code>url_for('hello', who='World')</code>.</p>
+<p>When using a blueprint, the name of the blueprint is prepended to the
+name of the function, so the endpoint for the <code>login</code> function you
+wrote above is <code>'auth.login'</code> because you added it to the <code>'auth'</code>
+blueprint.</p>
+<p>Continue to :doc:<code>templates</code>.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../tests/" title="Tests" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Tests
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

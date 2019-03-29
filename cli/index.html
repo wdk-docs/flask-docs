@@ -1,0 +1,2056 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Cli - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#command-line-interface" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Cli
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="欢迎来到 Flask" class="md-tabs__link md-tabs__link--active">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../13.quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blueprints/" title="Modular Applications with Blueprints" class="md-nav__link">
+      Modular Applications with Blueprints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Cli
+      </label>
+    
+    <a href="./" title="Cli" class="md-nav__link md-nav__link--active">
+      Cli
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-discovery" title="Application Discovery" class="md-nav__link">
+    Application Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-development-server" title="Run the Development Server" class="md-nav__link">
+    Run the Development Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-a-shell" title="Open a Shell" class="md-nav__link">
+    Open a Shell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environments" title="Environments" class="md-nav__link">
+    Environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" title="Debug Mode" class="md-nav__link">
+    Debug Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables-from-dotenv" title="Environment Variables From dotenv" class="md-nav__link">
+    Environment Variables From dotenv
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../config/" title="Configuration Handling" class="md-nav__link">
+      Configuration Handling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensiondev/" title="Flask Extension Development" class="md-nav__link">
+      Flask Extension Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../upgrading/" title="Upgrading to Newer Releases" class="md-nav__link">
+      Upgrading to Newer Releases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/views/" title="Views" class="md-nav__link">
+      Views
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-discovery" title="Application Discovery" class="md-nav__link">
+    Application Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-development-server" title="Run the Development Server" class="md-nav__link">
+    Run the Development Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-a-shell" title="Open a Shell" class="md-nav__link">
+    Open a Shell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environments" title="Environments" class="md-nav__link">
+    Environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" title="Debug Mode" class="md-nav__link">
+    Debug Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables-from-dotenv" title="Environment Variables From dotenv" class="md-nav__link">
+    Environment Variables From dotenv
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>.. currentmodule:: flask</p>
+<h1 id="command-line-interface">Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permanent link">&para;</a></h1>
+<p>Installing Flask installs the <code>flask</code> script, a <code>Click</code>_ command line
+interface, in your virtualenv. Executed from the terminal, this script gives
+access to built-in, extension, and application-defined commands. The <code>--help</code>
+option will give more information about any commands and options.</p>
+<p>.. _Click: http://click.pocoo.org/</p>
+<h2 id="application-discovery">Application Discovery<a class="headerlink" href="#application-discovery" title="Permanent link">&para;</a></h2>
+<p>The <code>flask</code> command is installed by Flask, not your application; it must be
+told where to find your application in order to use it. The <code>FLASK_APP</code>
+environment variable is used to specify how to load the application.</p>
+<p>Unix Bash (Linux, Mac, etc.)::</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>hello
+$ flask run
+</pre></div>
+
+
+<p>Windows CMD::</p>
+<div class="codehilite"><pre><span></span>&amp;gt; set FLASK_APP=hello
+&amp;gt; flask run
+</pre></div>
+
+
+<p>Windows PowerShell::</p>
+<div class="codehilite"><pre><span></span>&amp;gt; $env:FLASK_APP = &quot;hello&quot;
+&amp;gt; flask run
+</pre></div>
+
+
+<p>While <code>FLASK_APP</code> supports a variety of options for specifying your
+application, most use cases should be simple. Here are the typical values:</p>
+<p>(nothing)
+The file :file:<code>wsgi.py</code> is imported, automatically detecting an app
+(<code>app</code>). This provides an easy way to create an app from a factory with
+extra arguments.</p>
+<p><code>FLASK_APP=hello</code>
+The name is imported, automatically detecting an app (<code>app</code>) or factory
+(<code>create_app</code>).</p>
+<hr />
+<p><code>FLASK_APP</code> has three parts: an optional path that sets the current working
+directory, a Python file or dotted import path, and an optional variable
+name of the instance or factory. If the name is a factory, it can optionally
+be followed by arguments in parentheses. The following values demonstrate these
+parts:</p>
+<p><code>FLASK_APP=src/hello</code>
+Sets the current working directory to <code>src</code> then imports <code>hello</code>.</p>
+<p><code>FLASK_APP=hello.web</code>
+Imports the path <code>hello.web</code>.</p>
+<p><code>FLASK_APP=hello:app2</code>
+Uses the <code>app2</code> Flask instance in <code>hello</code>.</p>
+<p><code>FLASK_APP="hello:create_app('dev')"</code>
+The <code>create_app</code> factory in <code>hello</code> is called with the string <code>'dev'</code>
+as the argument.</p>
+<p>If <code>FLASK_APP</code> is not set, the command will look for a file called
+:file:<code>wsgi.py</code> or :file:<code>app.py</code> and try to detect an application instance or
+factory.</p>
+<p>Within the given import, the command looks for an application instance named
+<code>app</code> or <code>application</code>, then any application instance. If no instance is
+found, the command looks for a factory function named <code>create_app</code> or
+<code>make_app</code> that returns an instance.</p>
+<p>When calling an application factory, if the factory takes an argument named
+<code>script_info</code>, then the :class:<code>~cli.ScriptInfo</code> instance is passed as a
+keyword argument. If the application factory takes only one argument and no
+parentheses follow the factory name, the :class:<code>~cli.ScriptInfo</code> instance
+is passed as a positional argument. If parentheses follow the factory name,
+their contents are parsed as Python literals and passes as arguments to the
+function. This means that strings must still be in quotes.</p>
+<h2 id="run-the-development-server">Run the Development Server<a class="headerlink" href="#run-the-development-server" title="Permanent link">&para;</a></h2>
+<p>The :func:<code>run &lt;cli.run_command&gt;</code> command will start the development server. It
+replaces the :meth:<code>Flask.run</code> method in most cases. ::</p>
+<div class="codehilite"><pre><span></span>$ flask run
+ * Serving Flask app <span class="s2">&quot;hello&quot;</span>
+ * Running on http://127.0.0.1:5000/ <span class="o">(</span>Press CTRL+C to quit<span class="o">)</span>
+</pre></div>
+
+
+<p>.. warning:: Do not use this command to run your application in production.
+Only use the development server during development. The development server
+is provided for convenience, but is not designed to be particularly secure,
+stable, or efficient. See :ref:<code>deployment</code> for how to run in production.</p>
+<h2 id="open-a-shell">Open a Shell<a class="headerlink" href="#open-a-shell" title="Permanent link">&para;</a></h2>
+<p>To explore the data in your application, you can start an interactive Python
+shell with the :func:<code>shell &lt;cli.shell_command&gt;</code> command. An application
+context will be active, and the app instance will be imported. ::</p>
+<div class="codehilite"><pre><span></span>$ flask shell
+Python <span class="m">3</span>.6.2 <span class="o">(</span>default, Jul <span class="m">20</span> <span class="m">2017</span>, <span class="m">03</span>:52:27<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">7</span>.1.1 <span class="m">20170630</span><span class="o">]</span> on linux
+App: example
+Instance: /home/user/Projects/hello/instance
+<span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span>
+</pre></div>
+
+
+<p>Use :meth:<code>~Flask.shell_context_processor</code> to add other automatic imports.</p>
+<h2 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">&para;</a></h2>
+<p>.. versionadded:: 1.0</p>
+<p>The environment in which the Flask app runs is set by the
+:envvar:<code>FLASK_ENV</code> environment variable. If not set it defaults to
+<code>production</code>. The other recognized environment is <code>development</code>.
+Flask and extensions may choose to enable behaviors based on the
+environment.</p>
+<p>If the env is set to <code>development</code>, the <code>flask</code> command will enable
+debug mode and <code>flask run</code> will enable the interactive debugger and
+reloader.</p>
+<p>::</p>
+<div class="codehilite"><pre><span></span>$ <span class="nv">FLASK_ENV</span><span class="o">=</span>development flask run
+ * Serving Flask app <span class="s2">&quot;hello&quot;</span>
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ <span class="o">(</span>Press CTRL+C to quit<span class="o">)</span>
+ * Restarting with inotify reloader
+ * Debugger is active!
+ * Debugger PIN: <span class="m">223</span>-456-919
+</pre></div>
+
+
+<h2 id="debug-mode">Debug Mode<a class="headerlink" href="#debug-mode" title="Permanent link">&para;</a></h2>
+<p>Debug mode will be enabled when :envvar:<code>FLASK_ENV</code> is <code>development</code>,
+as described above. If you want to control debug mode separately, use
+:envvar:<code>FLASK_DEBUG</code>. The value <code>1</code> enables it, <code>0</code> disables it.</p>
+<h2 id="environment-variables-from-dotenv">Environment Variables From dotenv<a class="headerlink" href="#environment-variables-from-dotenv" title="Permanent link">&para;</a></h2>
+<p>Rather than setting <code>FLASK_APP</code> each time you open a new terminal, you can
+use Flask's dotenv support to set environment variables automatically.</p>
+<p>If <code>python-dotenv</code>_ is installed, running the <code>flask</code> command will set
+environment variables defined in the files :file:<code>.env</code> and :file:<code>.flaskenv</code>.
+This can be used to avoid having to set <code>FLASK_APP</code> manually every time you
+open a new terminal, and to set configuration using environment variables
+similar to how some deployment services work.</p>
+<p>Variables set on the command line are used over those set in :file:<code>.env</code>,
+which are used over those set in :file:<code>.flaskenv</code>. :file:<code>.flaskenv</code> should be
+used for public variables, such as <code>FLASK_APP</code>, while :file:<code>.env</code> should not
+be committed to your repository so that it can set private variables.</p>
+<p>Directories are scanned upwards from the directory you call <code>flask</code>
+from to locate the files. The current working directory will be set to the
+location of the file, with the assumption that that is the top level project
+directory.</p>
+<p>The files are only loaded by the <code>flask</code> command or calling
+:meth:<code>~Flask.run</code>. If you would like to load these files when running in
+production, you should call :func:<code>~cli.load_dotenv</code> manually.</p>
+<p>.. _python-dotenv: https://github.com/theskumar/python-dotenv#readme</p>
+<p>Setting Command Options</p>
+<div class="codehilite"><pre><span></span>Click is configured to load default values for command options from
+environment variables. The variables use the pattern
+``FLASK_COMMAND_OPTION``. For example, to set the port for the run
+command, instead of ``flask run --port 8000``:
+
+.. code-block:: none
+
+    $ export FLASK_RUN_PORT=8000
+    $ flask run
+     * Running on http://127.0.0.1:8000/
+
+These can be added to the ``.flaskenv`` file just like ``FLASK_APP`` to
+control default command options.
+
+
+Disable dotenv
+~~~~~~~~~~~~~~
+
+The ``flask`` command will show a message if it detects dotenv files but
+python-dotenv is not installed.
+
+.. code-block:: none
+
+    $ flask run
+     * Tip: There are .env files present. Do &quot;pip install python-dotenv&quot; to use them.
+
+You can tell Flask not to load dotenv files even when python-dotenv is
+installed by setting the ``FLASK_SKIP_DOTENV`` environment variable.
+This can be useful if you want to load them manually, or if you&#39;re using
+a project runner that loads them already. Keep in mind that the
+environment variables must be set before the app loads or it won&#39;t
+configure as expected.
+
+.. code-block:: none
+
+    $ export FLASK_SKIP_DOTENV=1
+    $ flask run
+
+
+Environment Variables From virtualenv
+-------------------------------------
+
+If you do not want to install dotenv support, you can still set environment
+variables by adding them to the end of the virtualenv&#39;s :file:`activate`
+script. Activating the virtualenv will set the variables.
+
+Unix Bash, :file:`venv/bin/activate`::
+
+    $ export FLASK_APP=hello
+
+Windows CMD, :file:`venv\\Scripts\\activate.bat`::
+
+    &gt; set FLASK_APP=hello
+
+It is preferred to use dotenv support over this, since :file:`.flaskenv` can be
+committed to the repository so that it works automatically wherever the project
+is checked out.
+
+
+Custom Commands
+---------------
+
+The ``flask`` command is implemented using `Click`_. See that project&#39;s
+documentation for full information about writing commands.
+
+This example adds the command ``create_user`` that takes the argument
+``name``. ::
+
+    import click
+    from flask import Flask
+
+    app = Flask(__name__)
+
+    @app.cli.command()
+    @click.argument(&#39;name&#39;)
+    def create_user(name):
+        ...
+
+::
+
+    $ flask create_user admin
+
+This example adds the same command, but as ``user create``, a command in a
+group. This is useful if you want to organize multiple related commands. ::
+
+    import click
+    from flask import Flask
+    from flask.cli import AppGroup
+
+    app = Flask(__name__)
+    user_cli = AppGroup(&#39;user&#39;)
+
+    @user_cli.command(&#39;create&#39;)
+    @click.argument(&#39;name&#39;)
+    def create_user(name):
+        ...
+
+    app.cli.add_command(user_cli)
+
+::
+
+    $ flask user create demo
+
+See :ref:`testing-cli` for an overview of how to test your custom
+commands.
+
+
+Application Context
+~~~~~~~~~~~~~~~~~~~
+
+Commands added using the Flask app&#39;s :attr:`~Flask.cli`
+:meth:`~cli.AppGroup.command` decorator will be executed with an application
+context pushed, so your command and extensions have access to the app and its
+configuration. If you create a command using the Click :func:`~click.command`
+decorator instead of the Flask decorator, you can use
+:func:`~cli.with_appcontext` to get the same behavior. ::
+
+    import click
+    from flask.cli import with_appcontext
+
+    @click.command()
+    @with_appcontext
+    def do_work():
+        ...
+
+    app.cli.add_command(do_work)
+
+If you&#39;re sure a command doesn&#39;t need the context, you can disable it::
+
+    @app.cli.command(with_appcontext=False)
+    def do_work():
+        ...
+
+
+Plugins
+-------
+
+Flask will automatically load commands specified in the ``flask.commands``
+`entry point`_. This is useful for extensions that want to add commands when
+they are installed. Entry points are specified in :file:`setup.py` ::
+
+    from setuptools import setup
+
+    setup(
+        name=&#39;flask-my-extension&#39;,
+        ...,
+        entry_points={
+            &#39;flask.commands&#39;: [
+                &#39;my-command=flask_my_extension.commands:cli&#39;
+            ],
+        },
+    )
+
+
+.. _entry point: https://packaging.python.org/tutorials/distributing-packages/#entry-points
+
+Inside :file:`flask_my_extension/commands.py` you can then export a Click
+object::
+
+    import click
+
+    @click.command()
+    def cli():
+        ...
+
+Once that package is installed in the same virtualenv as your Flask project,
+you can run ``flask my-command`` to invoke the command.
+
+
+.. _custom-scripts:
+
+Custom Scripts
+--------------
+
+When you are using the app factory pattern, it may be more convenient to define
+your own Click script. Instead of using ``FLASK_APP`` and letting Flask load
+your application, you can create your own Click object and export it as a
+`console script`_ entry point.
+
+Create an instance of :class:`~cli.FlaskGroup` and pass it the factory::
+
+    import click
+    from flask import Flask
+    from flask.cli import FlaskGroup
+
+    def create_app():
+        app = Flask(&#39;wiki&#39;)
+        # other setup
+        return app
+
+    @click.group(cls=FlaskGroup, create_app=create_app)
+    def cli():
+        &quot;&quot;&quot;Management script for the Wiki application.&quot;&quot;&quot;
+
+Define the entry point in :file:`setup.py`::
+
+    from setuptools import setup
+
+    setup(
+        name=&#39;flask-my-extension&#39;,
+        ...,
+        entry_points={
+            &#39;console_scripts&#39;: [
+                &#39;wiki=wiki:cli&#39;
+            ],
+        },
+    )
+
+Install the application in the virtualenv in editable mode and the custom
+script is available. Note that you don&#39;t need to set ``FLASK_APP``. ::
+
+    $ pip install -e .
+    $ wiki run
+
+.. admonition:: Errors in Custom Scripts
+
+    When using a custom script, if you introduce an error in your
+    module-level code, the reloader will fail because it can no longer
+    load the entry point.
+
+    The ``flask`` command, being separate from your code, does not have
+    this issue and is recommended in most cases.
+
+.. _console script: https://packaging.python.org/tutorials/distributing-packages/#console-scripts
+
+
+PyCharm Integration
+-------------------
+
+Prior to PyCharm 2018.1, the Flask CLI features weren&#39;t yet fully
+integrated into PyCharm. We have to do a few tweaks to get them working
+smoothly. These instructions should be similar for any other IDE you
+might want to use.
+
+In PyCharm, with your project open, click on *Run* from the menu bar and
+go to *Edit Configurations*. You&#39;ll be greeted by a screen similar to
+this:
+
+.. image:: _static/pycharm-runconfig.png
+    :align: center
+    :class: screenshot
+    :alt: screenshot of pycharm&#39;s run configuration settings
+
+There&#39;s quite a few options to change, but once we&#39;ve done it for one
+command, we can easily copy the entire configuration and make a single
+tweak to give us access to other commands, including any custom ones you
+may implement yourself.
+
+Click the + (*Add New Configuration*) button and select *Python*. Give
+the configuration a good descriptive name such as &quot;Run Flask Server&quot;.
+For the ``flask run`` command, check &quot;Single instance only&quot; since you
+can&#39;t run the server more than once at the same time.
+
+Select *Module name* from the dropdown (**A**) then input ``flask``.
+
+The *Parameters* field (**B**) is set to the CLI command to execute
+(with any arguments). In this example we use ``run``, which will run
+the development server.
+
+You can skip this next step if you&#39;re using :ref:`dotenv`. We need to
+add an environment variable (**C**) to identify our application. Click
+on the browse button and add an entry with ``FLASK_APP`` on the left and
+the Python import or file on the right (``hello`` for example).
+
+Next we need to set the working directory (**D**) to be the folder where
+our application resides.
+
+If you have installed your project as a package in your virtualenv, you
+may untick the *PYTHONPATH* options (**E**). This will more accurately
+match how you deploy the app later.
+
+Click *Apply* to save the configuration, or *OK* to save and close the
+window. Select the configuration in the main PyCharm window and click
+the play button next to it to run the server.
+
+Now that we have a configuration which runs ``flask run`` from within
+PyCharm, we can copy that configuration and alter the *Script* argument
+to run a different CLI command, e.g. ``flask shell``.
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../changelog/" title="Changelog" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Changelog
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../config/" title="Configuration Handling" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Configuration Handling
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

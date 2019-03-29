@@ -1,0 +1,1957 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Flask Extension Development - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#flask-extension-development" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Flask Extension Development
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="欢迎来到 Flask" class="md-tabs__link md-tabs__link--active">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../13.quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blueprints/" title="Modular Applications with Blueprints" class="md-nav__link">
+      Modular Applications with Blueprints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Cli" class="md-nav__link">
+      Cli
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../config/" title="Configuration Handling" class="md-nav__link">
+      Configuration Handling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Flask Extension Development
+      </label>
+    
+    <a href="./" title="Flask Extension Development" class="md-nav__link md-nav__link--active">
+      Flask Extension Development
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anatomy-of-an-extension" title="Anatomy of an Extension" class="md-nav__link">
+    Anatomy of an Extension
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-flaskext" title=""Hello Flaskext!"" class="md-nav__link">
+    "Hello Flaskext!"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-extensions" title="Initializing Extensions" class="md-nav__link">
+    Initializing Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-extension-code" title="The Extension Code" class="md-nav__link">
+    The Extension Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-95app_ctx_stack" title="Using _app_ctx_stack" class="md-nav__link">
+    Using _app_ctx_stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-from-others" title="Learn from Others" class="md-nav__link">
+    Learn from Others
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approved-extensions" title="Approved Extensions" class="md-nav__link">
+    Approved Extensions
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../upgrading/" title="Upgrading to Newer Releases" class="md-nav__link">
+      Upgrading to Newer Releases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/views/" title="Views" class="md-nav__link">
+      Views
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anatomy-of-an-extension" title="Anatomy of an Extension" class="md-nav__link">
+    Anatomy of an Extension
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-flaskext" title=""Hello Flaskext!"" class="md-nav__link">
+    "Hello Flaskext!"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-extensions" title="Initializing Extensions" class="md-nav__link">
+    Initializing Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-extension-code" title="The Extension Code" class="md-nav__link">
+    The Extension Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-95app_ctx_stack" title="Using _app_ctx_stack" class="md-nav__link">
+    Using _app_ctx_stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-from-others" title="Learn from Others" class="md-nav__link">
+    Learn from Others
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approved-extensions" title="Approved Extensions" class="md-nav__link">
+    Approved Extensions
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="flask-extension-development">Flask Extension Development<a class="headerlink" href="#flask-extension-development" title="Permanent link">&para;</a></h1>
+<p>Flask, being a microframework, often requires some repetitive steps to get
+a third party library working. Because very often these steps could be
+abstracted to support multiple projects the <code>Flask Extension Registry</code>_
+was created.</p>
+<p>If you want to create your own Flask extension for something that does not
+exist yet, this guide to extension development will help you get your
+extension running in no time and to feel like users would expect your
+extension to behave.</p>
+<p>.. _Flask Extension Registry: http://flask.pocoo.org/extensions/</p>
+<h2 id="anatomy-of-an-extension">Anatomy of an Extension<a class="headerlink" href="#anatomy-of-an-extension" title="Permanent link">&para;</a></h2>
+<p>Extensions are all located in a package called <code>flask_something</code>
+where "something" is the name of the library you want to bridge. So for
+example if you plan to add support for a library named <code>simplexml</code> to
+Flask, you would name your extension's package <code>flask_simplexml</code>.</p>
+<p>The name of the actual extension (the human readable name) however would
+be something like "Flask-SimpleXML". Make sure to include the name
+"Flask" somewhere in that name and that you check the capitalization.
+This is how users can then register dependencies to your extension in
+their :file:<code>setup.py</code> files.</p>
+<p>But what do extensions look like themselves? An extension has to ensure
+that it works with multiple Flask application instances at once. This is
+a requirement because many people will use patterns like the
+:ref:<code>app-factories</code> pattern to create their application as needed to aid
+unittests and to support multiple configurations. Because of that it is
+crucial that your application supports that kind of behavior.</p>
+<p>Most importantly the extension must be shipped with a :file:<code>setup.py</code> file and
+registered on PyPI. Also the development checkout link should work so
+that people can easily install the development version into their
+virtualenv without having to download the library by hand.</p>
+<p>Flask extensions must be licensed under a BSD, MIT or more liberal license
+in order to be listed in the Flask Extension Registry. Keep in mind
+that the Flask Extension Registry is a moderated place and libraries will
+be reviewed upfront if they behave as required.</p>
+<h2 id="hello-flaskext">"Hello Flaskext!"<a class="headerlink" href="#hello-flaskext" title="Permanent link">&para;</a></h2>
+<p>So let's get started with creating such a Flask extension. The extension
+we want to create here will provide very basic support for SQLite3.</p>
+<p>First we create the following folder structure::</p>
+<div class="codehilite"><pre><span></span>flask-sqlite3/
+    flask_sqlite3.py
+    LICENSE
+    README
+</pre></div>
+
+
+<p>Here's the contents of the most important files:</p>
+<p>setup.py</p>
+<div class="codehilite"><pre><span></span><span class="n">The</span> <span class="nb">next</span> <span class="nb">file</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">absolutely</span> <span class="n">required</span> <span class="ow">is</span> <span class="n">the</span> <span class="p">:</span><span class="nb">file</span><span class="p">:</span><span class="sb">`setup.py`</span> <span class="nb">file</span> <span class="n">which</span> <span class="ow">is</span>
+<span class="n">used</span> <span class="n">to</span> <span class="n">install</span> <span class="n">your</span> <span class="n">Flask</span> <span class="n">extension</span><span class="o">.</span>  <span class="n">The</span> <span class="n">following</span> <span class="n">contents</span> <span class="n">are</span>
+<span class="n">something</span> <span class="n">you</span> <span class="n">can</span> <span class="n">work</span> <span class="k">with</span><span class="p">::</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Flask-SQLite3</span>
+<span class="sd">    -------------</span>
+
+<span class="sd">    This is the description for that library</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+
+    <span class="n">setup</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Flask-SQLite3&#39;</span><span class="p">,</span>
+        <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+        <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://example.com/flask-sqlite3/&#39;</span><span class="p">,</span>
+        <span class="n">license</span><span class="o">=</span><span class="s1">&#39;BSD&#39;</span><span class="p">,</span>
+        <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Your Name&#39;</span><span class="p">,</span>
+        <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;your-email@example.com&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Very short description&#39;</span><span class="p">,</span>
+        <span class="n">long_description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
+        <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;flask_sqlite3&#39;</span><span class="p">],</span>
+        <span class="c1"># if you would be using a package instead use packages instead</span>
+        <span class="c1"># of py_modules:</span>
+        <span class="c1"># packages=[&#39;flask_sqlite3&#39;],</span>
+        <span class="n">zip_safe</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">include_package_data</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">platforms</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span>
+        <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span>
+            <span class="s1">&#39;Flask&#39;</span>
+        <span class="p">],</span>
+        <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+            <span class="s1">&#39;Environment :: Web Environment&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Intended Audience :: Developers&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;License :: OSI Approved :: BSD License&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Operating System :: OS Independent&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Programming Language :: Python&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Topic :: Internet :: WWW/HTTP :: Dynamic Content&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Topic :: Software Development :: Libraries :: Python Modules&#39;</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="n">That</span><span class="s1">&#39;s a lot of code but you can really just copy/paste that from existing</span>
+<span class="n">extensions</span> <span class="ow">and</span> <span class="n">adapt</span><span class="o">.</span>
+
+<span class="n">flask_sqlite3</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+
+<p>Now this is where your extension code goes. But how exactly should such
+an extension look like? What are the best practices? Continue reading
+for some insight.</p>
+<h2 id="initializing-extensions">Initializing Extensions<a class="headerlink" href="#initializing-extensions" title="Permanent link">&para;</a></h2>
+<p>Many extensions will need some kind of initialization step. For example,
+consider an application that's currently connecting to SQLite like the
+documentation suggests (:ref:<code>sqlite3</code>). So how does the extension
+know the name of the application object?</p>
+<p>Quite simple: you pass it to it.</p>
+<p>There are two recommended ways for an extension to initialize:</p>
+<p>initialization functions:</p>
+<div class="codehilite"><pre><span></span>If your extension is called `helloworld` you might have a function
+called ``init_helloworld(app[, extra_args])`` that initializes the
+extension for that application.  It could attach before / after
+handlers etc.
+</pre></div>
+
+
+<p>classes:</p>
+<div class="codehilite"><pre><span></span>Classes work mostly like initialization functions but can later be
+used to further change the behavior.  For an example look at how the
+`OAuth extension`_ works: there is an `OAuth` object that provides
+some helper functions like `OAuth.remote_app` to create a reference to
+a remote application that uses OAuth.
+</pre></div>
+
+
+<p>What to use depends on what you have in mind. For the SQLite 3 extension
+we will use the class-based approach because it will provide users with an
+object that handles opening and closing database connections.</p>
+<p>When designing your classes, it's important to make them easily reusable
+at the module level. This means the object itself must not under any
+circumstances store any application specific state and must be shareable
+between different applications.</p>
+<h2 id="the-extension-code">The Extension Code<a class="headerlink" href="#the-extension-code" title="Permanent link">&para;</a></h2>
+<p>Here's the contents of the <code>flask_sqlite3.py</code> for copy/paste::</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">_app_ctx_stack</span>
+
+
+<span class="k">class</span> <span class="nc">SQLite3</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
+        <span class="k">if</span> <span class="n">app</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;SQLITE3_DATABASE&#39;</span><span class="p">,</span> <span class="s1">&#39;:memory:&#39;</span><span class="p">)</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">teardown_appcontext</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQLITE3_DATABASE&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception</span><span class="p">):</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">_app_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s1">&#39;sqlite3_db&#39;</span><span class="p">):</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">sqlite3_db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">_app_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s1">&#39;sqlite3_db&#39;</span><span class="p">):</span>
+                <span class="n">ctx</span><span class="o">.</span><span class="n">sqlite3_db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">sqlite3_db</span>
+</pre></div>
+
+
+<p>So here's what these lines of code do:</p>
+<ol>
+<li>The <code>__init__</code> method takes an optional app object and, if supplied, will
+    call <code>init_app</code>.</li>
+<li>The <code>init_app</code> method exists so that the <code>SQLite3</code> object can be
+    instantiated without requiring an app object. This method supports the
+    factory pattern for creating applications. The <code>init_app</code> will set the
+    configuration for the database, defaulting to an in memory database if
+    no configuration is supplied. In addition, the <code>init_app</code> method attaches
+    the <code>teardown</code> handler.</li>
+<li>Next, we define a <code>connect</code> method that opens a database connection.</li>
+<li>
+<p>Finally, we add a <code>connection</code> property that on first access opens
+    the database connection and stores it on the context. This is also
+    the recommended way to handling resources: fetch resources lazily the
+    first time they are used.</p>
+<p>Note here that we're attaching our database connection to the top
+application context via <code>_app_ctx_stack.top</code>. Extensions should use
+the top context for storing their own information with a sufficiently
+complex name.</p>
+</li>
+</ol>
+<p>So why did we decide on a class-based approach here? Because using our
+extension looks something like this::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_sqlite3</span> <span class="kn">import</span> <span class="n">SQLite3</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_pyfile</span><span class="p">(</span><span class="s1">&#39;the-config.cfg&#39;</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLite3</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>You can then use the database from views like this::</p>
+<div class="codehilite"><pre><span></span>@app.route(&#39;/&#39;)
+def show_all():
+    cur = db.connection.cursor()
+    cur.execute(...)
+</pre></div>
+
+
+<p>Likewise if you are outside of a request you can use the database by
+pushing an app context::</p>
+<div class="codehilite"><pre><span></span>with app.app_context():
+    cur = db.connection.cursor()
+    cur.execute(...)
+</pre></div>
+
+
+<p>At the end of the <code>with</code> block the teardown handles will be executed
+automatically.</p>
+<p>Additionally, the <code>init_app</code> method is used to support the factory pattern
+for creating apps::</p>
+<div class="codehilite"><pre><span></span>db = SQLite3()
+# Then later on.
+app = create_app(&#39;the-config.cfg&#39;)
+db.init_app(app)
+</pre></div>
+
+
+<p>Keep in mind that supporting this factory pattern for creating apps is required
+for approved flask extensions (described below).</p>
+<p>.. admonition:: Note on <code>init_app</code></p>
+<p>As you noticed, <code>init_app</code> does not assign <code>app</code> to <code>self</code>. This
+is intentional! Class based Flask extensions must only store the
+application on the object when the application was passed to the
+constructor. This tells the extension: I am not interested in using
+multiple applications.</p>
+<p>When the extension needs to find the current application and it does
+not have a reference to it, it must either use the
+:data:<code>~flask.current_app</code> context local or change the API in a way
+that you can pass the application explicitly.</p>
+<h2 id="using-95app_ctx_stack">Using _app_ctx_stack<a class="headerlink" href="#using-95app_ctx_stack" title="Permanent link">&para;</a></h2>
+<p>In the example above, before every request, a <code>sqlite3_db</code> variable is
+assigned to <code>_app_ctx_stack.top</code>. In a view function, this variable is
+accessible using the <code>connection</code> property of <code>SQLite3</code>. During the
+teardown of a request, the <code>sqlite3_db</code> connection is closed. By using
+this pattern, the <em>same</em> connection to the sqlite3 database is accessible
+to anything that needs it for the duration of the request.</p>
+<h2 id="learn-from-others">Learn from Others<a class="headerlink" href="#learn-from-others" title="Permanent link">&para;</a></h2>
+<p>This documentation only touches the bare minimum for extension
+development. If you want to learn more, it's a very good idea to check
+out existing extensions on the <code>Flask Extension Registry</code><em>. If you feel
+lost there is still the <code>mailinglist</code></em> and the <code>IRC channel</code>_ to get some
+ideas for nice looking APIs. Especially if you do something nobody before
+you did, it might be a very good idea to get some more input. This not only
+generates useful feedback on what people might want from an extension, but
+also avoids having multiple developers working in isolation on pretty much the
+same problem.</p>
+<p>Remember: good API design is hard, so introduce your project on the
+mailinglist, and let other developers give you a helping hand with
+designing the API.</p>
+<p>The best Flask extensions are extensions that share common idioms for the
+API. And this can only work if collaboration happens early.</p>
+<h2 id="approved-extensions">Approved Extensions<a class="headerlink" href="#approved-extensions" title="Permanent link">&para;</a></h2>
+<p>Flask also has the concept of approved extensions. Approved extensions
+are tested as part of Flask itself to ensure extensions do not break on
+new releases. These approved extensions are listed on the <code>Flask Extension Registry</code>_ and marked appropriately. If you want your own
+extension to be approved you have to follow these guidelines:</p>
+<ol>
+<li>An approved Flask extension requires a maintainer. In the event an
+    extension author would like to move beyond the project, the project should
+    find a new maintainer including full source hosting transition and PyPI
+    access. If no maintainer is available, give access to the Flask core team.</li>
+<li>An approved Flask extension must provide exactly one package or module
+    named <code>flask_extensionname</code>.</li>
+<li>It must ship a testing suite that can either be invoked with <code>make test</code>
+    or <code>python setup.py test</code>. For test suites invoked with <code>make test</code> the extension has to ensure that all dependencies for the test
+    are installed automatically. If tests are invoked with <code>python setup.py test</code>, test dependencies can be specified in the :file:<code>setup.py</code> file. The
+    test suite also has to be part of the distribution.</li>
+<li>
+<p>APIs of approved extensions will be checked for the following
+    characteristics:</p>
+</li>
+<li>
+<p>an approved extension has to support multiple applications
+  running in the same Python process.</p>
+</li>
+<li>
+<p>it must be possible to use the factory pattern for creating
+  applications.</p>
+</li>
+<li>
+<p>The license must be BSD/MIT/WTFPL licensed.</p>
+</li>
+<li>The naming scheme for official extensions is <em>Flask-ExtensionName</em> or
+    <em>ExtensionName-Flask</em>.</li>
+<li>Approved extensions must define all their dependencies in the
+    :file:<code>setup.py</code> file unless a dependency cannot be met because it is not
+    available on PyPI.</li>
+<li>The documentation must use the <code>flask</code> theme from the <code>Official Pallets Themes</code>_.</li>
+<li>The setup.py description (and thus the PyPI description) has to
+    link to the documentation, website (if there is one) and there
+    must be a link to automatically install the development version
+    (<code>PackageName==dev</code>).</li>
+<li>The <code>zip_safe</code> flag in the setup script must be set to <code>False</code>,
+    even if the extension would be safe for zipping.</li>
+<li>An extension currently has to support Python 3.4 and newer and 2.7.</li>
+</ol>
+<p>.. _OAuth extension: https://pythonhosted.org/Flask-OAuth/
+.. _mailinglist: http://flask.pocoo.org/mailinglist/
+.. _IRC channel: http://flask.pocoo.org/community/irc/
+.. _Official Pallets Themes: https://pypi.org/project/pallets-sphinx-themes/</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../errorhandling/" title="Application Errors" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Application Errors
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../extensions/" title="Extensions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Extensions
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

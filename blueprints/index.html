@@ -1,0 +1,1879 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Modular Applications with Blueprints - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#modular-applications-with-blueprints" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Modular Applications with Blueprints
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="欢迎来到 Flask" class="md-tabs__link md-tabs__link--active">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../13.quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Modular Applications with Blueprints
+      </label>
+    
+    <a href="./" title="Modular Applications with Blueprints" class="md-nav__link md-nav__link--active">
+      Modular Applications with Blueprints
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-blueprints" title="Why Blueprints?" class="md-nav__link">
+    Why Blueprints?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-concept-of-blueprints" title="The Concept of Blueprints" class="md-nav__link">
+    The Concept of Blueprints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-first-blueprint" title="My First Blueprint" class="md-nav__link">
+    My First Blueprint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registering-blueprints" title="Registering Blueprints" class="md-nav__link">
+    Registering Blueprints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-resources" title="Blueprint Resources" class="md-nav__link">
+    Blueprint Resources
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Cli" class="md-nav__link">
+      Cli
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../config/" title="Configuration Handling" class="md-nav__link">
+      Configuration Handling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensiondev/" title="Flask Extension Development" class="md-nav__link">
+      Flask Extension Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../upgrading/" title="Upgrading to Newer Releases" class="md-nav__link">
+      Upgrading to Newer Releases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/views/" title="Views" class="md-nav__link">
+      Views
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-blueprints" title="Why Blueprints?" class="md-nav__link">
+    Why Blueprints?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-concept-of-blueprints" title="The Concept of Blueprints" class="md-nav__link">
+    The Concept of Blueprints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-first-blueprint" title="My First Blueprint" class="md-nav__link">
+    My First Blueprint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registering-blueprints" title="Registering Blueprints" class="md-nav__link">
+    Registering Blueprints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-resources" title="Blueprint Resources" class="md-nav__link">
+    Blueprint Resources
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="modular-applications-with-blueprints">Modular Applications with Blueprints<a class="headerlink" href="#modular-applications-with-blueprints" title="Permanent link">&para;</a></h1>
+<p>.. currentmodule:: flask</p>
+<p>.. versionadded:: 0.7</p>
+<p>Flask uses a concept of <em>blueprints</em> for making application components and
+supporting common patterns within an application or across applications.
+Blueprints can greatly simplify how large applications work and provide a
+central means for Flask extensions to register operations on applications.
+A :class:<code>Blueprint</code> object works similarly to a :class:<code>Flask</code>
+application object, but it is not actually an application. Rather it is a
+<em>blueprint</em> of how to construct or extend an application.</p>
+<h2 id="why-blueprints">Why Blueprints?<a class="headerlink" href="#why-blueprints" title="Permanent link">&para;</a></h2>
+<p>Blueprints in Flask are intended for these cases:</p>
+<ul>
+<li>Factor an application into a set of blueprints. This is ideal for
+  larger applications; a project could instantiate an application object,
+  initialize several extensions, and register a collection of blueprints.</li>
+<li>Register a blueprint on an application at a URL prefix and/or subdomain.
+  Parameters in the URL prefix/subdomain become common view arguments
+  (with defaults) across all view functions in the blueprint.</li>
+<li>Register a blueprint multiple times on an application with different URL
+  rules.</li>
+<li>Provide template filters, static files, templates, and other utilities
+  through blueprints. A blueprint does not have to implement applications
+  or view functions.</li>
+<li>Register a blueprint on an application for any of these cases when
+  initializing a Flask extension.</li>
+</ul>
+<p>A blueprint in Flask is not a pluggable app because it is not actually an
+application -- it's a set of operations which can be registered on an
+application, even multiple times. Why not have multiple application
+objects? You can do that (see :ref:<code>app-dispatch</code>), but your applications
+will have separate configs and will be managed at the WSGI layer.</p>
+<p>Blueprints instead provide separation at the Flask level, share
+application config, and can change an application object as necessary with
+being registered. The downside is that you cannot unregister a blueprint
+once an application was created without having to destroy the whole
+application object.</p>
+<h2 id="the-concept-of-blueprints">The Concept of Blueprints<a class="headerlink" href="#the-concept-of-blueprints" title="Permanent link">&para;</a></h2>
+<p>The basic concept of blueprints is that they record operations to execute
+when registered on an application. Flask associates view functions with
+blueprints when dispatching requests and generating URLs from one endpoint
+to another.</p>
+<h2 id="my-first-blueprint">My First Blueprint<a class="headerlink" href="#my-first-blueprint" title="Permanent link">&para;</a></h2>
+<p>This is what a very basic blueprint looks like. In this case we want to
+implement a blueprint that does simple rendering of static templates::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">abort</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">TemplateNotFound</span>
+
+<span class="n">simple_page</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s1">&#39;simple_page&#39;</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">,</span>
+                        <span class="n">template_folder</span><span class="o">=</span><span class="s1">&#39;templates&#39;</span><span class="p">)</span>
+
+<span class="nd">@simple_page.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">})</span>
+<span class="nd">@simple_page.route</span><span class="p">(</span><span class="s1">&#39;/&amp;lt;page&amp;gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;pages/</span><span class="si">%s</span><span class="s1">.html&#39;</span> <span class="o">%</span> <span class="n">page</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">TemplateNotFound</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+</pre></div>
+
+
+<p>When you bind a function with the help of the <code>@simple_page.route</code>
+decorator, the blueprint will record the intention of registering the
+function <code>show</code> on the application when it's later registered.
+Additionally it will prefix the endpoint of the function with the
+name of the blueprint which was given to the :class:<code>Blueprint</code>
+constructor (in this case also <code>simple_page</code>). The blueprint's name
+does not modify the URL, only the endpoint.</p>
+<h2 id="registering-blueprints">Registering Blueprints<a class="headerlink" href="#registering-blueprints" title="Permanent link">&para;</a></h2>
+<p>So how do you register that blueprint? Like this::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">yourapplication.simple_page</span> <span class="kn">import</span> <span class="n">simple_page</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">simple_page</span><span class="p">)</span>
+</pre></div>
+
+
+<p>If you check the rules registered on the application, you will find
+these::</p>
+<div class="codehilite"><pre><span></span>&amp;gt;&amp;gt;&amp;gt; app.url_map
+Map([&amp;lt;Rule &#39;/static/&amp;lt;filename&amp;gt;&#39; (HEAD, OPTIONS, GET) -&amp;gt; static&amp;gt;,
+ &amp;lt;Rule &#39;/&amp;lt;page&amp;gt;&#39; (HEAD, OPTIONS, GET) -&amp;gt; simple_page.show&amp;gt;,
+ &amp;lt;Rule &#39;/&#39; (HEAD, OPTIONS, GET) -&amp;gt; simple_page.show&amp;gt;])
+</pre></div>
+
+
+<p>The first one is obviously from the application itself for the static
+files. The other two are for the <code>show</code> function of the <code>simple_page</code>
+blueprint. As you can see, they are also prefixed with the name of the
+blueprint and separated by a dot (<code>.</code>).</p>
+<p>Blueprints however can also be mounted at different locations::</p>
+<div class="codehilite"><pre><span></span>app.register_blueprint(simple_page, url_prefix=&#39;/pages&#39;)
+</pre></div>
+
+
+<p>And sure enough, these are the generated rules::</p>
+<div class="codehilite"><pre><span></span>&amp;gt;&amp;gt;&amp;gt; app.url_map
+Map([&amp;lt;Rule &#39;/static/&amp;lt;filename&amp;gt;&#39; (HEAD, OPTIONS, GET) -&amp;gt; static&amp;gt;,
+ &amp;lt;Rule &#39;/pages/&amp;lt;page&amp;gt;&#39; (HEAD, OPTIONS, GET) -&amp;gt; simple_page.show&amp;gt;,
+ &amp;lt;Rule &#39;/pages/&#39; (HEAD, OPTIONS, GET) -&amp;gt; simple_page.show&amp;gt;])
+</pre></div>
+
+
+<p>On top of that you can register blueprints multiple times though not every
+blueprint might respond properly to that. In fact it depends on how the
+blueprint is implemented if it can be mounted more than once.</p>
+<h2 id="blueprint-resources">Blueprint Resources<a class="headerlink" href="#blueprint-resources" title="Permanent link">&para;</a></h2>
+<p>Blueprints can provide resources as well. Sometimes you might want to
+introduce a blueprint only for the resources it provides.</p>
+<p>Blueprint Resource Folder</p>
+<div class="codehilite"><pre><span></span>Like for regular applications, blueprints are considered to be contained
+in a folder.  While multiple blueprints can originate from the same folder,
+it does not have to be the case and it&#39;s usually not recommended.
+
+The folder is inferred from the second argument to :class:`Blueprint` which
+is usually `__name__`.  This argument specifies what logical Python
+module or package corresponds to the blueprint.  If it points to an actual
+Python package that package (which is a folder on the filesystem) is the
+resource folder.  If it&#39;s a module, the package the module is contained in
+will be the resource folder.  You can access the
+:attr:`Blueprint.root_path` property to see what the resource folder is::
+
+    &gt;&gt;&gt; simple_page.root_path
+    &#39;/Users/username/TestProject/yourapplication&#39;
+
+To quickly open sources from this folder you can use the
+:meth:`~Blueprint.open_resource` function::
+
+    with simple_page.open_resource(&#39;static/style.css&#39;) as f:
+        code = f.read()
+
+Static Files
+````````````
+
+A blueprint can expose a folder with static files by providing the path
+to the folder on the filesystem with the ``static_folder`` argument.
+It is either an absolute path or relative to the blueprint&#39;s location::
+
+    admin = Blueprint(&#39;admin&#39;, __name__, static_folder=&#39;static&#39;)
+
+By default the rightmost part of the path is where it is exposed on the
+web. This can be changed with the ``static_url_path`` argument. Because the
+folder is called ``static`` here it will be available at the
+``url_prefix`` of the blueprint + ``/static``. If the blueprint
+has the prefix ``/admin``, the static URL will be ``/admin/static``.
+
+The endpoint is named ``blueprint_name.static``. You can generate URLs
+to it with :func:`url_for` like you would with the static folder of the
+application::
+
+    url_for(&#39;admin.static&#39;, filename=&#39;style.css&#39;)
+
+However, if the blueprint does not have a ``url_prefix``, it is not
+possible to access the blueprint&#39;s static folder. This is because the
+URL would be ``/static`` in this case, and the application&#39;s ``/static``
+route takes precedence. Unlike template folders, blueprint static
+folders are not searched if the file does not exist in the application
+static folder.
+
+Templates
+`````````
+
+If you want the blueprint to expose templates you can do that by providing
+the `template_folder` parameter to the :class:`Blueprint` constructor::
+
+    admin = Blueprint(&#39;admin&#39;, __name__, template_folder=&#39;templates&#39;)
+
+For static files, the path can be absolute or relative to the blueprint
+resource folder.
+
+The template folder is added to the search path of templates but with a lower
+priority than the actual application&#39;s template folder. That way you can
+easily override templates that a blueprint provides in the actual application.
+This also means that if you don&#39;t want a blueprint template to be accidentally
+overridden, make sure that no other blueprint or actual application template
+has the same relative path. When multiple blueprints provide the same relative
+template path the first blueprint registered takes precedence over the others.
+
+
+So if you have a blueprint in the folder ``yourapplication/admin`` and you
+want to render the template ``&#39;admin/index.html&#39;`` and you have provided
+``templates`` as a `template_folder` you will have to create a file like
+this: :file:`yourapplication/admin/templates/admin/index.html`. The reason
+for the extra ``admin`` folder is to avoid getting our template overridden
+by a template named ``index.html`` in the actual application template
+folder.
+
+To further reiterate this: if you have a blueprint named ``admin`` and you
+want to render a template called :file:`index.html` which is specific to this
+blueprint, the best idea is to lay out your templates like this::
+
+    yourpackage/
+        blueprints/
+            admin/
+                templates/
+                    admin/
+                        index.html
+                __init__.py
+
+And then when you want to render the template, use :file:`admin/index.html` as
+the name to look up the template by.  If you encounter problems loading
+the correct templates enable the ``EXPLAIN_TEMPLATE_LOADING`` config
+variable which will instruct Flask to print out the steps it goes through
+to locate templates on every ``render_template`` call.
+
+Building URLs
+-------------
+
+If you want to link from one page to another you can use the
+:func:`url_for` function just like you normally would do just that you
+prefix the URL endpoint with the name of the blueprint and a dot (``.``)::
+
+    url_for(&#39;admin.index&#39;)
+
+Additionally if you are in a view function of a blueprint or a rendered
+template and you want to link to another endpoint of the same blueprint,
+you can use relative redirects by prefixing the endpoint with a dot only::
+
+    url_for(&#39;.index&#39;)
+
+This will link to ``admin.index`` for instance in case the current request
+was dispatched to any other admin blueprint endpoint.
+
+Error Handlers
+--------------
+
+Blueprints support the errorhandler decorator just like the :class:`Flask`
+application object, so it is easy to make Blueprint-specific custom error
+pages.
+
+Here is an example for a &quot;404 Page Not Found&quot; exception::
+
+    @simple_page.errorhandler(404)
+    def page_not_found(e):
+        return render_template(&#39;pages/404.html&#39;)
+
+Most errorhandlers will simply work as expected; however, there is a caveat
+concerning handlers for 404 and 405 exceptions.  These errorhandlers are only
+invoked from an appropriate ``raise`` statement or a call to ``abort`` in another
+of the blueprint&#39;s view functions; they are not invoked by, e.g., an invalid URL
+access.  This is because the blueprint does not &quot;own&quot; a certain URL space, so
+the application instance has no way of knowing which blueprint errorhandler it
+should run if given an invalid URL.  If you would like to execute different
+handling strategies for these errors based on URL prefixes, they may be defined
+at the application level using the ``request`` proxy object::
+
+    @app.errorhandler(404)
+    @app.errorhandler(405)
+    def _handle_api_error(ex):
+        if request.path.startswith(&#39;/api/&#39;):
+            return jsonify_error(ex)
+        else:
+            return ex
+
+More information on error handling see :ref:`errorpages`.
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../becomingbig/" title="Becoming Big" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Becoming Big
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../changelog/" title="Changelog" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Changelog
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

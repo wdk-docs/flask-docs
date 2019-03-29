@@ -1,0 +1,2348 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Configuration Handling - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#configuration-handling" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Configuration Handling
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="欢迎来到 Flask" class="md-tabs__link md-tabs__link--active">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../13.quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blueprints/" title="Modular Applications with Blueprints" class="md-nav__link">
+      Modular Applications with Blueprints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Cli" class="md-nav__link">
+      Cli
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configuration Handling
+      </label>
+    
+    <a href="./" title="Configuration Handling" class="md-nav__link md-nav__link--active">
+      Configuration Handling
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-basics" title="Configuration Basics" class="md-nav__link">
+    Configuration Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-and-debug-features" title="Environment and Debug Features" class="md-nav__link">
+    Environment and Debug Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#builtin-configuration-values" title="Builtin Configuration Values" class="md-nav__link">
+    Builtin Configuration Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-from-files" title="Configuring from Files" class="md-nav__link">
+    Configuring from Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-from-environment-variables" title="Configuring from Environment Variables" class="md-nav__link">
+    Configuring from Environment Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-best-practices" title="Configuration Best Practices" class="md-nav__link">
+    Configuration Best Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-production" title="Development / Production" class="md-nav__link">
+    Development / Production
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-folders" title="Instance Folders" class="md-nav__link">
+    Instance Folders
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensiondev/" title="Flask Extension Development" class="md-nav__link">
+      Flask Extension Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../upgrading/" title="Upgrading to Newer Releases" class="md-nav__link">
+      Upgrading to Newer Releases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/views/" title="Views" class="md-nav__link">
+      Views
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-basics" title="Configuration Basics" class="md-nav__link">
+    Configuration Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-and-debug-features" title="Environment and Debug Features" class="md-nav__link">
+    Environment and Debug Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#builtin-configuration-values" title="Builtin Configuration Values" class="md-nav__link">
+    Builtin Configuration Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-from-files" title="Configuring from Files" class="md-nav__link">
+    Configuring from Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-from-environment-variables" title="Configuring from Environment Variables" class="md-nav__link">
+    Configuring from Environment Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-best-practices" title="Configuration Best Practices" class="md-nav__link">
+    Configuration Best Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-production" title="Development / Production" class="md-nav__link">
+    Development / Production
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-folders" title="Instance Folders" class="md-nav__link">
+    Instance Folders
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="configuration-handling">Configuration Handling<a class="headerlink" href="#configuration-handling" title="Permanent link">&para;</a></h1>
+<p>Applications need some kind of configuration. There are different settings
+you might want to change depending on the application environment like
+toggling the debug mode, setting the secret key, and other such
+environment-specific things.</p>
+<p>The way Flask is designed usually requires the configuration to be
+available when the application starts up. You can hardcode the
+configuration in the code, which for many small applications is not
+actually that bad, but there are better ways.</p>
+<p>Independent of how you load your config, there is a config object
+available which holds the loaded configuration values:
+The :attr:<code>~flask.Flask.config</code> attribute of the :class:<code>~flask.Flask</code>
+object. This is the place where Flask itself puts certain configuration
+values and also where extensions can put their configuration values. But
+this is also where you can have your own configuration.</p>
+<h2 id="configuration-basics">Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permanent link">&para;</a></h2>
+<p>The :attr:<code>~flask.Flask.config</code> is actually a subclass of a dictionary and
+can be modified just like any dictionary::</p>
+<div class="codehilite"><pre><span></span>app = Flask(__name__)
+app.config[&#39;TESTING&#39;] = True
+</pre></div>
+
+
+<p>Certain configuration values are also forwarded to the
+:attr:<code>~flask.Flask</code> object so you can read and write them from there::</p>
+<div class="codehilite"><pre><span></span>app.testing = True
+</pre></div>
+
+
+<p>To update multiple keys at once you can use the :meth:<code>dict.update</code>
+method::</p>
+<div class="codehilite"><pre><span></span>app.config.update(
+    TESTING=True,
+    SECRET_KEY=b&#39;_5#y2L&quot;F4Q8z\n\xec]/&#39;
+)
+</pre></div>
+
+
+<h2 id="environment-and-debug-features">Environment and Debug Features<a class="headerlink" href="#environment-and-debug-features" title="Permanent link">&para;</a></h2>
+<p>The :data:<code>ENV</code> and :data:<code>DEBUG</code> config values are special because they
+may behave inconsistently if changed after the app has begun setting up.
+In order to set the environment and debug mode reliably, Flask uses
+environment variables.</p>
+<p>The environment is used to indicate to Flask, extensions, and other
+programs, like Sentry, what context Flask is running in. It is
+controlled with the :envvar:<code>FLASK_ENV</code> environment variable and
+defaults to <code>production</code>.</p>
+<p>Setting :envvar:<code>FLASK_ENV</code> to <code>development</code> will enable debug mode.
+<code>flask run</code> will use the interactive debugger and reloader by default
+in debug mode. To control this separately from the environment, use the
+:envvar:<code>FLASK_DEBUG</code> flag.</p>
+<p>.. versionchanged:: 1.0
+Added :envvar:<code>FLASK_ENV</code> to control the environment separately
+from debug mode. The development environment enables debug mode.</p>
+<p>To switch Flask to the development environment and enable debug mode,
+set :envvar:<code>FLASK_ENV</code>::</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">FLASK_ENV</span><span class="o">=</span>development
+$ flask run
+</pre></div>
+
+
+<p>(On Windows, use <code>set</code> instead of <code>export</code>.)</p>
+<p>Using the environment variables as described above is recommended. While
+it is possible to set :data:<code>ENV</code> and :data:<code>DEBUG</code> in your config or
+code, this is strongly discouraged. They can't be read early by the
+<code>flask</code> command, and some systems or extensions may have already
+configured themselves based on a previous value.</p>
+<h2 id="builtin-configuration-values">Builtin Configuration Values<a class="headerlink" href="#builtin-configuration-values" title="Permanent link">&para;</a></h2>
+<p>The following configuration values are used internally by Flask:</p>
+<p>.. py:data:: ENV</p>
+<div class="codehilite"><pre><span></span>What environment the app is running in. Flask and extensions may
+enable behaviors based on the environment, such as enabling debug
+mode. The :attr:`~flask.Flask.env` attribute maps to this config
+key. This is set by the :envvar:`FLASK_ENV` environment variable and
+may not behave as expected if set in code.
+
+**Do not enable development when deploying in production.**
+
+Default: ``&#39;production&#39;``
+
+.. versionadded:: 1.0
+</pre></div>
+
+
+<p>.. py:data:: DEBUG</p>
+<div class="codehilite"><pre><span></span>Whether debug mode is enabled. When using ``flask run`` to start the
+development server, an interactive debugger will be shown for
+unhandled exceptions, and the server will be reloaded when code
+changes. The :attr:`~flask.Flask.debug` attribute maps to this
+config key. This is enabled when :data:`ENV` is ``&#39;development&#39;``
+and is overridden by the ``FLASK_DEBUG`` environment variable. It
+may not behave as expected if set in code.
+
+**Do not enable debug mode when deploying in production.**
+
+Default: ``True`` if :data:`ENV` is ``&#39;development&#39;``, or ``False``
+otherwise.
+</pre></div>
+
+
+<p>.. py:data:: TESTING</p>
+<div class="codehilite"><pre><span></span>Enable testing mode. Exceptions are propagated rather than handled by the
+the app&#39;s error handlers. Extensions may also change their behavior to
+facilitate easier testing. You should enable this in your own tests.
+
+Default: ``False``
+</pre></div>
+
+
+<p>.. py:data:: PROPAGATE_EXCEPTIONS</p>
+<div class="codehilite"><pre><span></span>Exceptions are re-raised rather than being handled by the app&#39;s error
+handlers. If not set, this is implicitly true if ``TESTING`` or ``DEBUG``
+is enabled.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: PRESERVE_CONTEXT_ON_EXCEPTION</p>
+<div class="codehilite"><pre><span></span>Don&#39;t pop the request context when an exception occurs. If not set, this
+is true if ``DEBUG`` is true. This allows debuggers to introspect the
+request data on errors, and should normally not need to be set directly.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: TRAP_HTTP_EXCEPTIONS</p>
+<div class="codehilite"><pre><span></span>If there is no handler for an ``HTTPException``-type exception, re-raise it
+to be handled by the interactive debugger instead of returning it as a
+simple error response.
+
+Default: ``False``
+</pre></div>
+
+
+<p>.. py:data:: TRAP_BAD_REQUEST_ERRORS</p>
+<div class="codehilite"><pre><span></span>Trying to access a key that doesn&#39;t exist from request dicts like ``args``
+and ``form`` will return a 400 Bad Request error page. Enable this to treat
+the error as an unhandled exception instead so that you get the interactive
+debugger. This is a more specific version of ``TRAP_HTTP_EXCEPTIONS``. If
+unset, it is enabled in debug mode.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: SECRET_KEY</p>
+<div class="codehilite"><pre><span></span><span class="n">A</span> <span class="n">secret</span> <span class="n">key</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="n">securely</span> <span class="n">signing</span> <span class="n">the</span> <span class="n">session</span> <span class="n">cookie</span>
+<span class="ow">and</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">security</span> <span class="n">related</span> <span class="n">needs</span> <span class="n">by</span> <span class="n">extensions</span> <span class="ow">or</span> <span class="n">your</span>
+<span class="n">application</span><span class="o">.</span> <span class="n">It</span> <span class="n">should</span> <span class="n">be</span> <span class="n">a</span> <span class="nb">long</span> <span class="n">random</span> <span class="n">string</span> <span class="n">of</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">although</span> <span class="nb">unicode</span>
+<span class="ow">is</span> <span class="n">accepted</span> <span class="n">too</span><span class="o">.</span> <span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="n">copy</span> <span class="n">the</span> <span class="n">output</span> <span class="n">of</span> <span class="n">this</span> <span class="n">to</span> <span class="n">your</span> <span class="n">config</span><span class="p">::</span>
+
+    <span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;import os; print(os.urandom(16))&#39;</span>
+    <span class="sa">b</span><span class="s1">&#39;_5#y2L&quot;F4Q8z</span><span class="se">\n\xec</span><span class="s1">]/&#39;</span>
+
+<span class="o">**</span><span class="n">Do</span> <span class="ow">not</span> <span class="n">reveal</span> <span class="n">the</span> <span class="n">secret</span> <span class="n">key</span> <span class="n">when</span> <span class="n">posting</span> <span class="n">questions</span> <span class="ow">or</span> <span class="n">committing</span> <span class="n">code</span><span class="o">.**</span>
+
+<span class="n">Default</span><span class="p">:</span> <span class="sb">``</span><span class="bp">None</span><span class="sb">``</span>
+</pre></div>
+
+
+<p>.. py:data:: SESSION_COOKIE_NAME</p>
+<div class="codehilite"><pre><span></span>The name of the session cookie. Can be changed in case you already have a
+cookie with the same name.
+
+Default: ``&#39;session&#39;``
+</pre></div>
+
+
+<p>.. py:data:: SESSION_COOKIE_DOMAIN</p>
+<div class="codehilite"><pre><span></span>The domain match rule that the session cookie will be valid for. If not
+set, the cookie will be valid for all subdomains of :data:`SERVER_NAME`.
+If ``False``, the cookie&#39;s domain will not be set.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: SESSION_COOKIE_PATH</p>
+<div class="codehilite"><pre><span></span>The path that the session cookie will be valid for. If not set, the cookie
+will be valid underneath ``APPLICATION_ROOT`` or ``/`` if that is not set.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: SESSION_COOKIE_HTTPONLY</p>
+<div class="codehilite"><pre><span></span>Browsers will not allow JavaScript access to cookies marked as &quot;HTTP only&quot;
+for security.
+
+Default: ``True``
+</pre></div>
+
+
+<p>.. py:data:: SESSION_COOKIE_SECURE</p>
+<div class="codehilite"><pre><span></span>Browsers will only send cookies with requests over HTTPS if the cookie is
+marked &quot;secure&quot;. The application must be served over HTTPS for this to make
+sense.
+
+Default: ``False``
+</pre></div>
+
+
+<p>.. py:data:: SESSION_COOKIE_SAMESITE</p>
+<div class="codehilite"><pre><span></span>Restrict how cookies are sent with requests from external sites. Can
+be set to ``&#39;Lax&#39;`` (recommended) or ``&#39;Strict&#39;``.
+See :ref:`security-cookie`.
+
+Default: ``None``
+
+.. versionadded:: 1.0
+</pre></div>
+
+
+<p>.. py:data:: PERMANENT_SESSION_LIFETIME</p>
+<div class="codehilite"><pre><span></span>If ``session.permanent`` is true, the cookie&#39;s expiration will be set this
+number of seconds in the future. Can either be a
+:class:`datetime.timedelta` or an ``int``.
+
+Flask&#39;s default cookie implementation validates that the cryptographic
+signature is not older than this value.
+
+Default: ``timedelta(days=31)`` (``2678400`` seconds)
+</pre></div>
+
+
+<p>.. py:data:: SESSION_REFRESH_EACH_REQUEST</p>
+<div class="codehilite"><pre><span></span>Control whether the cookie is sent with every response when
+``session.permanent`` is true. Sending the cookie every time (the default)
+can more reliably keep the session from expiring, but uses more bandwidth.
+Non-permanent sessions are not affected.
+
+Default: ``True``
+</pre></div>
+
+
+<p>.. py:data:: USE_X_SENDFILE</p>
+<div class="codehilite"><pre><span></span>When serving files, set the ``X-Sendfile`` header instead of serving the
+data with Flask. Some web servers, such as Apache, recognize this and serve
+the data more efficiently. This only makes sense when using such a server.
+
+Default: ``False``
+</pre></div>
+
+
+<p>.. py:data:: SEND_FILE_MAX_AGE_DEFAULT</p>
+<div class="codehilite"><pre><span></span>When serving files, set the cache control max age to this number of
+seconds.  Can either be a :class:`datetime.timedelta` or an ``int``.
+Override this value on a per-file basis using
+:meth:`~flask.Flask.get_send_file_max_age` on the application or blueprint.
+
+Default: ``timedelta(hours=12)`` (``43200`` seconds)
+</pre></div>
+
+
+<p>.. py:data:: SERVER_NAME</p>
+<div class="codehilite"><pre><span></span>Inform the application what host and port it is bound to. Required
+for subdomain route matching support.
+
+If set, will be used for the session cookie domain if
+:data:`SESSION_COOKIE_DOMAIN` is not set. Modern web browsers will
+not allow setting cookies for domains without a dot. To use a domain
+locally, add any names that should route to the app to your
+``hosts`` file. ::
+
+    127.0.0.1 localhost.dev
+
+If set, ``url_for`` can generate external URLs with only an application
+context instead of a request context.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: APPLICATION_ROOT</p>
+<div class="codehilite"><pre><span></span>Inform the application what path it is mounted under by the application /
+web server.
+
+Will be used for the session cookie path if ``SESSION_COOKIE_PATH`` is not
+set.
+
+Default: ``&#39;/&#39;``
+</pre></div>
+
+
+<p>.. py:data:: PREFERRED_URL_SCHEME</p>
+<div class="codehilite"><pre><span></span>Use this scheme for generating external URLs when not in a request context.
+
+Default: ``&#39;http&#39;``
+</pre></div>
+
+
+<p>.. py:data:: MAX_CONTENT_LENGTH</p>
+<div class="codehilite"><pre><span></span>Don&#39;t read more than this many bytes from the incoming request data. If not
+set and the request does not specify a ``CONTENT_LENGTH``, no data will be
+read for security.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: JSON_AS_ASCII</p>
+<div class="codehilite"><pre><span></span>Serialize objects to ASCII-encoded JSON. If this is disabled, the JSON
+will be returned as a Unicode string, or encoded as ``UTF-8`` by
+``jsonify``. This has security implications when rendering the JSON into
+JavaScript in templates, and should typically remain enabled.
+
+Default: ``True``
+</pre></div>
+
+
+<p>.. py:data:: JSON_SORT_KEYS</p>
+<div class="codehilite"><pre><span></span>Sort the keys of JSON objects alphabetically. This is useful for caching
+because it ensures the data is serialized the same way no matter what
+Python&#39;s hash seed is. While not recommended, you can disable this for a
+possible performance improvement at the cost of caching.
+
+Default: ``True``
+</pre></div>
+
+
+<p>.. py:data:: JSONIFY_PRETTYPRINT_REGULAR</p>
+<div class="codehilite"><pre><span></span>``jsonify`` responses will be output with newlines, spaces, and indentation
+for easier reading by humans. Always enabled in debug mode.
+
+Default: ``False``
+</pre></div>
+
+
+<p>.. py:data:: JSONIFY_MIMETYPE</p>
+<div class="codehilite"><pre><span></span>The mimetype of ``jsonify`` responses.
+
+Default: ``&#39;application/json&#39;``
+</pre></div>
+
+
+<p>.. py:data:: TEMPLATES_AUTO_RELOAD</p>
+<div class="codehilite"><pre><span></span>Reload templates when they are changed. If not set, it will be enabled in
+debug mode.
+
+Default: ``None``
+</pre></div>
+
+
+<p>.. py:data:: EXPLAIN_TEMPLATE_LOADING</p>
+<div class="codehilite"><pre><span></span>Log debugging information tracing how a template file was loaded. This can
+be useful to figure out why a template was not loaded or the wrong file
+appears to be loaded.
+
+Default: ``False``
+</pre></div>
+
+
+<p>.. py:data:: MAX_COOKIE_SIZE</p>
+<div class="codehilite"><pre><span></span>Warn if cookie headers are larger than this many bytes. Defaults to
+``4093``. Larger cookies may be silently ignored by browsers. Set to
+``0`` to disable the warning.
+</pre></div>
+
+
+<p>.. versionadded:: 0.4
+<code>LOGGER_NAME</code></p>
+<p>.. versionadded:: 0.5
+<code>SERVER_NAME</code></p>
+<p>.. versionadded:: 0.6
+<code>MAX_CONTENT_LENGTH</code></p>
+<p>.. versionadded:: 0.7
+<code>PROPAGATE_EXCEPTIONS</code>, <code>PRESERVE_CONTEXT_ON_EXCEPTION</code></p>
+<p>.. versionadded:: 0.8
+<code>TRAP_BAD_REQUEST_ERRORS</code>, <code>TRAP_HTTP_EXCEPTIONS</code>,
+<code>APPLICATION_ROOT</code>, <code>SESSION_COOKIE_DOMAIN</code>,
+<code>SESSION_COOKIE_PATH</code>, <code>SESSION_COOKIE_HTTPONLY</code>,
+<code>SESSION_COOKIE_SECURE</code></p>
+<p>.. versionadded:: 0.9
+<code>PREFERRED_URL_SCHEME</code></p>
+<p>.. versionadded:: 0.10
+<code>JSON_AS_ASCII</code>, <code>JSON_SORT_KEYS</code>, <code>JSONIFY_PRETTYPRINT_REGULAR</code></p>
+<p>.. versionadded:: 0.11
+<code>SESSION_REFRESH_EACH_REQUEST</code>, <code>TEMPLATES_AUTO_RELOAD</code>,
+<code>LOGGER_HANDLER_POLICY</code>, <code>EXPLAIN_TEMPLATE_LOADING</code></p>
+<p>.. versionchanged:: 1.0
+<code>LOGGER_NAME</code> and <code>LOGGER_HANDLER_POLICY</code> were removed. See
+:ref:<code>logging</code> for information about configuration.</p>
+<div class="codehilite"><pre><span></span><span class="n">Added</span> <span class="o">:</span><span class="n">data</span><span class="o">:</span><span class="err">`</span><span class="n">ENV</span><span class="err">`</span> <span class="n">to</span> <span class="n">reflect</span> <span class="n">the</span> <span class="o">:</span><span class="n">envvar</span><span class="o">:</span><span class="err">`</span><span class="n">FLASK_ENV</span><span class="err">`</span> <span class="n">environment</span>
+<span class="n">variable</span><span class="o">.</span>
+
+<span class="n">Added</span> <span class="o">:</span><span class="n">data</span><span class="o">:</span><span class="err">`</span><span class="n">SESSION_COOKIE_SAMESITE</span><span class="err">`</span> <span class="n">to</span> <span class="n">control</span> <span class="n">the</span> <span class="n">session</span>
+<span class="n">cookie</span><span class="err">&#39;</span><span class="n">s</span> <span class="err">``</span><span class="n">SameSite</span><span class="err">``</span> <span class="n">option</span><span class="o">.</span>
+
+<span class="n">Added</span> <span class="o">:</span><span class="n">data</span><span class="o">:</span><span class="err">`</span><span class="n">MAX_COOKIE_SIZE</span><span class="err">`</span> <span class="n">to</span> <span class="n">control</span> <span class="n">a</span> <span class="n">warning</span> <span class="n">from</span> <span class="n">Werkzeug</span><span class="o">.</span>
+</pre></div>
+
+
+<h2 id="configuring-from-files">Configuring from Files<a class="headerlink" href="#configuring-from-files" title="Permanent link">&para;</a></h2>
+<p>Configuration becomes more useful if you can store it in a separate file,
+ideally located outside the actual application package. This makes
+packaging and distributing your application possible via various package
+handling tools (:ref:<code>distribute-deployment</code>) and finally modifying the
+configuration file afterwards.</p>
+<p>So a common pattern is this::</p>
+<div class="codehilite"><pre><span></span>app = Flask(__name__)
+app.config.from_object(&#39;yourapplication.default_settings&#39;)
+app.config.from_envvar(&#39;YOURAPPLICATION_SETTINGS&#39;)
+</pre></div>
+
+
+<p>This first loads the configuration from the
+<code>yourapplication.default_settings</code> module and then overrides the values
+with the contents of the file the :envvar:<code>YOURAPPLICATION_SETTINGS</code>
+environment variable points to. This environment variable can be set on
+Linux or OS X with the export command in the shell before starting the
+server::</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">YOURAPPLICATION_SETTINGS</span><span class="o">=</span>/path/to/settings.cfg
+$ python run-app.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader...
+</pre></div>
+
+
+<p>On Windows systems use the <code>set</code> builtin instead::</p>
+<div class="codehilite"><pre><span></span>&amp;gt; set YOURAPPLICATION_SETTINGS=\path\to\settings.cfg
+</pre></div>
+
+
+<p>The configuration files themselves are actual Python files. Only values
+in uppercase are actually stored in the config object later on. So make
+sure to use uppercase letters for your config keys.</p>
+<p>Here is an example of a configuration file::</p>
+<div class="codehilite"><pre><span></span># Example configuration
+DEBUG = False
+SECRET_KEY = b&#39;_5#y2L&quot;F4Q8z\n\xec]/&#39;
+</pre></div>
+
+
+<p>Make sure to load the configuration very early on, so that extensions have
+the ability to access the configuration when starting up. There are other
+methods on the config object as well to load from individual files. For a
+complete reference, read the :class:<code>~flask.Config</code> object's
+documentation.</p>
+<h2 id="configuring-from-environment-variables">Configuring from Environment Variables<a class="headerlink" href="#configuring-from-environment-variables" title="Permanent link">&para;</a></h2>
+<p>In addition to pointing to configuration files using environment variables, you
+may find it useful (or necessary) to control your configuration values directly
+from the environment.</p>
+<p>Environment variables can be set on Linux or OS X with the export command in
+the shell before starting the server::</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">SECRET_KEY</span><span class="o">=</span><span class="s1">&#39;5f352379324c22463451387a0aec5d2f&#39;</span>
+$ <span class="nb">export</span> <span class="nv">DEBUG</span><span class="o">=</span>False
+$ python run-app.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader...
+</pre></div>
+
+
+<p>On Windows systems use the <code>set</code> builtin instead::</p>
+<div class="codehilite"><pre><span></span>&amp;gt; set SECRET_KEY=&#39;5f352379324c22463451387a0aec5d2f&#39;
+&amp;gt; set DEBUG=False
+</pre></div>
+
+
+<p>While this approach is straightforward to use, it is important to remember that
+environment variables are strings -- they are not automatically deserialized
+into Python types.</p>
+<p>Here is an example of a configuration file that uses environment variables::</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Example configuration</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">ENVIRONMENT_DEBUG</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ENVIRONMENT_DEBUG</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">):</span>
+    <span class="n">ENVIRONMENT_DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="n">ENVIRONMENT_DEBUG</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">SECRET_KEY</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No secret key set for Flask application&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Notice that any value besides an empty string will be interpreted as a boolean
+<code>True</code> value in Python, which requires care if an environment explicitly sets
+values intended to be <code>False</code>.</p>
+<p>Make sure to load the configuration very early on, so that extensions have the
+ability to access the configuration when starting up. There are other methods
+on the config object as well to load from individual files. For a complete
+reference, read the :class:<code>~flask.Config</code> class documentation.</p>
+<h2 id="configuration-best-practices">Configuration Best Practices<a class="headerlink" href="#configuration-best-practices" title="Permanent link">&para;</a></h2>
+<p>The downside with the approach mentioned earlier is that it makes testing
+a little harder. There is no single 100% solution for this problem in
+general, but there are a couple of things you can keep in mind to improve
+that experience:</p>
+<ol>
+<li>
+<p>Create your application in a function and register blueprints on it.
+    That way you can create multiple instances of your application with
+    different configurations attached which makes unittesting a lot
+    easier. You can use this to pass in configuration as needed.</p>
+</li>
+<li>
+<p>Do not write code that needs the configuration at import time. If you
+    limit yourself to request-only accesses to the configuration you can
+    reconfigure the object later on as needed.</p>
+</li>
+</ol>
+<h2 id="development-production">Development / Production<a class="headerlink" href="#development-production" title="Permanent link">&para;</a></h2>
+<p>Most applications need more than one configuration. There should be at
+least separate configurations for the production server and the one used
+during development. The easiest way to handle this is to use a default
+configuration that is always loaded and part of the version control, and a
+separate configuration that overrides the values as necessary as mentioned
+in the example above::</p>
+<div class="codehilite"><pre><span></span>app = Flask(__name__)
+app.config.from_object(&#39;yourapplication.default_settings&#39;)
+app.config.from_envvar(&#39;YOURAPPLICATION_SETTINGS&#39;)
+</pre></div>
+
+
+<p>Then you just have to add a separate :file:<code>config.py</code> file and export
+<code>YOURAPPLICATION_SETTINGS=/path/to/config.py</code> and you are done. However
+there are alternative ways as well. For example you could use imports or
+subclassing.</p>
+<p>What is very popular in the Django world is to make the import explicit in
+the config file by adding <code>from yourapplication.default_settings import *</code> to the top of the file and then overriding the changes by hand.
+You could also inspect an environment variable like
+<code>YOURAPPLICATION_MODE</code> and set that to <code>production</code>, <code>development</code> etc
+and import different hardcoded files based on that.</p>
+<p>An interesting pattern is also to use classes and inheritance for
+configuration::</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Config</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">DEBUG</span> <span class="o">=</span> <span class="nx">False</span>
+    <span class="nx">TESTING</span> <span class="o">=</span> <span class="nx">False</span>
+    <span class="nx">DATABASE_URI</span> <span class="o">=</span> <span class="s1">&#39;sqlite:///:memory:&#39;</span>
+
+<span class="kr">class</span> <span class="nx">ProductionConfig</span><span class="p">(</span><span class="nx">Config</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">DATABASE_URI</span> <span class="o">=</span> <span class="s1">&#39;mysql://user@localhost/foo&#39;</span>
+
+<span class="kr">class</span> <span class="nx">DevelopmentConfig</span><span class="p">(</span><span class="nx">Config</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">DEBUG</span> <span class="o">=</span> <span class="nx">True</span>
+
+<span class="kr">class</span> <span class="nx">TestingConfig</span><span class="p">(</span><span class="nx">Config</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">TESTING</span> <span class="o">=</span> <span class="nx">True</span>
+</pre></div>
+
+
+<p>To enable such a config you just have to call into
+:meth:<code>~flask.Config.from_object</code>::</p>
+<div class="codehilite"><pre><span></span>app.config.from_object(&#39;configmodule.ProductionConfig&#39;)
+</pre></div>
+
+
+<p>Note that :meth:<code>~flask.Config.from_object</code> does not instantiate the class
+object. If you need to instantiate the class, such as to access a property,
+then you must do so before calling :meth:<code>~flask.Config.from_object</code>::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">configmodule</span> <span class="kn">import</span> <span class="n">ProductionConfig</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">ProductionConfig</span><span class="p">())</span>
+
+<span class="c1"># Alternatively, import via string:</span>
+<span class="kn">from</span> <span class="nn">werkzeug.utils</span> <span class="kn">import</span> <span class="n">import_string</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">import_string</span><span class="p">(</span><span class="s1">&#39;configmodule.ProductionConfig&#39;</span><span class="p">)()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Instantiating the configuration object allows you to use <code>@property</code> in
+your configuration classes::</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Config</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="s2">&quot;&quot;&quot;Base config, uses staging database server.&quot;&quot;&quot;</span>
+    <span class="nx">DEBUG</span> <span class="o">=</span> <span class="nx">False</span>
+    <span class="nx">TESTING</span> <span class="o">=</span> <span class="nx">False</span>
+    <span class="nx">DB_SERVER</span> <span class="o">=</span> <span class="s1">&#39;192.168.1.56&#39;</span>
+
+    <span class="kd">@property</span>
+    <span class="nx">def</span> <span class="nx">DATABASE_URI</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>         <span class="err">#</span> <span class="nx">Note</span>: <span class="kt">all</span> <span class="nx">caps</span>
+        <span class="k">return</span> <span class="s1">&#39;mysql://user@{}/foo&#39;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">DB_SERVER</span><span class="p">)</span>
+
+<span class="kr">class</span> <span class="nx">ProductionConfig</span><span class="p">(</span><span class="nx">Config</span><span class="p">)</span><span class="o">:</span>
+    <span class="s2">&quot;&quot;&quot;Uses production database server.&quot;&quot;&quot;</span>
+    <span class="nx">DB_SERVER</span> <span class="o">=</span> <span class="s1">&#39;192.168.19.32&#39;</span>
+
+<span class="kr">class</span> <span class="nx">DevelopmentConfig</span><span class="p">(</span><span class="nx">Config</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">DB_SERVER</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+    <span class="nx">DEBUG</span> <span class="o">=</span> <span class="nx">True</span>
+
+<span class="kr">class</span> <span class="nx">TestingConfig</span><span class="p">(</span><span class="nx">Config</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">DB_SERVER</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+    <span class="nx">DEBUG</span> <span class="o">=</span> <span class="nx">True</span>
+    <span class="nx">DATABASE_URI</span> <span class="o">=</span> <span class="s1">&#39;sqlite:///:memory:&#39;</span>
+</pre></div>
+
+
+<p>There are many different ways and it's up to you how you want to manage
+your configuration files. However here a list of good recommendations:</p>
+<ul>
+<li>Keep a default configuration in version control. Either populate the
+  config with this default configuration or import it in your own
+  configuration files before overriding values.</li>
+<li>Use an environment variable to switch between the configurations.
+  This can be done from outside the Python interpreter and makes
+  development and deployment much easier because you can quickly and
+  easily switch between different configs without having to touch the
+  code at all. If you are working often on different projects you can
+  even create your own script for sourcing that activates a virtualenv
+  and exports the development configuration for you.</li>
+<li>Use a tool like <code>fabric</code>_ in production to push code and
+  configurations separately to the production server(s). For some
+  details about how to do that, head over to the
+  :ref:<code>fabric-deployment</code> pattern.</li>
+</ul>
+<p>.. _fabric: https://www.fabfile.org/</p>
+<h2 id="instance-folders">Instance Folders<a class="headerlink" href="#instance-folders" title="Permanent link">&para;</a></h2>
+<p>.. versionadded:: 0.8</p>
+<p>Flask 0.8 introduces instance folders. Flask for a long time made it
+possible to refer to paths relative to the application's folder directly
+(via :attr:<code>Flask.root_path</code>). This was also how many developers loaded
+configurations stored next to the application. Unfortunately however this
+only works well if applications are not packages in which case the root
+path refers to the contents of the package.</p>
+<p>With Flask 0.8 a new attribute was introduced:
+:attr:<code>Flask.instance_path</code>. It refers to a new concept called the
+“instance folder”. The instance folder is designed to not be under
+version control and be deployment specific. It's the perfect place to
+drop things that either change at runtime or configuration files.</p>
+<p>You can either explicitly provide the path of the instance folder when
+creating the Flask application or you can let Flask autodetect the
+instance folder. For explicit configuration use the <code>instance_path</code>
+parameter::</p>
+<div class="codehilite"><pre><span></span>app = Flask(__name__, instance_path=&#39;/path/to/instance/folder&#39;)
+</pre></div>
+
+
+<p>Please keep in mind that this path <em>must</em> be absolute when provided.</p>
+<p>If the <code>instance_path</code> parameter is not provided the following default
+locations are used:</p>
+<ul>
+<li>
+<p>Uninstalled module::</p>
+<p>/myapp.py
+  /instance</p>
+</li>
+<li>
+<p>Uninstalled package::</p>
+<p>/myapp
+      /<strong>init</strong>.py
+  /instance</p>
+</li>
+<li>
+<p>Installed module or package::</p>
+<p>$PREFIX/lib/python2.X/site-packages/myapp
+  $PREFIX/var/myapp-instance</p>
+</li>
+</ul>
+<p><code>$PREFIX</code> is the prefix of your Python installation. This can be
+  <code>/usr</code> or the path to your virtualenv. You can print the value of
+  <code>sys.prefix</code> to see what the prefix is set to.</p>
+<p>Since the config object provided loading of configuration files from
+relative filenames we made it possible to change the loading via filenames
+to be relative to the instance path if wanted. The behavior of relative
+paths in config files can be flipped between “relative to the application
+root” (the default) to “relative to instance folder” via the
+<code>instance_relative_config</code> switch to the application constructor::</p>
+<div class="codehilite"><pre><span></span>app = Flask(__name__, instance_relative_config=True)
+</pre></div>
+
+
+<p>Here is a full example of how to configure Flask to preload the config
+from a module and then override the config from a file in the instance
+folder if it exists::</p>
+<div class="codehilite"><pre><span></span>app = Flask(__name__, instance_relative_config=True)
+app.config.from_object(&#39;yourapplication.default_settings&#39;)
+app.config.from_pyfile(&#39;application.cfg&#39;, silent=True)
+</pre></div>
+
+
+<p>The path to the instance folder can be found via the
+:attr:<code>Flask.instance_path</code>. Flask also provides a shortcut to open a
+file from the instance folder with :meth:<code>Flask.open_instance_resource</code>.</p>
+<p>Example usage for both::</p>
+<div class="codehilite"><pre><span></span>filename = os.path.join(app.instance_path, &#39;application.cfg&#39;)
+with open(filename) as f:
+    config = f.read()
+
+# or via open_instance_resource:
+with app.open_instance_resource(&#39;application.cfg&#39;) as f:
+    config = f.read()
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cli/" title="Cli" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Cli
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../contributing/" title="Contributing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Contributing
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

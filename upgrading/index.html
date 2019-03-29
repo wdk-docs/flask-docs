@@ -1,0 +1,2025 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Upgrading to Newer Releases - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#upgrading-to-newer-releases" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Upgrading to Newer Releases
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="欢迎来到 Flask" class="md-tabs__link md-tabs__link--active">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../13.quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blueprints/" title="Modular Applications with Blueprints" class="md-nav__link">
+      Modular Applications with Blueprints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Cli" class="md-nav__link">
+      Cli
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../config/" title="Configuration Handling" class="md-nav__link">
+      Configuration Handling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensiondev/" title="Flask Extension Development" class="md-nav__link">
+      Flask Extension Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Upgrading to Newer Releases
+      </label>
+    
+    <a href="./" title="Upgrading to Newer Releases" class="md-nav__link md-nav__link--active">
+      Upgrading to Newer Releases
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-012" title="Version 0.12" class="md-nav__link">
+    Version 0.12
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/views/" title="Views" class="md-nav__link">
+      Views
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-012" title="Version 0.12" class="md-nav__link">
+    Version 0.12
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="upgrading-to-newer-releases">Upgrading to Newer Releases<a class="headerlink" href="#upgrading-to-newer-releases" title="Permanent link">&para;</a></h1>
+<p>Flask itself is changing like any software is changing over time. Most of
+the changes are the nice kind, the kind where you don't have to change
+anything in your code to profit from a new release.</p>
+<p>However every once in a while there are changes that do require some
+changes in your code or there are changes that make it possible for you to
+improve your own code quality by taking advantage of new features in
+Flask.</p>
+<p>This section of the documentation enumerates all the changes in Flask from
+release to release and how you can change your code to have a painless
+updating experience.</p>
+<p>Use the :command:<code>pip</code> command to upgrade your existing Flask installation by
+providing the <code>--upgrade</code> parameter::</p>
+<div class="codehilite"><pre><span></span>$ pip install --upgrade Flask
+</pre></div>
+
+
+<h2 id="version-012">Version 0.12<a class="headerlink" href="#version-012" title="Permanent link">&para;</a></h2>
+<p>Changes to send_file</p>
+<div class="codehilite"><pre><span></span><span class="nx">The</span> <span class="sb">``</span><span class="nx">filename</span><span class="sb">``</span> <span class="nx">is</span> <span class="nx">no</span> <span class="nx">longer</span> <span class="nx">automatically</span> <span class="nx">inferred</span> <span class="nx">from</span> <span class="nx">file</span><span class="o">-</span><span class="nx">like</span> <span class="nx">objects</span><span class="p">.</span>
+<span class="nx">This</span> <span class="nx">means</span> <span class="nx">that</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">code</span> <span class="nx">will</span> <span class="nx">no</span> <span class="nx">longer</span> <span class="nx">automatically</span> <span class="nx">have</span>
+<span class="sb">``</span><span class="nx">X</span><span class="o">-</span><span class="nx">Sendfile</span><span class="sb">``</span> <span class="nx">support</span><span class="p">,</span> <span class="nx">etag</span> <span class="nx">generation</span> <span class="nx">or</span> <span class="nx">MIME</span><span class="o">-</span><span class="nx">type</span> <span class="nx">guessing</span><span class="o">::</span>
+
+    <span class="nx">response</span> <span class="o">=</span> <span class="nx">send_file</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;/path/to/file.txt&#39;</span><span class="p">))</span>
+
+<span class="nx">Any</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">is</span> <span class="nx">functionally</span> <span class="nx">equivalent</span><span class="o">::</span>
+
+    <span class="nx">fname</span> <span class="o">=</span> <span class="s1">&#39;/path/to/file.txt&#39;</span>
+
+    <span class="err">#</span> <span class="nx">Just</span> <span class="nx">pass</span> <span class="nx">the</span> <span class="nx">filepath</span> <span class="nx">directly</span>
+    <span class="nx">response</span> <span class="o">=</span> <span class="nx">send_file</span><span class="p">(</span><span class="nx">fname</span><span class="p">)</span>
+
+    <span class="err">#</span> <span class="nx">Set</span> <span class="nx">the</span> <span class="nx">MIME</span><span class="o">-</span><span class="nx">type</span> <span class="nx">and</span> <span class="nx">ETag</span> <span class="nx">explicitly</span>
+    <span class="nx">response</span> <span class="o">=</span> <span class="nx">send_file</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">fname</span><span class="p">),</span> <span class="nx">mimetype</span><span class="o">=</span><span class="s1">&#39;text/plain&#39;</span><span class="p">)</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">set_etag</span><span class="p">(...)</span>
+
+    <span class="err">#</span> <span class="nx">Set</span> <span class="sb">`attachment_filename`</span> <span class="k">for</span> <span class="nx">MIME</span><span class="o">-</span><span class="nx">type</span> <span class="nx">guessing</span>
+    <span class="err">#</span> <span class="nx">ETag</span> <span class="nx">still</span> <span class="nx">needs</span> <span class="nx">to</span> <span class="nx">be</span> <span class="nx">manually</span> <span class="nx">set</span>
+    <span class="nx">response</span> <span class="o">=</span> <span class="nx">send_file</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">fname</span><span class="p">),</span> <span class="nx">attachment_filename</span><span class="o">=</span><span class="nx">fname</span><span class="p">)</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">set_etag</span><span class="p">(...)</span>
+
+<span class="nx">The</span> <span class="nx">reason</span> <span class="k">for</span> <span class="k">this</span> <span class="nx">is</span> <span class="nx">that</span> <span class="nx">some</span> <span class="nx">file</span><span class="o">-</span><span class="nx">like</span> <span class="nx">objects</span> <span class="nx">have</span> <span class="nx">an</span> <span class="nx">invalid</span> <span class="nx">or</span> <span class="nx">even</span>
+<span class="nx">misleading</span> <span class="sb">``</span><span class="nx">name</span><span class="sb">``</span> <span class="nx">attribute</span><span class="p">.</span> <span class="nx">Silently</span> <span class="nx">swallowing</span> <span class="nx">errors</span> <span class="k">in</span> <span class="nx">such</span> <span class="nx">cases</span> <span class="nx">was</span> <span class="nx">not</span>
+<span class="nx">a</span> <span class="nx">satisfying</span> <span class="nx">solution</span><span class="p">.</span>
+
+<span class="nx">Additionally</span> <span class="nx">the</span> <span class="k">default</span> <span class="nx">of</span> <span class="nx">falling</span> <span class="nx">back</span> <span class="nx">to</span> <span class="sb">``</span><span class="nx">application</span><span class="o">/</span><span class="nx">octet</span><span class="o">-</span><span class="nx">stream</span><span class="sb">``</span> <span class="nx">has</span>
+<span class="nx">been</span> <span class="nx">restricted</span><span class="p">.</span> <span class="nx">If</span> <span class="nx">Flask</span> <span class="nx">can</span><span class="s1">&#39;t guess one or the user didn&#39;</span><span class="nx">t</span> <span class="nx">provide</span> <span class="nx">one</span><span class="p">,</span> <span class="nx">the</span>
+<span class="kd">function</span> <span class="nx">fails</span> <span class="k">if</span> <span class="nx">no</span> <span class="nx">filename</span> <span class="nx">information</span> <span class="nx">was</span> <span class="nx">provided</span><span class="p">.</span>
+
+<span class="p">..</span> <span class="nx">_upgrading</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">011</span>:
+
+<span class="kt">Version</span> <span class="mf">0.11</span>
+<span class="o">------------</span>
+
+<span class="mf">0.11</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">odd</span> <span class="nx">release</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">Flask</span> <span class="nx">release</span> <span class="nx">cycle</span> <span class="nx">because</span> <span class="nx">it</span> <span class="nx">was</span> <span class="nx">supposed</span>
+<span class="nx">to</span> <span class="nx">be</span> <span class="nx">the</span> <span class="mf">1.0</span> <span class="nx">release</span><span class="p">.</span>  <span class="nx">However</span> <span class="nx">because</span> <span class="nx">there</span> <span class="nx">was</span> <span class="nx">such</span> <span class="nx">a</span> <span class="kr">long</span> <span class="nx">lead</span> <span class="nx">time</span> <span class="nx">up</span>
+<span class="nx">to</span> <span class="nx">the</span> <span class="nx">release</span> <span class="nx">we</span> <span class="nx">decided</span> <span class="nx">to</span> <span class="nx">push</span> <span class="nx">out</span> <span class="nx">a</span> <span class="mf">0.11</span> <span class="nx">release</span> <span class="nx">first</span> <span class="kd">with</span> <span class="nx">some</span>
+<span class="nx">changes</span> <span class="nx">removed</span> <span class="nx">to</span> <span class="nx">make</span> <span class="nx">the</span> <span class="nx">transition</span> <span class="nx">easier</span><span class="p">.</span>  <span class="nx">If</span> <span class="nx">you</span> <span class="nx">have</span> <span class="nx">been</span> <span class="nx">tracking</span>
+<span class="nx">the</span> <span class="nx">master</span> <span class="nx">branch</span> <span class="nx">which</span> <span class="nx">was</span> <span class="mf">1.0</span> <span class="nx">you</span> <span class="nx">might</span> <span class="nx">see</span> <span class="nx">some</span> <span class="nx">unexpected</span> <span class="nx">changes</span><span class="p">.</span>
+
+<span class="nx">In</span> <span class="k">case</span> <span class="nx">you</span> <span class="nx">did</span> <span class="nx">track</span> <span class="nx">the</span> <span class="nx">master</span> <span class="nx">branch</span> <span class="nx">you</span> <span class="nx">will</span> <span class="nx">notice</span> <span class="nx">that</span> :<span class="kt">command</span><span class="o">:</span><span class="sb">`flask --app`</span>
+<span class="nx">is</span> <span class="nx">removed</span> <span class="nx">now</span><span class="p">.</span>  <span class="nx">You</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">the</span> <span class="nx">environment</span> <span class="nx">variable</span> <span class="nx">to</span> <span class="nx">specify</span> <span class="nx">an</span>
+<span class="nx">application</span><span class="p">.</span>
+
+<span class="nx">Debugging</span>
+<span class="sb">`````````</span>
+
+<span class="sb">Flask 0.11 removed the ``debug_log_format`` attribute from Flask</span>
+<span class="sb">applications.  Instead the new ``LOGGER_HANDLER_POLICY`` configuration can</span>
+<span class="sb">be used to disable the default log handlers and custom log handlers can be</span>
+<span class="sb">set up.</span>
+
+<span class="sb">Error handling</span>
+<span class="sb">``````````````</span>
+
+<span class="sb">The behavior of error handlers was changed.</span>
+<span class="sb">The precedence of handlers used to be based on the decoration/call order of</span>
+<span class="sb">:meth:`</span><span class="o">~</span><span class="nx">flask</span><span class="p">.</span><span class="nx">Flask</span><span class="p">.</span><span class="nx">errorhandler</span><span class="sb">` and</span>
+<span class="sb">:meth:`</span><span class="o">~</span><span class="nx">flask</span><span class="p">.</span><span class="nx">Flask</span><span class="p">.</span><span class="nx">register_error_handler</span><span class="sb">`, respectively.</span>
+<span class="sb">Now the inheritance hierarchy takes precedence and handlers for more</span>
+<span class="sb">specific exception classes are executed instead of more general ones.</span>
+<span class="sb">See :ref:`</span><span class="nx">error</span><span class="o">-</span><span class="nx">handlers</span><span class="sb">` for specifics.</span>
+
+<span class="sb">Trying to register a handler on an instance now raises :exc:`</span><span class="nx">ValueError</span><span class="sb">`.</span>
+
+<span class="sb">.. note::</span>
+
+<span class="sb">    There used to be a logic error allowing you to register handlers</span>
+<span class="sb">    only for exception *instances*. This was unintended and plain wrong,</span>
+<span class="sb">    and therefore was replaced with the intended behavior of registering</span>
+<span class="sb">    handlers only using exception classes and HTTP error codes.</span>
+
+<span class="sb">Templating</span>
+<span class="sb">``````````</span>
+
+<span class="sb">The :func:`</span><span class="o">~</span><span class="nx">flask</span><span class="p">.</span><span class="nx">templating</span><span class="p">.</span><span class="nx">render_template_string</span><span class="sb">` function has changed to</span>
+<span class="sb">autoescape template variables by default. This better matches the behavior</span>
+<span class="sb">of :func:`</span><span class="o">~</span><span class="nx">flask</span><span class="p">.</span><span class="nx">templating</span><span class="p">.</span><span class="nx">render_template</span><span class="sb">`.</span>
+
+<span class="sb">Extension imports</span>
+<span class="sb">`````````````````</span>
+
+<span class="nx">Extension</span> <span class="nx">imports</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">form</span> <span class="sb">``</span><span class="nx">flask</span><span class="p">.</span><span class="nx">ext</span><span class="p">.</span><span class="nx">foo</span><span class="sb">``</span> <span class="nx">are</span> <span class="nx">deprecated</span><span class="p">,</span> <span class="nx">you</span> <span class="nx">should</span> <span class="nx">use</span>
+<span class="sb">``</span><span class="nx">flask_foo</span><span class="sb">``</span><span class="p">.</span>
+
+<span class="nx">The</span> <span class="nx">old</span> <span class="nx">form</span> <span class="nx">still</span> <span class="nx">works</span><span class="p">,</span> <span class="nx">but</span> <span class="nx">Flask</span> <span class="nx">will</span> <span class="nx">issue</span> <span class="nx">a</span>
+<span class="sb">``</span><span class="nx">flask</span><span class="p">.</span><span class="nx">exthook</span><span class="p">.</span><span class="nx">ExtDeprecationWarning</span><span class="sb">``</span> <span class="k">for</span> <span class="nx">each</span> <span class="nx">extension</span> <span class="nx">you</span> <span class="kr">import</span> <span class="nx">the</span> <span class="nx">old</span>
+<span class="nx">way</span><span class="p">.</span> <span class="nx">We</span> <span class="nx">also</span> <span class="nx">provide</span> <span class="nx">a</span> <span class="nx">migration</span> <span class="nx">utility</span> <span class="nx">called</span> <span class="sb">`flask-ext-migrate</span>
+<span class="sb">&lt;https://github.com/pallets/flask-ext-migrate&gt;`</span><span class="nx">_</span> <span class="nx">that</span> <span class="nx">is</span> <span class="nx">supposed</span> <span class="nx">to</span>
+<span class="nx">automatically</span> <span class="nx">rewrite</span> <span class="nx">your</span> <span class="nx">imports</span> <span class="k">for</span> <span class="k">this</span><span class="p">.</span>
+
+<span class="p">..</span> <span class="nx">_upgrading</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">010</span>:
+
+<span class="kt">Version</span> <span class="mf">0.10</span>
+<span class="o">------------</span>
+
+<span class="nx">The</span> <span class="nx">biggest</span> <span class="nx">change</span> <span class="nx">going</span> <span class="nx">from</span> <span class="mf">0.9</span> <span class="nx">to</span> <span class="mf">0.10</span> <span class="nx">is</span> <span class="nx">that</span> <span class="nx">the</span> <span class="nx">cookie</span> <span class="nx">serialization</span>
+<span class="nx">format</span> <span class="nx">changed</span> <span class="nx">from</span> <span class="nx">pickle</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">specialized</span> <span class="nx">JSON</span> <span class="nx">format</span><span class="p">.</span>  <span class="nx">This</span> <span class="nx">change</span> <span class="nx">has</span>
+<span class="nx">been</span> <span class="nx">done</span> <span class="k">in</span> <span class="nx">order</span> <span class="nx">to</span> <span class="nx">avoid</span> <span class="nx">the</span> <span class="nx">damage</span> <span class="nx">an</span> <span class="nx">attacker</span> <span class="nx">can</span> <span class="k">do</span> <span class="k">if</span> <span class="nx">the</span> <span class="nx">secret</span>
+<span class="nx">key</span> <span class="nx">is</span> <span class="nx">leaked</span><span class="p">.</span>  <span class="nx">When</span> <span class="nx">you</span> <span class="nx">upgrade</span> <span class="nx">you</span> <span class="nx">will</span> <span class="nx">notice</span> <span class="nx">two</span> <span class="nx">major</span> <span class="nx">changes</span>: <span class="kt">all</span>
+<span class="nx">sessions</span> <span class="nx">that</span> <span class="nx">were</span> <span class="nx">issued</span> <span class="nx">before</span> <span class="nx">the</span> <span class="nx">upgrade</span> <span class="nx">are</span> <span class="nx">invalidated</span> <span class="nx">and</span> <span class="nx">you</span> <span class="nx">can</span>
+<span class="nx">only</span> <span class="nx">store</span> <span class="nx">a</span> <span class="nx">limited</span> <span class="nx">amount</span> <span class="nx">of</span> <span class="nx">types</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">session</span><span class="p">.</span>  <span class="nx">The</span> <span class="k">new</span> <span class="nx">sessions</span> <span class="nx">are</span>
+<span class="nx">by</span> <span class="nx">design</span> <span class="nx">much</span> <span class="nx">more</span> <span class="nx">restricted</span> <span class="nx">to</span> <span class="nx">only</span> <span class="nx">allow</span> <span class="nx">JSON</span> <span class="kd">with</span> <span class="nx">a</span> <span class="nx">few</span> <span class="nx">small</span>
+<span class="nx">extensions</span> <span class="k">for</span> <span class="nx">tuples</span> <span class="nx">and</span> <span class="nx">strings</span> <span class="kd">with</span> <span class="nx">HTML</span> <span class="nx">markup</span><span class="p">.</span>
+
+<span class="nx">In</span> <span class="nx">order</span> <span class="nx">to</span> <span class="nx">not</span> <span class="k">break</span> <span class="nx">people</span><span class="s1">&#39;s sessions it is possible to continue using</span>
+<span class="s1">the old session system by using the `Flask-OldSessions`_ extension.</span>
+
+<span class="s1">Flask also started storing the :data:`flask.g` object on the application</span>
+<span class="s1">context instead of the request context.  This change should be transparent</span>
+<span class="s1">for you but it means that you now can store things on the ``g`` object</span>
+<span class="s1">when there is no request context yet but an application context.  The old</span>
+<span class="s1">``flask.Flask.request_globals_class`` attribute was renamed to</span>
+<span class="s1">:attr:`flask.Flask.app_ctx_globals_class`.</span>
+
+<span class="s1">.. _Flask-OldSessions: https://pythonhosted.org/Flask-OldSessions/</span>
+
+<span class="s1">Version 0.9</span>
+<span class="s1">-----------</span>
+
+<span class="s1">The behavior of returning tuples from a function was simplified.  If you</span>
+<span class="s1">return a tuple it no longer defines the arguments for the response object</span>
+<span class="s1">you&#39;</span><span class="nx">re</span> <span class="nx">creating</span><span class="p">,</span> <span class="nx">it</span><span class="s1">&#39;s now always a tuple in the form ``(response, status,</span>
+<span class="s1">headers)`` where at least one item has to be provided.  If you depend on</span>
+<span class="s1">the old behavior, you can add it easily by subclassing Flask::</span>
+
+<span class="s1">    class TraditionalFlask(Flask):</span>
+<span class="s1">        def make_response(self, rv):</span>
+<span class="s1">            if isinstance(rv, tuple):</span>
+<span class="s1">                return self.response_class(*rv)</span>
+<span class="s1">            return Flask.make_response(self, rv)</span>
+
+<span class="s1">If you maintain an extension that was using :data:`~flask._request_ctx_stack`</span>
+<span class="s1">before, please consider changing to :data:`~flask._app_ctx_stack` if it makes</span>
+<span class="s1">sense for your extension.  For instance, the app context stack makes sense for</span>
+<span class="s1">extensions which connect to databases.  Using the app context stack instead of</span>
+<span class="s1">the request context stack will make extensions more readily handle use cases</span>
+<span class="s1">outside of requests.</span>
+
+<span class="s1">Version 0.8</span>
+<span class="s1">-----------</span>
+
+<span class="s1">Flask introduced a new session interface system.  We also noticed that</span>
+<span class="s1">there was a naming collision between ``flask.session`` the module that</span>
+<span class="s1">implements sessions and :data:`flask.session` which is the global session</span>
+<span class="s1">object.  With that introduction we moved the implementation details for</span>
+<span class="s1">the session system into a new module called :mod:`flask.sessions`.  If you</span>
+<span class="s1">used the previously undocumented session support we urge you to upgrade.</span>
+
+<span class="s1">If invalid JSON data was submitted Flask will now raise a</span>
+<span class="s1">:exc:`~werkzeug.exceptions.BadRequest` exception instead of letting the</span>
+<span class="s1">default :exc:`ValueError` bubble up.  This has the advantage that you no</span>
+<span class="s1">longer have to handle that error to avoid an internal server error showing</span>
+<span class="s1">up for the user.  If you were catching this down explicitly in the past</span>
+<span class="s1">as :exc:`ValueError` you will need to change this.</span>
+
+<span class="s1">Due to a bug in the test client Flask 0.7 did not trigger teardown</span>
+<span class="s1">handlers when the test client was used in a with statement.  This was</span>
+<span class="s1">since fixed but might require some changes in your test suites if you</span>
+<span class="s1">relied on this behavior.</span>
+
+<span class="s1">Version 0.7</span>
+<span class="s1">-----------</span>
+
+<span class="s1">In Flask 0.7 we cleaned up the code base internally a lot and did some</span>
+<span class="s1">backwards incompatible changes that make it easier to implement larger</span>
+<span class="s1">applications with Flask.  Because we want to make upgrading as easy as</span>
+<span class="s1">possible we tried to counter the problems arising from these changes by</span>
+<span class="s1">providing a script that can ease the transition.</span>
+
+<span class="s1">The script scans your whole application and generates a unified diff with</span>
+<span class="s1">changes it assumes are safe to apply.  However as this is an automated</span>
+<span class="s1">tool it won&#39;</span><span class="nx">t</span> <span class="nx">be</span> <span class="nx">able</span> <span class="nx">to</span> <span class="nx">find</span> <span class="nx">all</span> <span class="nx">use</span> <span class="nx">cases</span> <span class="nx">and</span> <span class="nx">it</span> <span class="nx">might</span> <span class="nx">miss</span> <span class="nx">some</span><span class="p">.</span>  <span class="nx">We</span>
+<span class="nx">internally</span> <span class="nx">spread</span> <span class="nx">a</span> <span class="nx">lot</span> <span class="nx">of</span> <span class="nx">deprecation</span> <span class="nx">warnings</span> <span class="nx">all</span> <span class="nx">over</span> <span class="nx">the</span> <span class="nx">place</span> <span class="nx">to</span> <span class="nx">make</span>
+<span class="nx">it</span> <span class="nx">easy</span> <span class="nx">to</span> <span class="nx">find</span> <span class="nx">pieces</span> <span class="nx">of</span> <span class="nx">code</span> <span class="nx">that</span> <span class="nx">it</span> <span class="nx">was</span> <span class="nx">unable</span> <span class="nx">to</span> <span class="nx">upgrade</span><span class="p">.</span>
+
+<span class="nx">We</span> <span class="nx">strongly</span> <span class="nx">recommend</span> <span class="nx">that</span> <span class="nx">you</span> <span class="nx">hand</span> <span class="nx">review</span> <span class="nx">the</span> <span class="nx">generated</span> <span class="nx">patchfile</span> <span class="nx">and</span>
+<span class="nx">only</span> <span class="nx">apply</span> <span class="nx">the</span> <span class="nx">chunks</span> <span class="nx">that</span> <span class="nx">look</span> <span class="nx">good</span><span class="p">.</span>
+
+<span class="nx">If</span> <span class="nx">you</span> <span class="nx">are</span> <span class="nx">using</span> <span class="nx">git</span> <span class="kr">as</span> <span class="nx">version</span> <span class="nx">control</span> <span class="nx">system</span> <span class="k">for</span> <span class="nx">your</span> <span class="nx">project</span> <span class="nx">we</span>
+<span class="nx">recommend</span> <span class="nx">applying</span> <span class="nx">the</span> <span class="nx">patch</span> <span class="kd">with</span> <span class="sb">``</span><span class="nx">path</span> <span class="o">-</span><span class="nx">p1</span> <span class="o">&lt;</span> <span class="nx">patchfile</span><span class="p">.</span><span class="nx">diff</span><span class="sb">``</span> <span class="nx">and</span> <span class="nx">then</span>
+<span class="nx">using</span> <span class="nx">the</span> <span class="nx">interactive</span> <span class="nx">commit</span> <span class="nx">feature</span> <span class="nx">to</span> <span class="nx">only</span> <span class="nx">apply</span> <span class="nx">the</span> <span class="nx">chunks</span> <span class="nx">that</span> <span class="nx">look</span>
+<span class="nx">good</span><span class="p">.</span>
+
+<span class="nx">To</span> <span class="nx">apply</span> <span class="nx">the</span> <span class="nx">upgrade</span> <span class="nx">script</span> <span class="k">do</span> <span class="nx">the</span> <span class="nx">following</span>:
+
+<span class="kt">1.</span>  <span class="nx">Download</span> <span class="nx">the</span> <span class="nx">script</span><span class="o">:</span> <span class="sb">`flask-07-upgrade.py</span>
+<span class="sb">    &lt;https://raw.githubusercontent.com/pallets/flask/0.12.3/scripts/flask-07-upgrade.py&gt;`</span><span class="nx">_</span>
+<span class="mi">2</span><span class="p">.</span>  <span class="nx">Run</span> <span class="nx">it</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">directory</span> <span class="nx">of</span> <span class="nx">your</span> <span class="nx">application</span><span class="o">::</span>
+
+        <span class="nx">$</span> <span class="nx">python</span> <span class="nx">flask</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="nx">upgrade</span><span class="p">.</span><span class="nx">py</span> <span class="o">&gt;</span> <span class="nx">patchfile</span><span class="p">.</span><span class="nx">diff</span>
+
+<span class="mi">3</span><span class="p">.</span>  <span class="nx">Review</span> <span class="nx">the</span> <span class="nx">generated</span> <span class="nx">patchfile</span><span class="p">.</span>
+<span class="mi">4</span><span class="p">.</span>  <span class="nx">Apply</span> <span class="nx">the</span> <span class="nx">patch</span><span class="o">::</span>
+
+        <span class="nx">$</span> <span class="nx">patch</span> <span class="o">-</span><span class="nx">p1</span> <span class="o">&lt;</span> <span class="nx">patchfile</span><span class="p">.</span><span class="nx">diff</span>
+
+<span class="mi">5</span><span class="p">.</span>  <span class="nx">If</span> <span class="nx">you</span> <span class="nx">were</span> <span class="nx">using</span> <span class="nx">per</span><span class="o">-</span><span class="kr">module</span> <span class="nx">template</span> <span class="nx">folders</span> <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">move</span> <span class="nx">some</span>
+    <span class="nx">templates</span> <span class="nx">around</span><span class="p">.</span>  <span class="nx">Previously</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">had</span> <span class="nx">a</span> <span class="nx">folder</span> <span class="nx">named</span> :<span class="kt">file</span><span class="o">:</span><span class="sb">`templates`</span>
+    <span class="nx">next</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">blueprint</span> <span class="nx">named</span> <span class="sb">``</span><span class="nx">admin</span><span class="sb">``</span> <span class="nx">the</span> <span class="nx">implicit</span> <span class="nx">template</span> <span class="nx">path</span>
+    <span class="nx">automatically</span> <span class="nx">was</span> :<span class="kt">file</span><span class="o">:</span><span class="sb">`admin/index.html`</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">template</span> <span class="nx">file</span> <span class="nx">called</span>
+    :<span class="kt">file</span><span class="o">:</span><span class="sb">`templates/index.html`</span><span class="p">.</span>  <span class="nx">This</span> <span class="nx">no</span> <span class="nx">longer</span> <span class="nx">is</span> <span class="nx">the</span> <span class="k">case</span><span class="p">.</span>  <span class="nx">Now</span> <span class="nx">you</span> <span class="nx">need</span>
+    <span class="nx">to</span> <span class="nx">name</span> <span class="nx">the</span> <span class="nx">template</span> :<span class="kt">file</span><span class="o">:</span><span class="sb">`templates/admin/index.html`</span><span class="p">.</span>  <span class="nx">The</span> <span class="nx">tool</span> <span class="nx">will</span>
+    <span class="nx">not</span> <span class="nx">detect</span> <span class="k">this</span> <span class="nx">so</span> <span class="nx">you</span> <span class="nx">will</span> <span class="nx">have</span> <span class="nx">to</span> <span class="k">do</span> <span class="nx">that</span> <span class="nx">on</span> <span class="nx">your</span> <span class="nx">own</span><span class="p">.</span>
+
+<span class="nx">Please</span> <span class="nx">note</span> <span class="nx">that</span> <span class="nx">deprecation</span> <span class="nx">warnings</span> <span class="nx">are</span> <span class="nx">disabled</span> <span class="nx">by</span> <span class="k">default</span> <span class="nx">starting</span>
+<span class="kd">with</span> <span class="nx">Python</span> <span class="mf">2.7</span><span class="p">.</span>  <span class="nx">In</span> <span class="nx">order</span> <span class="nx">to</span> <span class="nx">see</span> <span class="nx">the</span> <span class="nx">deprecation</span> <span class="nx">warnings</span> <span class="nx">that</span> <span class="nx">might</span> <span class="nx">be</span>
+<span class="nx">emitted</span> <span class="nx">you</span> <span class="nx">have</span> <span class="nx">to</span> <span class="nx">enabled</span> <span class="nx">them</span> <span class="kd">with</span> <span class="nx">the</span> :<span class="kt">mod</span><span class="o">:</span><span class="sb">`warnings`</span> <span class="kr">module</span><span class="nx">.</span>
+
+<span class="nx">If</span> <span class="nx">you</span> <span class="nx">are</span> <span class="nx">working</span> <span class="kd">with</span> <span class="nx">windows</span> <span class="nx">and</span> <span class="nx">you</span> <span class="nx">lack</span> <span class="nx">the</span> <span class="sb">``</span><span class="nx">patch</span><span class="sb">``</span> <span class="nx">command</span> <span class="nx">line</span>
+<span class="nx">utility</span> <span class="nx">you</span> <span class="nx">can</span> <span class="nx">get</span> <span class="nx">it</span> <span class="kr">as</span> <span class="nx">part</span> <span class="nx">of</span> <span class="nx">various</span> <span class="nx">Unix</span> <span class="nx">runtime</span> <span class="nx">environments</span> <span class="k">for</span>
+<span class="nx">windows</span> <span class="nx">including</span> <span class="nx">cygwin</span><span class="p">,</span> <span class="nx">msysgit</span> <span class="nx">or</span> <span class="nx">ming32</span><span class="p">.</span>  <span class="nx">Also</span> <span class="nx">source</span> <span class="nx">control</span> <span class="nx">systems</span>
+<span class="nx">like</span> <span class="nx">svn</span><span class="p">,</span> <span class="nx">hg</span> <span class="nx">or</span> <span class="nx">git</span> <span class="nx">have</span> <span class="nx">builtin</span> <span class="nx">support</span> <span class="k">for</span> <span class="nx">applying</span> <span class="nx">unified</span> <span class="nx">diffs</span> <span class="kr">as</span>
+<span class="nx">generated</span> <span class="nx">by</span> <span class="nx">the</span> <span class="nx">tool</span><span class="p">.</span>  <span class="nx">Check</span> <span class="nx">the</span> <span class="nx">manual</span> <span class="nx">of</span> <span class="nx">your</span> <span class="nx">version</span> <span class="nx">control</span> <span class="nx">system</span>
+<span class="k">for</span> <span class="nx">more</span> <span class="nx">information</span><span class="p">.</span>
+
+<span class="nx">Bug</span> <span class="k">in</span> <span class="nx">Request</span> <span class="nx">Locals</span>
+</pre></div>
+
+<p>Due to a bug in earlier implementations the request local proxies now
+raise a :exc:<code>RuntimeError</code> instead of an :exc:<code>AttributeError</code> when they
+are unbound. If you caught these exceptions with :exc:<code>AttributeError</code>
+before, you should catch them with :exc:<code>RuntimeError</code> now.</p>
+<p>Additionally the :func:<code>~flask.send_file</code> function is now issuing
+deprecation warnings if you depend on functionality that will be removed
+in Flask 0.11. Previously it was possible to use etags and mimetypes
+when file objects were passed. This was unreliable and caused issues
+for a few setups. If you get a deprecation warning, make sure to
+update your application to work with either filenames there or disable
+etag attaching and attach them yourself.</p>
+<p>Old code::</p>
+<div class="codehilite"><pre><span></span>return send_file(my_file_object)
+return send_file(my_file_object)
+</pre></div>
+
+
+<p>New code::</p>
+<div class="codehilite"><pre><span></span>return send_file(my_file_object, add_etags=False)
+</pre></div>
+
+
+<p>Upgrading to new Teardown Handling</p>
+<div class="codehilite"><pre><span></span>We streamlined the behavior of the callbacks for request handling.  For
+things that modify the response the :meth:`~flask.Flask.after_request`
+decorators continue to work as expected, but for things that absolutely
+must happen at the end of request we introduced the new
+:meth:`~flask.Flask.teardown_request` decorator.  Unfortunately that
+change also made after-request work differently under error conditions.
+It&#39;s not consistently skipped if exceptions happen whereas previously it
+might have been called twice to ensure it is executed at the end of the
+request.
+
+If you have database connection code that looks like this::
+
+    @app.after_request
+    def after_request(response):
+        g.db.close()
+        return response
+
+You are now encouraged to use this instead::
+
+    @app.teardown_request
+    def after_request(exception):
+        if hasattr(g, &#39;db&#39;):
+            g.db.close()
+
+On the upside this change greatly improves the internal code flow and
+makes it easier to customize the dispatching and error handling.  This
+makes it now a lot easier to write unit tests as you can prevent closing
+down of database connections for a while.  You can take advantage of the
+fact that the teardown callbacks are called when the response context is
+removed from the stack so a test can query the database after request
+handling::
+
+    with app.test_client() as client:
+        resp = client.get(&#39;/&#39;)
+        # g.db is still bound if there is such a thing
+
+    # and here it&#39;s gone
+
+Manual Error Handler Attaching
+``````````````````````````````
+
+While it is still possible to attach error handlers to
+:attr:`Flask.error_handlers` it&#39;s discouraged to do so and in fact
+deprecated.  In general we no longer recommend custom error handler
+attaching via assignments to the underlying dictionary due to the more
+complex internal handling to support arbitrary exception classes and
+blueprints.  See :meth:`Flask.errorhandler` for more information.
+
+The proper upgrade is to change this::
+
+    app.error_handlers[403] = handle_error
+
+Into this::
+
+    app.register_error_handler(403, handle_error)
+
+Alternatively you should just attach the function with a decorator::
+
+    @app.errorhandler(403)
+    def handle_error(e):
+        ...
+
+(Note that :meth:`register_error_handler` is new in Flask 0.7)
+
+Blueprint Support
+`````````````````
+
+Blueprints replace the previous concept of “Modules” in Flask.  They
+provide better semantics for various features and work better with large
+applications.  The update script provided should be able to upgrade your
+applications automatically, but there might be some cases where it fails
+to upgrade.  What changed?
+
+-   Blueprints need explicit names.  Modules had an automatic name
+    guessing scheme where the shortname for the module was taken from the
+    last part of the import module.  The upgrade script tries to guess
+    that name but it might fail as this information could change at
+    runtime.
+-   Blueprints have an inverse behavior for :meth:`url_for`.  Previously
+    ``.foo`` told :meth:`url_for` that it should look for the endpoint
+    ``foo`` on the application.  Now it means “relative to current module”.
+    The script will inverse all calls to :meth:`url_for` automatically for
+    you.  It will do this in a very eager way so you might end up with
+    some unnecessary leading dots in your code if you&#39;re not using
+    modules.
+-   Blueprints do not automatically provide static folders.  They will
+    also no longer automatically export templates from a folder called
+    :file:`templates` next to their location however but it can be enabled from
+    the constructor.  Same with static files: if you want to continue
+    serving static files you need to tell the constructor explicitly the
+    path to the static folder (which can be relative to the blueprint&#39;s
+    module path).
+-   Rendering templates was simplified.  Now the blueprints can provide
+    template folders which are added to a general template searchpath.
+    This means that you need to add another subfolder with the blueprint&#39;s
+    name into that folder if you want :file:`blueprintname/template.html` as
+    the template name.
+
+If you continue to use the ``Module`` object which is deprecated, Flask will
+restore the previous behavior as good as possible.  However we strongly
+recommend upgrading to the new blueprints as they provide a lot of useful
+improvement such as the ability to attach a blueprint multiple times,
+blueprint specific error handlers and a lot more.
+
+
+Version 0.6
+-----------
+
+Flask 0.6 comes with a backwards incompatible change which affects the
+order of after-request handlers.  Previously they were called in the order
+of the registration, now they are called in reverse order.  This change
+was made so that Flask behaves more like people expected it to work and
+how other systems handle request pre- and post-processing.  If you
+depend on the order of execution of post-request functions, be sure to
+change the order.
+
+Another change that breaks backwards compatibility is that context
+processors will no longer override values passed directly to the template
+rendering function.  If for example ``request`` is as variable passed
+directly to the template, the default context processor will not override
+it with the current request object.  This makes it easier to extend
+context processors later to inject additional variables without breaking
+existing template not expecting them.
+
+Version 0.5
+-----------
+
+Flask 0.5 is the first release that comes as a Python package instead of a
+single module.  There were a couple of internal refactoring so if you
+depend on undocumented internal details you probably have to adapt the
+imports.
+
+The following changes may be relevant to your application:
+
+-   autoescaping no longer happens for all templates.  Instead it is
+    configured to only happen on files ending with ``.html``, ``.htm``,
+    ``.xml`` and ``.xhtml``.  If you have templates with different
+    extensions you should override the
+    :meth:`~flask.Flask.select_jinja_autoescape` method.
+-   Flask no longer supports zipped applications in this release.  This
+    functionality might come back in future releases if there is demand
+    for this feature.  Removing support for this makes the Flask internal
+    code easier to understand and fixes a couple of small issues that make
+    debugging harder than necessary.
+-   The ``create_jinja_loader`` function is gone.  If you want to customize
+    the Jinja loader now, use the
+    :meth:`~flask.Flask.create_jinja_environment` method instead.
+
+Version 0.4
+-----------
+
+For application developers there are no changes that require changes in
+your code.  In case you are developing on a Flask extension however, and
+that extension has a unittest-mode you might want to link the activation
+of that mode to the new ``TESTING`` flag.
+
+Version 0.3
+-----------
+
+Flask 0.3 introduces configuration support and logging as well as
+categories for flashing messages.  All these are features that are 100%
+backwards compatible but you might want to take advantage of them.
+
+Configuration Support
+`````````````````````
+
+The configuration support makes it easier to write any kind of application
+that requires some sort of configuration.  (Which most likely is the case
+for any application out there).
+
+If you previously had code like this::
+
+    app.debug = DEBUG
+    app.secret_key = SECRET_KEY
+
+You no longer have to do that, instead you can just load a configuration
+into the config object.  How this works is outlined in :ref:`config`.
+
+Logging Integration
+```````````````````
+
+Flask now configures a logger for you with some basic and useful defaults.
+If you run your application in production and want to profit from
+automatic error logging, you might be interested in attaching a proper log
+handler.  Also you can start logging warnings and errors into the logger
+when appropriately.  For more information on that, read
+:ref:`application-errors`.
+
+Categories for Flash Messages
+`````````````````````````````
+
+Flash messages can now have categories attached.  This makes it possible
+to render errors, warnings or regular messages differently for example.
+This is an opt-in feature because it requires some rethinking in the code.
+
+Read all about that in the :ref:`message-flashing-pattern` pattern.
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../unicode/" title="Unicode in Flask" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Unicode in Flask
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../views/" title="Pluggable Views" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Pluggable Views
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

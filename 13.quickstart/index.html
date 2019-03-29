@@ -1,0 +1,2432 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Quickstart - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#quickstart" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Quickstart
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="欢迎来到 Flask" class="md-tabs__link md-tabs__link--active">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Quickstart
+      </label>
+    
+    <a href="./" title="Quickstart" class="md-nav__link md-nav__link--active">
+      Quickstart
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-minimal-application" title="A Minimal Application" class="md-nav__link">
+    A Minimal Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-if-the-server-does-not-start" title="What to do if the Server does not Start" class="md-nav__link">
+    What to do if the Server does not Start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-files" title="Static Files" class="md-nav__link">
+    Static Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-templates" title="Rendering Templates" class="md-nav__link">
+    Rendering Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-request-data" title="Accessing Request Data" class="md-nav__link">
+    Accessing Request Data
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blueprints/" title="Modular Applications with Blueprints" class="md-nav__link">
+      Modular Applications with Blueprints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Cli" class="md-nav__link">
+      Cli
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../config/" title="Configuration Handling" class="md-nav__link">
+      Configuration Handling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensiondev/" title="Flask Extension Development" class="md-nav__link">
+      Flask Extension Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../upgrading/" title="Upgrading to Newer Releases" class="md-nav__link">
+      Upgrading to Newer Releases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/views/" title="Views" class="md-nav__link">
+      Views
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-minimal-application" title="A Minimal Application" class="md-nav__link">
+    A Minimal Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-if-the-server-does-not-start" title="What to do if the Server does not Start" class="md-nav__link">
+    What to do if the Server does not Start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-files" title="Static Files" class="md-nav__link">
+    Static Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-templates" title="Rendering Templates" class="md-nav__link">
+    Rendering Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-request-data" title="Accessing Request Data" class="md-nav__link">
+    Accessing Request Data
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h1>
+<p>Eager to get started? This page gives a good introduction to Flask. It
+assumes you already have Flask installed. If you do not, head over to the
+:ref:<code>installation</code> section.</p>
+<h2 id="a-minimal-application">A Minimal Application<a class="headerlink" href="#a-minimal-application" title="Permanent link">&para;</a></h2>
+<p>A minimal Flask application looks something like this::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, World!&#39;</span>
+</pre></div>
+
+
+<p>So what did that code do?</p>
+<ol>
+<li>First we imported the :class:<code>~flask.Flask</code> class. An instance of this
+   class will be our WSGI application.</li>
+<li>Next we create an instance of this class. The first argument is the name of
+   the application's module or package. If you are using a single module (as
+   in this example), you should use <code>__name__</code> because depending on if it's
+   started as application or imported as module the name will be different
+   (<code>'__main__'</code> versus the actual import name). This is needed so that
+   Flask knows where to look for templates, static files, and so on. For more
+   information have a look at the :class:<code>~flask.Flask</code> documentation.</li>
+<li>We then use the :meth:<code>~flask.Flask.route</code> decorator to tell Flask what URL
+   should trigger our function.</li>
+<li>The function is given a name which is also used to generate URLs for that
+   particular function, and returns the message we want to display in the
+   user's browser.</li>
+</ol>
+<p>Just save it as :file:<code>hello.py</code> or something similar. Make sure to not call
+your application :file:<code>flask.py</code> because this would conflict with Flask
+itself.</p>
+<p>To run the application you can either use the :command:<code>flask</code> command or
+python's <code>-m</code> switch with Flask. Before you can do that you need
+to tell your terminal the application to work with by exporting the
+<code>FLASK_APP</code> environment variable::</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>hello.py
+$ flask run
+ * Running on http://127.0.0.1:5000/
+</pre></div>
+
+
+<p>If you are on Windows, the environment variable syntax depends on command line
+interpreter. On Command Prompt::</p>
+<div class="codehilite"><pre><span></span><span class="nt">C</span><span class="o">:</span><span class="err">\</span><span class="nt">path</span><span class="err">\</span><span class="nt">to</span><span class="err">\</span><span class="nt">app</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span><span class="nt">set</span> <span class="nt">FLASK_APP</span><span class="o">=</span><span class="nt">hello</span><span class="p">.</span><span class="nc">py</span>
+</pre></div>
+
+
+<p>And on PowerShell::</p>
+<div class="codehilite"><pre><span></span><span class="nt">PS</span> <span class="nt">C</span><span class="o">:</span><span class="err">\</span><span class="nt">path</span><span class="err">\</span><span class="nt">to</span><span class="err">\</span><span class="nt">app</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="o">$</span><span class="nt">env</span><span class="p">:</span><span class="nd">FLASK_APP</span> <span class="o">=</span> <span class="s2">&quot;hello.py&quot;</span>
+</pre></div>
+
+
+<p>Alternatively you can use :command:<code>python -m flask</code>::</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>hello.py
+$ python -m flask run
+ * Running on http://127.0.0.1:5000/
+</pre></div>
+
+
+<p>This launches a very simple builtin server, which is good enough for testing
+but probably not what you want to use in production. For deployment options see
+:ref:<code>deployment</code>.</p>
+<p>Now head over to <code>http://127.0.0.1:5000/ &lt;http://127.0.0.1:5000/&gt;</code>_, and you
+should see your hello world greeting.</p>
+<p>.. admonition:: Externally Visible Server</p>
+<p>If you run the server you will notice that the server is only accessible
+from your own computer, not from any other in the network. This is the
+default because in debugging mode a user of the application can execute
+arbitrary Python code on your computer.</p>
+<p>If you have the debugger disabled or trust the users on your network,
+you can make the server publicly available simply by adding
+<code>--host=0.0.0.0</code> to the command line::</p>
+<div class="codehilite"><pre><span></span>   $ flask run --host=0.0.0.0
+</pre></div>
+
+
+<p>This tells your operating system to listen on all public IPs.</p>
+<h2 id="what-to-do-if-the-server-does-not-start">What to do if the Server does not Start<a class="headerlink" href="#what-to-do-if-the-server-does-not-start" title="Permanent link">&para;</a></h2>
+<p>In case the :command:<code>python -m flask</code> fails or :command:<code>flask</code> does not exist,
+there are multiple reasons this might be the case. First of all you need
+to look at the error message.</p>
+<p>Old Version of Flask</p>
+<div class="codehilite"><pre><span></span><span class="n">Versions</span> <span class="n">of</span> <span class="n">Flask</span> <span class="n">older</span> <span class="n">than</span> <span class="mf">0.11</span> <span class="n">use</span> <span class="n">to</span> <span class="n">have</span> <span class="n">different</span> <span class="n">ways</span> <span class="n">to</span> <span class="n">start</span> <span class="n">the</span>
+<span class="n">application</span><span class="o">.</span>  <span class="n">In</span> <span class="n">short</span><span class="p">,</span> <span class="n">the</span> <span class="p">:</span><span class="n">command</span><span class="p">:</span><span class="sb">`flask`</span> <span class="n">command</span> <span class="n">did</span> <span class="ow">not</span> <span class="n">exist</span><span class="p">,</span> <span class="ow">and</span>
+<span class="n">neither</span> <span class="n">did</span> <span class="p">:</span><span class="n">command</span><span class="p">:</span><span class="sb">`python -m flask`</span><span class="o">.</span>  <span class="n">In</span> <span class="n">that</span> <span class="n">case</span> <span class="n">you</span> <span class="n">have</span> <span class="n">two</span> <span class="n">options</span><span class="p">:</span>
+<span class="n">either</span> <span class="n">upgrade</span> <span class="n">to</span> <span class="n">newer</span> <span class="n">Flask</span> <span class="n">versions</span> <span class="ow">or</span> <span class="n">have</span> <span class="n">a</span> <span class="n">look</span> <span class="n">at</span> <span class="n">the</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`server`</span>
+<span class="n">docs</span> <span class="n">to</span> <span class="n">see</span> <span class="n">the</span> <span class="n">alternative</span> <span class="n">method</span> <span class="k">for</span> <span class="n">running</span> <span class="n">a</span> <span class="n">server</span><span class="o">.</span>
+
+<span class="n">Invalid</span> <span class="n">Import</span> <span class="n">Name</span>
+<span class="sb">``````````````````</span><span class="err">`</span>
+
+<span class="n">The</span> <span class="sb">``</span><span class="n">FLASK_APP</span><span class="sb">``</span> <span class="n">environment</span> <span class="n">variable</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">module</span> <span class="n">to</span> <span class="kn">import</span> <span class="nn">at</span>
+<span class="p">:</span><span class="n">command</span><span class="p">:</span><span class="sb">`flask run`</span><span class="o">.</span> <span class="n">In</span> <span class="n">case</span> <span class="n">that</span> <span class="n">module</span> <span class="ow">is</span> <span class="n">incorrectly</span> <span class="n">named</span> <span class="n">you</span> <span class="n">will</span> <span class="n">get</span> <span class="n">an</span>
+<span class="kn">import</span> <span class="nn">error</span> <span class="nn">upon</span> <span class="nn">start</span> <span class="p">(</span><span class="ow">or</span> <span class="k">if</span> <span class="n">debug</span> <span class="ow">is</span> <span class="n">enabled</span> <span class="n">when</span> <span class="n">you</span> <span class="n">navigate</span> <span class="n">to</span> <span class="n">the</span>
+<span class="n">application</span><span class="p">)</span><span class="o">.</span> <span class="n">It</span> <span class="n">will</span> <span class="n">tell</span> <span class="n">you</span> <span class="n">what</span> <span class="n">it</span> <span class="n">tried</span> <span class="n">to</span> <span class="kn">import</span> <span class="nn">and</span> <span class="nn">why</span> <span class="nn">it</span> <span class="nn">failed.</span>
+
+<span class="n">The</span> <span class="n">most</span> <span class="n">common</span> <span class="n">reason</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">typo</span> <span class="ow">or</span> <span class="n">because</span> <span class="n">you</span> <span class="n">did</span> <span class="ow">not</span> <span class="n">actually</span> <span class="n">create</span> <span class="n">an</span>
+<span class="sb">``</span><span class="n">app</span><span class="sb">``</span> <span class="nb">object</span><span class="o">.</span>
+
+<span class="o">..</span> <span class="n">_debug</span><span class="o">-</span><span class="n">mode</span><span class="p">:</span>
+
+<span class="n">Debug</span> <span class="n">Mode</span>
+<span class="o">----------</span>
+
+<span class="p">(</span><span class="n">Want</span> <span class="n">to</span> <span class="n">just</span> <span class="n">log</span> <span class="n">errors</span> <span class="ow">and</span> <span class="n">stack</span> <span class="n">traces</span><span class="err">?</span> <span class="n">See</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`application-errors`</span><span class="p">)</span>
+
+<span class="n">The</span> <span class="p">:</span><span class="n">command</span><span class="p">:</span><span class="sb">`flask`</span> <span class="n">script</span> <span class="ow">is</span> <span class="n">nice</span> <span class="n">to</span> <span class="n">start</span> <span class="n">a</span> <span class="n">local</span> <span class="n">development</span> <span class="n">server</span><span class="p">,</span> <span class="n">but</span>
+<span class="n">you</span> <span class="n">would</span> <span class="n">have</span> <span class="n">to</span> <span class="n">restart</span> <span class="n">it</span> <span class="n">manually</span> <span class="n">after</span> <span class="n">each</span> <span class="n">change</span> <span class="n">to</span> <span class="n">your</span> <span class="n">code</span><span class="o">.</span>
+<span class="n">That</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">very</span> <span class="n">nice</span> <span class="ow">and</span> <span class="n">Flask</span> <span class="n">can</span> <span class="n">do</span> <span class="n">better</span><span class="o">.</span>  <span class="n">If</span> <span class="n">you</span> <span class="n">enable</span> <span class="n">debug</span>
+<span class="n">support</span> <span class="n">the</span> <span class="n">server</span> <span class="n">will</span> <span class="nb">reload</span> <span class="n">itself</span> <span class="n">on</span> <span class="n">code</span> <span class="n">changes</span><span class="p">,</span> <span class="ow">and</span> <span class="n">it</span> <span class="n">will</span> <span class="n">also</span>
+<span class="n">provide</span> <span class="n">you</span> <span class="k">with</span> <span class="n">a</span> <span class="n">helpful</span> <span class="n">debugger</span> <span class="k">if</span> <span class="n">things</span> <span class="n">go</span> <span class="n">wrong</span><span class="o">.</span>
+
+<span class="n">To</span> <span class="n">enable</span> <span class="nb">all</span> <span class="n">development</span> <span class="n">features</span> <span class="p">(</span><span class="n">including</span> <span class="n">debug</span> <span class="n">mode</span><span class="p">)</span> <span class="n">you</span> <span class="n">can</span> <span class="n">export</span>
+<span class="n">the</span> <span class="sb">``</span><span class="n">FLASK_ENV</span><span class="sb">``</span> <span class="n">environment</span> <span class="n">variable</span> <span class="ow">and</span> <span class="nb">set</span> <span class="n">it</span> <span class="n">to</span> <span class="sb">``</span><span class="n">development</span><span class="sb">``</span>
+<span class="n">before</span> <span class="n">running</span> <span class="n">the</span> <span class="n">server</span><span class="p">::</span>
+
+    <span class="err">$</span> <span class="n">export</span> <span class="n">FLASK_ENV</span><span class="o">=</span><span class="n">development</span>
+    <span class="err">$</span> <span class="n">flask</span> <span class="n">run</span>
+
+<span class="p">(</span><span class="n">On</span> <span class="n">Windows</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">use</span> <span class="sb">``</span><span class="nb">set</span><span class="sb">``</span> <span class="n">instead</span> <span class="n">of</span> <span class="sb">``</span><span class="n">export</span><span class="sb">``</span><span class="o">.</span><span class="p">)</span>
+
+<span class="n">This</span> <span class="n">does</span> <span class="n">the</span> <span class="n">following</span> <span class="n">things</span><span class="p">:</span>
+
+<span class="mf">1.</span>  <span class="n">it</span> <span class="n">activates</span> <span class="n">the</span> <span class="n">debugger</span>
+<span class="mf">2.</span>  <span class="n">it</span> <span class="n">activates</span> <span class="n">the</span> <span class="n">automatic</span> <span class="n">reloader</span>
+<span class="mf">3.</span>  <span class="n">it</span> <span class="n">enables</span> <span class="n">the</span> <span class="n">debug</span> <span class="n">mode</span> <span class="n">on</span> <span class="n">the</span> <span class="n">Flask</span> <span class="n">application</span><span class="o">.</span>
+
+<span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">control</span> <span class="n">debug</span> <span class="n">mode</span> <span class="n">separately</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nn">environment</span> <span class="nn">by</span>
+<span class="n">exporting</span> <span class="sb">``</span><span class="n">FLASK_DEBUG</span><span class="o">=</span><span class="mi">1</span><span class="sb">``</span><span class="o">.</span>
+
+<span class="n">There</span> <span class="n">are</span> <span class="n">more</span> <span class="n">parameters</span> <span class="n">that</span> <span class="n">are</span> <span class="n">explained</span> <span class="ow">in</span> <span class="n">the</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`server`</span> <span class="n">docs</span><span class="o">.</span>
+
+<span class="o">..</span> <span class="n">admonition</span><span class="p">::</span> <span class="n">Attention</span>
+
+   <span class="n">Even</span> <span class="n">though</span> <span class="n">the</span> <span class="n">interactive</span> <span class="n">debugger</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">work</span> <span class="ow">in</span> <span class="n">forking</span> <span class="n">environments</span>
+   <span class="p">(</span><span class="n">which</span> <span class="n">makes</span> <span class="n">it</span> <span class="n">nearly</span> <span class="n">impossible</span> <span class="n">to</span> <span class="n">use</span> <span class="n">on</span> <span class="n">production</span> <span class="n">servers</span><span class="p">),</span> <span class="n">it</span> <span class="n">still</span>
+   <span class="n">allows</span> <span class="n">the</span> <span class="n">execution</span> <span class="n">of</span> <span class="n">arbitrary</span> <span class="n">code</span><span class="o">.</span> <span class="n">This</span> <span class="n">makes</span> <span class="n">it</span> <span class="n">a</span> <span class="n">major</span> <span class="n">security</span> <span class="n">risk</span>
+   <span class="ow">and</span> <span class="n">therefore</span> <span class="n">it</span> <span class="o">**</span><span class="n">must</span> <span class="n">never</span> <span class="n">be</span> <span class="n">used</span> <span class="n">on</span> <span class="n">production</span> <span class="n">machines</span><span class="o">**.</span>
+
+<span class="n">Screenshot</span> <span class="n">of</span> <span class="n">the</span> <span class="n">debugger</span> <span class="ow">in</span> <span class="n">action</span><span class="p">:</span>
+
+<span class="o">..</span> <span class="n">image</span><span class="p">::</span> <span class="n">_static</span><span class="o">/</span><span class="n">debugger</span><span class="o">.</span><span class="n">png</span>
+   <span class="p">:</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span>
+   <span class="p">:</span><span class="n">class</span><span class="p">:</span> <span class="n">screenshot</span>
+   <span class="p">:</span><span class="n">alt</span><span class="p">:</span> <span class="n">screenshot</span> <span class="n">of</span> <span class="n">debugger</span> <span class="ow">in</span> <span class="n">action</span>
+
+<span class="n">More</span> <span class="n">information</span> <span class="n">on</span> <span class="n">using</span> <span class="n">the</span> <span class="n">debugger</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">the</span> <span class="err">`</span><span class="n">Werkzeug</span>
+<span class="n">documentation</span><span class="err">`</span><span class="n">_</span><span class="o">.</span>
+
+<span class="o">..</span> <span class="n">_Werkzeug</span> <span class="n">documentation</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">werkzeug</span><span class="o">.</span><span class="n">pocoo</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">debug</span><span class="o">/</span><span class="c1">#using-the-debugger</span>
+
+<span class="n">Have</span> <span class="n">another</span> <span class="n">debugger</span> <span class="ow">in</span> <span class="n">mind</span><span class="err">?</span> <span class="n">See</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`working-with-debuggers`</span><span class="o">.</span>
+
+
+<span class="n">Routing</span>
+<span class="o">-------</span>
+
+<span class="n">Modern</span> <span class="n">web</span> <span class="n">applications</span> <span class="n">use</span> <span class="n">meaningful</span> <span class="n">URLs</span> <span class="n">to</span> <span class="n">help</span> <span class="n">users</span><span class="o">.</span> <span class="n">Users</span> <span class="n">are</span> <span class="n">more</span>
+<span class="n">likely</span> <span class="n">to</span> <span class="n">like</span> <span class="n">a</span> <span class="n">page</span> <span class="ow">and</span> <span class="n">come</span> <span class="n">back</span> <span class="k">if</span> <span class="n">the</span> <span class="n">page</span> <span class="n">uses</span> <span class="n">a</span> <span class="n">meaningful</span> <span class="n">URL</span> <span class="n">they</span> <span class="n">can</span>
+<span class="n">remember</span> <span class="ow">and</span> <span class="n">use</span> <span class="n">to</span> <span class="n">directly</span> <span class="n">visit</span> <span class="n">a</span> <span class="n">page</span><span class="o">.</span>
+
+<span class="n">Use</span> <span class="n">the</span> <span class="p">:</span><span class="n">meth</span><span class="p">:</span><span class="sb">`~flask.Flask.route`</span> <span class="n">decorator</span> <span class="n">to</span> <span class="n">bind</span> <span class="n">a</span> <span class="n">function</span> <span class="n">to</span> <span class="n">a</span> <span class="n">URL</span><span class="o">.</span> <span class="p">::</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s1">&#39;Index Page&#39;</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello, World&#39;</span>
+
+<span class="n">You</span> <span class="n">can</span> <span class="n">do</span> <span class="n">more</span><span class="err">!</span> <span class="n">You</span> <span class="n">can</span> <span class="n">make</span> <span class="n">parts</span> <span class="n">of</span> <span class="n">the</span> <span class="n">URL</span> <span class="n">dynamic</span> <span class="ow">and</span> <span class="n">attach</span> <span class="n">multiple</span>
+<span class="n">rules</span> <span class="n">to</span> <span class="n">a</span> <span class="n">function</span><span class="o">.</span>
+
+<span class="n">Variable</span> <span class="n">Rules</span>
+<span class="sb">``````````````</span>
+
+<span class="n">You</span> <span class="n">can</span> <span class="n">add</span> <span class="n">variable</span> <span class="n">sections</span> <span class="n">to</span> <span class="n">a</span> <span class="n">URL</span> <span class="n">by</span> <span class="n">marking</span> <span class="n">sections</span> <span class="k">with</span>
+<span class="sb">``</span><span class="o">&lt;</span><span class="n">variable_name</span><span class="o">&gt;</span><span class="sb">``</span><span class="o">.</span> <span class="n">Your</span> <span class="n">function</span> <span class="n">then</span> <span class="n">receives</span> <span class="n">the</span> <span class="sb">``</span><span class="o">&lt;</span><span class="n">variable_name</span><span class="o">&gt;</span><span class="sb">``</span>
+<span class="k">as</span> <span class="n">a</span> <span class="n">keyword</span> <span class="n">argument</span><span class="o">.</span> <span class="n">Optionally</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">a</span> <span class="n">converter</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">the</span> <span class="nb">type</span>
+<span class="n">of</span> <span class="n">the</span> <span class="n">argument</span> <span class="n">like</span> <span class="sb">``</span><span class="o">&lt;</span><span class="n">converter</span><span class="p">:</span><span class="n">variable_name</span><span class="o">&gt;</span><span class="sb">``</span><span class="o">.</span> <span class="p">::</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/user/&lt;username&gt;&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">show_user_profile</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+        <span class="c1"># show the user profile for that user</span>
+        <span class="k">return</span> <span class="s1">&#39;User </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">username</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/post/&lt;int:post_id&gt;&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">show_post</span><span class="p">(</span><span class="n">post_id</span><span class="p">):</span>
+        <span class="c1"># show the post with the given id, the id is an integer</span>
+        <span class="k">return</span> <span class="s1">&#39;Post </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">post_id</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/path/&lt;path:subpath&gt;&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">show_subpath</span><span class="p">(</span><span class="n">subpath</span><span class="p">):</span>
+        <span class="c1"># show the subpath after /path/</span>
+        <span class="k">return</span> <span class="s1">&#39;Subpath </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">subpath</span>
+
+<span class="n">Converter</span> <span class="n">types</span><span class="p">:</span>
+
+<span class="o">==========</span> <span class="o">==========================================</span>
+<span class="sb">``</span><span class="n">string</span><span class="sb">``</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span> <span class="n">accepts</span> <span class="nb">any</span> <span class="n">text</span> <span class="n">without</span> <span class="n">a</span> <span class="n">slash</span>
+<span class="sb">``</span><span class="nb">int</span><span class="sb">``</span>    <span class="n">accepts</span> <span class="n">positive</span> <span class="n">integers</span>
+<span class="sb">``</span><span class="nb">float</span><span class="sb">``</span>  <span class="n">accepts</span> <span class="n">positive</span> <span class="n">floating</span> <span class="n">point</span> <span class="n">values</span>
+<span class="sb">``</span><span class="n">path</span><span class="sb">``</span>   <span class="n">like</span> <span class="sb">``</span><span class="n">string</span><span class="sb">``</span> <span class="n">but</span> <span class="n">also</span> <span class="n">accepts</span> <span class="n">slashes</span>
+<span class="sb">``</span><span class="n">uuid</span><span class="sb">``</span>   <span class="n">accepts</span> <span class="n">UUID</span> <span class="n">strings</span>
+<span class="o">==========</span> <span class="o">==========================================</span>
+
+<span class="n">Unique</span> <span class="n">URLs</span> <span class="o">/</span> <span class="n">Redirection</span> <span class="n">Behavior</span>
+</pre></div>
+
+<p>The following two rules differ in their use of a trailing slash. ::</p>
+<div class="codehilite"><pre><span></span>@app.route(&#39;/projects/&#39;)
+def projects():
+    return &#39;The project page&#39;
+
+@app.route(&#39;/about&#39;)
+def about():
+    return &#39;The about page&#39;
+</pre></div>
+
+
+<p>The canonical URL for the <code>projects</code> endpoint has a trailing slash.
+It's similar to a folder in a file system. If you access the URL without
+a trailing slash, Flask redirects you to the canonical URL with the
+trailing slash.</p>
+<p>The canonical URL for the <code>about</code> endpoint does not have a trailing
+slash. It's similar to the pathname of a file. Accessing the URL with a
+trailing slash produces a 404 "Not Found" error. This helps keep URLs
+unique for these resources, which helps search engines avoid indexing
+the same page twice.</p>
+<p>URL Building</p>
+<div class="codehilite"><pre><span></span>To build a URL to a specific function, use the :func:`~flask.url_for` function.
+It accepts the name of the function as its first argument and any number of
+keyword arguments, each corresponding to a variable part of the URL rule.
+Unknown variable parts are appended to the URL as query parameters.
+
+Why would you want to build URLs using the URL reversing function
+:func:`~flask.url_for` instead of hard-coding them into your templates?
+
+1. Reversing is often more descriptive than hard-coding the URLs.
+2. You can change your URLs in one go instead of needing to remember to
+   manually change hard-coded URLs.
+3. URL building handles escaping of special characters and Unicode data
+   transparently.
+4. The generated paths are always absolute, avoiding unexpected behavior
+   of relative paths in browsers.
+5. If your application is placed outside the URL root, for example, in
+   ``/myapplication`` instead of ``/``, :func:`~flask.url_for` properly
+   handles that for you.
+
+For example, here we use the :meth:`~flask.Flask.test_request_context` method
+to try out :func:`~flask.url_for`. :meth:`~flask.Flask.test_request_context`
+tells Flask to behave as though it&#39;s handling a request even while we use a
+Python shell. See :ref:`context-locals`.
+
+.. code-block:: python
+
+    from flask import Flask, url_for
+
+    app = Flask(__name__)
+
+    @app.route(&#39;/&#39;)
+    def index():
+        return &#39;index&#39;
+
+    @app.route(&#39;/login&#39;)
+    def login():
+        return &#39;login&#39;
+
+    @app.route(&#39;/user/&lt;username&gt;&#39;)
+    def profile(username):
+        return &#39;{}\&#39;s profile&#39;.format(username)
+
+    with app.test_request_context():
+        print(url_for(&#39;index&#39;))
+        print(url_for(&#39;login&#39;))
+        print(url_for(&#39;login&#39;, next=&#39;/&#39;))
+        print(url_for(&#39;profile&#39;, username=&#39;John Doe&#39;))
+
+.. code-block:: text
+
+    /
+    /login
+    /login?next=/
+    /user/John%20Doe
+
+
+HTTP Methods
+</pre></div>
+
+<p>Web applications use different HTTP methods when accessing URLs. You should
+familiarize yourself with the HTTP methods as you work with Flask. By default,
+a route only answers to <code>GET</code> requests. You can use the <code>methods</code> argument
+of the :meth:<code>~flask.Flask.route</code> decorator to handle different HTTP methods.
+::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">do_the_login</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">show_the_login_form</span><span class="p">()</span>
+</pre></div>
+
+
+<p>If <code>GET</code> is present, Flask automatically adds support for the <code>HEAD</code> method
+and handles <code>HEAD</code> requests according to the <code>HTTP RFC</code>_. Likewise,
+<code>OPTIONS</code> is automatically implemented for you.</p>
+<p>.. _HTTP RFC: https://www.ietf.org/rfc/rfc2068.txt</p>
+<h2 id="static-files">Static Files<a class="headerlink" href="#static-files" title="Permanent link">&para;</a></h2>
+<p>Dynamic web applications also need static files. That's usually where
+the CSS and JavaScript files are coming from. Ideally your web server is
+configured to serve them for you, but during development Flask can do that
+as well. Just create a folder called :file:<code>static</code> in your package or next to
+your module and it will be available at <code>/static</code> on the application.</p>
+<p>To generate URLs for static files, use the special <code>'static'</code> endpoint name::</p>
+<div class="codehilite"><pre><span></span>url_for(&#39;static&#39;, filename=&#39;style.css&#39;)
+</pre></div>
+
+
+<p>The file has to be stored on the filesystem as :file:<code>static/style.css</code>.</p>
+<h2 id="rendering-templates">Rendering Templates<a class="headerlink" href="#rendering-templates" title="Permanent link">&para;</a></h2>
+<p>Generating HTML from within Python is not fun, and actually pretty
+cumbersome because you have to do the HTML escaping on your own to keep
+the application secure. Because of that Flask configures the <code>Jinja2 &lt;http://jinja.pocoo.org/&gt;</code>_ template engine for you automatically.</p>
+<p>To render a template you can use the :func:<code>~flask.render_template</code>
+method. All you have to do is provide the name of the template and the
+variables you want to pass to the template engine as keyword arguments.
+Here's a simple example of how to render a template::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/hello/&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/hello/&amp;lt;name&amp;gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;hello.html&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Flask will look for templates in the :file:<code>templates</code> folder. So if your
+application is a module, this folder is next to that module, if it's a
+package it's actually inside your package:</p>
+<p><strong>Case 1</strong>: a module::</p>
+<div class="codehilite"><pre><span></span>/application.py
+/templates
+    /hello.html
+</pre></div>
+
+
+<p><strong>Case 2</strong>: a package::</p>
+<div class="codehilite"><pre><span></span>/application
+    /__init__.py
+    /templates
+        /hello.html
+</pre></div>
+
+
+<p>For templates you can use the full power of Jinja2 templates. Head over
+to the official <code>Jinja2 Template Documentation &lt;http://jinja.pocoo.org/docs/templates&gt;</code>_ for more information.</p>
+<p>Here is an example template:</p>
+<p>.. sourcecode:: html+jinja</p>
+<div class="codehilite"><pre><span></span><span class="x">&amp;lt;!doctype html&amp;gt;</span>
+<span class="x">&amp;lt;title&amp;gt;Hello from Flask&amp;lt;/title&amp;gt;</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">name</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  &amp;lt;h1&amp;gt;Hello </span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x">!&amp;lt;/h1&amp;gt;</span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  &amp;lt;h1&amp;gt;Hello, World!&amp;lt;/h1&amp;gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p>Inside templates you also have access to the :class:<code>~flask.request</code>,
+:class:<code>~flask.session</code> and :class:<code>~flask.g</code> [#]_ objects
+as well as the :func:<code>~flask.get_flashed_messages</code> function.</p>
+<p>Templates are especially useful if inheritance is used. If you want to
+know how that works, head over to the :ref:<code>template-inheritance</code> pattern
+documentation. Basically template inheritance makes it possible to keep
+certain elements on each page (like header, navigation and footer).</p>
+<p>Automatic escaping is enabled, so if <code>name</code> contains HTML it will be escaped
+automatically. If you can trust a variable and you know that it will be
+safe HTML (for example because it came from a module that converts wiki
+markup to HTML) you can mark it as safe by using the
+:class:<code>~jinja2.Markup</code> class or by using the <code>|safe</code> filter in the
+template. Head over to the Jinja 2 documentation for more examples.</p>
+<p>Here is a basic introduction to how the :class:<code>~jinja2.Markup</code> class works::</p>
+<div class="codehilite"><pre><span></span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Markup</span>
+<span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Markup</span><span class="p">(</span><span class="s1">&#39;&amp;lt;strong&amp;gt;Hello </span><span class="si">%s</span><span class="s1">!&amp;lt;/strong&amp;gt;&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="s1">&#39;&amp;lt;blink&amp;gt;hacker&amp;lt;/blink&amp;gt;&#39;</span>
+<span class="n">Markup</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;&amp;lt;strong&amp;gt;Hello &amp;amp;lt;blink&amp;amp;gt;hacker&amp;amp;lt;/blink&amp;amp;gt;!&amp;lt;/strong&amp;gt;&#39;</span><span class="p">)</span>
+<span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Markup</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="s1">&#39;&amp;lt;blink&amp;gt;hacker&amp;lt;/blink&amp;gt;&#39;</span><span class="p">)</span>
+<span class="n">Markup</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;&amp;amp;lt;blink&amp;amp;gt;hacker&amp;amp;lt;/blink&amp;amp;gt;&#39;</span><span class="p">)</span>
+<span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Markup</span><span class="p">(</span><span class="s1">&#39;&amp;lt;em&amp;gt;Marked up&amp;lt;/em&amp;gt; &amp;amp;raquo; HTML&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">striptags</span><span class="p">()</span>
+<span class="sa">u</span><span class="s1">&#39;Marked up </span><span class="se">\xbb</span><span class="s1"> HTML&#39;</span>
+</pre></div>
+
+
+<p>.. versionchanged:: 0.5</p>
+<p>Autoescaping is no longer enabled for all templates. The following
+extensions for templates trigger autoescaping: <code>.html</code>, <code>.htm</code>,
+<code>.xml</code>, <code>.xhtml</code>. Templates loaded from a string will have
+autoescaping disabled.</p>
+<p>.. [#] Unsure what that :class:<code>~flask.g</code> object is? It's something in which
+you can store information for your own needs, check the documentation of
+that object (:class:<code>~flask.g</code>) and the :ref:<code>sqlite3</code> for more
+information.</p>
+<h2 id="accessing-request-data">Accessing Request Data<a class="headerlink" href="#accessing-request-data" title="Permanent link">&para;</a></h2>
+<p>For web applications it's crucial to react to the data a client sends to
+the server. In Flask this information is provided by the global
+:class:<code>~flask.request</code> object. If you have some experience with Python
+you might be wondering how that object can be global and how Flask
+manages to still be threadsafe. The answer is context locals:</p>
+<p>Context Locals</p>
+<div class="codehilite"><pre><span></span>.. admonition:: Insider Information
+
+   If you want to understand how that works and how you can implement
+   tests with context locals, read this section, otherwise just skip it.
+
+Certain objects in Flask are global objects, but not of the usual kind.
+These objects are actually proxies to objects that are local to a specific
+context.  What a mouthful.  But that is actually quite easy to understand.
+
+Imagine the context being the handling thread.  A request comes in and the
+web server decides to spawn a new thread (or something else, the
+underlying object is capable of dealing with concurrency systems other
+than threads).  When Flask starts its internal request handling it
+figures out that the current thread is the active context and binds the
+current application and the WSGI environments to that context (thread).
+It does that in an intelligent way so that one application can invoke another
+application without breaking.
+
+So what does this mean to you?  Basically you can completely ignore that
+this is the case unless you are doing something like unit testing.  You
+will notice that code which depends on a request object will suddenly break
+because there is no request object.  The solution is creating a request
+object yourself and binding it to the context.  The easiest solution for
+unit testing is to use the :meth:`~flask.Flask.test_request_context`
+context manager.  In combination with the ``with`` statement it will bind a
+test request so that you can interact with it.  Here is an example::
+
+    from flask import request
+
+    with app.test_request_context(&#39;/hello&#39;, method=&#39;POST&#39;):
+        # now you can do something with the request until the
+        # end of the with block, such as basic assertions:
+        assert request.path == &#39;/hello&#39;
+        assert request.method == &#39;POST&#39;
+
+The other possibility is passing a whole WSGI environment to the
+:meth:`~flask.Flask.request_context` method::
+
+    from flask import request
+
+    with app.request_context(environ):
+        assert request.method == &#39;POST&#39;
+
+The Request Object
+</pre></div>
+
+<p>The request object is documented in the API section and we will not cover
+it here in detail (see :class:<code>~flask.Request</code>). Here is a broad overview of
+some of the most common operations. First of all you have to import it from
+the <code>flask</code> module::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+</pre></div>
+
+
+<p>The current request method is available by using the
+:attr:<code>~flask.Request.method</code> attribute. To access form data (data
+transmitted in a <code>POST</code> or <code>PUT</code> request) you can use the
+:attr:<code>~flask.Request.form</code> attribute. Here is a full example of the two
+attributes mentioned above::</p>
+<div class="codehilite"><pre><span></span>@app.route(&#39;/login&#39;, methods=[&#39;POST&#39;, &#39;GET&#39;])
+def login():
+    error = None
+    if request.method == &#39;POST&#39;:
+        if valid_login(request.form[&#39;username&#39;],
+                       request.form[&#39;password&#39;]):
+            return log_the_user_in(request.form[&#39;username&#39;])
+        else:
+            error = &#39;Invalid username/password&#39;
+    # the code below is executed if the request method
+    # was GET or the credentials were invalid
+    return render_template(&#39;login.html&#39;, error=error)
+</pre></div>
+
+
+<p>What happens if the key does not exist in the <code>form</code> attribute? In that
+case a special :exc:<code>KeyError</code> is raised. You can catch it like a
+standard :exc:<code>KeyError</code> but if you don't do that, a HTTP 400 Bad Request
+error page is shown instead. So for many situations you don't have to
+deal with that problem.</p>
+<p>To access parameters submitted in the URL (<code>?key=value</code>) you can use the
+:attr:<code>~flask.Request.args</code> attribute::</p>
+<div class="codehilite"><pre><span></span>searchword = request.args.get(&#39;key&#39;, &#39;&#39;)
+</pre></div>
+
+
+<p>We recommend accessing URL parameters with <code>get</code> or by catching the
+:exc:<code>KeyError</code> because users might change the URL and presenting them a 400
+bad request page in that case is not user friendly.</p>
+<p>For a full list of methods and attributes of the request object, head over
+to the :class:<code>~flask.Request</code> documentation.</p>
+<p>File Uploads</p>
+<div class="codehilite"><pre><span></span><span class="n">You</span> <span class="n">can</span> <span class="n">handle</span> <span class="n">uploaded</span> <span class="n">files</span> <span class="k">with</span> <span class="n">Flask</span> <span class="n">easily</span><span class="o">.</span>  <span class="n">Just</span> <span class="n">make</span> <span class="n">sure</span> <span class="ow">not</span> <span class="n">to</span>
+<span class="n">forget</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">the</span> <span class="sb">``</span><span class="n">enctype</span><span class="o">=</span><span class="s2">&quot;multipart/form-data&quot;</span><span class="sb">``</span> <span class="n">attribute</span> <span class="n">on</span> <span class="n">your</span> <span class="n">HTML</span>
+<span class="n">form</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">the</span> <span class="n">browser</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">transmit</span> <span class="n">your</span> <span class="n">files</span> <span class="n">at</span> <span class="nb">all</span><span class="o">.</span>
+
+<span class="n">Uploaded</span> <span class="n">files</span> <span class="n">are</span> <span class="n">stored</span> <span class="ow">in</span> <span class="n">memory</span> <span class="ow">or</span> <span class="n">at</span> <span class="n">a</span> <span class="n">temporary</span> <span class="n">location</span> <span class="n">on</span> <span class="n">the</span>
+<span class="n">filesystem</span><span class="o">.</span>  <span class="n">You</span> <span class="n">can</span> <span class="n">access</span> <span class="n">those</span> <span class="n">files</span> <span class="n">by</span> <span class="n">looking</span> <span class="n">at</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">attr</span><span class="p">:</span><span class="sb">`~flask.request.files`</span> <span class="n">attribute</span> <span class="n">on</span> <span class="n">the</span> <span class="n">request</span> <span class="nb">object</span><span class="o">.</span>  <span class="n">Each</span>
+<span class="n">uploaded</span> <span class="nb">file</span> <span class="ow">is</span> <span class="n">stored</span> <span class="ow">in</span> <span class="n">that</span> <span class="n">dictionary</span><span class="o">.</span>  <span class="n">It</span> <span class="n">behaves</span> <span class="n">just</span> <span class="n">like</span> <span class="n">a</span>
+<span class="n">standard</span> <span class="n">Python</span> <span class="p">:</span><span class="n">class</span><span class="p">:</span><span class="sb">`file`</span> <span class="nb">object</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">also</span> <span class="n">has</span> <span class="n">a</span>
+<span class="p">:</span><span class="n">meth</span><span class="p">:</span><span class="sb">`~werkzeug.datastructures.FileStorage.save`</span> <span class="n">method</span> <span class="n">that</span> <span class="n">allows</span> <span class="n">you</span> <span class="n">to</span> <span class="n">store</span> <span class="n">that</span>
+<span class="nb">file</span> <span class="n">on</span> <span class="n">the</span> <span class="n">filesystem</span> <span class="n">of</span> <span class="n">the</span> <span class="n">server</span><span class="o">.</span>  <span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">example</span> <span class="n">showing</span> <span class="n">how</span>
+<span class="n">that</span> <span class="n">works</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">upload_file</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;the_file&#39;</span><span class="p">]</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;/var/www/uploads/uploaded_file.txt&#39;</span><span class="p">)</span>
+        <span class="o">...</span>
+
+<span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">know</span> <span class="n">how</span> <span class="n">the</span> <span class="nb">file</span> <span class="n">was</span> <span class="n">named</span> <span class="n">on</span> <span class="n">the</span> <span class="n">client</span> <span class="n">before</span> <span class="n">it</span> <span class="n">was</span>
+<span class="n">uploaded</span> <span class="n">to</span> <span class="n">your</span> <span class="n">application</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">access</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">attr</span><span class="p">:</span><span class="sb">`~werkzeug.datastructures.FileStorage.filename`</span> <span class="n">attribute</span><span class="o">.</span>  <span class="n">However</span> <span class="n">please</span> <span class="n">keep</span> <span class="ow">in</span>
+<span class="n">mind</span> <span class="n">that</span> <span class="n">this</span> <span class="n">value</span> <span class="n">can</span> <span class="n">be</span> <span class="n">forged</span> <span class="n">so</span> <span class="n">never</span> <span class="n">ever</span> <span class="n">trust</span> <span class="n">that</span> <span class="n">value</span><span class="o">.</span>  <span class="n">If</span> <span class="n">you</span>
+<span class="n">want</span> <span class="n">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">filename</span> <span class="n">of</span> <span class="n">the</span> <span class="n">client</span> <span class="n">to</span> <span class="n">store</span> <span class="n">the</span> <span class="nb">file</span> <span class="n">on</span> <span class="n">the</span> <span class="n">server</span><span class="p">,</span>
+<span class="k">pass</span> <span class="n">it</span> <span class="n">through</span> <span class="n">the</span> <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~werkzeug.utils.secure_filename`</span> <span class="n">function</span> <span class="n">that</span>
+<span class="n">Werkzeug</span> <span class="n">provides</span> <span class="k">for</span> <span class="n">you</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+    <span class="kn">from</span> <span class="nn">werkzeug.utils</span> <span class="kn">import</span> <span class="n">secure_filename</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">upload_file</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;the_file&#39;</span><span class="p">]</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;/var/www/uploads/&#39;</span> <span class="o">+</span> <span class="n">secure_filename</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">))</span>
+        <span class="o">...</span>
+
+<span class="n">For</span> <span class="n">some</span> <span class="n">better</span> <span class="n">examples</span><span class="p">,</span> <span class="n">checkout</span> <span class="n">the</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`uploading-files`</span> <span class="n">pattern</span><span class="o">.</span>
+
+<span class="n">Cookies</span>
+<span class="sb">``````</span><span class="err">`</span>
+
+<span class="n">To</span> <span class="n">access</span> <span class="n">cookies</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">the</span> <span class="p">:</span><span class="n">attr</span><span class="p">:</span><span class="sb">`~flask.Request.cookies`</span>
+<span class="n">attribute</span><span class="o">.</span>  <span class="n">To</span> <span class="nb">set</span> <span class="n">cookies</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">attr</span><span class="p">:</span><span class="sb">`~flask.Response.set_cookie`</span> <span class="n">method</span> <span class="n">of</span> <span class="n">response</span> <span class="n">objects</span><span class="o">.</span>  <span class="n">The</span>
+<span class="p">:</span><span class="n">attr</span><span class="p">:</span><span class="sb">`~flask.Request.cookies`</span> <span class="n">attribute</span> <span class="n">of</span> <span class="n">request</span> <span class="n">objects</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="n">dictionary</span> <span class="k">with</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">cookies</span> <span class="n">the</span> <span class="n">client</span> <span class="n">transmits</span><span class="o">.</span>  <span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">use</span>
+<span class="n">sessions</span><span class="p">,</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">use</span> <span class="n">the</span> <span class="n">cookies</span> <span class="n">directly</span> <span class="n">but</span> <span class="n">instead</span> <span class="n">use</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`sessions`</span> <span class="ow">in</span> <span class="n">Flask</span> <span class="n">that</span> <span class="n">add</span> <span class="n">some</span> <span class="n">security</span> <span class="n">on</span> <span class="n">top</span> <span class="n">of</span> <span class="n">cookies</span> <span class="k">for</span> <span class="n">you</span><span class="o">.</span>
+
+<span class="n">Reading</span> <span class="n">cookies</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+        <span class="c1"># use cookies.get(key) instead of cookies[key] to not get a</span>
+        <span class="c1"># KeyError if the cookie is missing.</span>
+
+<span class="n">Storing</span> <span class="n">cookies</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">make_response</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">render_template</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;the username&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">resp</span>
+
+<span class="n">Note</span> <span class="n">that</span> <span class="n">cookies</span> <span class="n">are</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">response</span> <span class="n">objects</span><span class="o">.</span>  <span class="n">Since</span> <span class="n">you</span> <span class="n">normally</span>
+<span class="n">just</span> <span class="k">return</span> <span class="n">strings</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nn">view</span> <span class="nn">functions</span> <span class="nn">Flask</span> <span class="nn">will</span> <span class="nn">convert</span> <span class="nn">them</span> <span class="nn">into</span>
+<span class="n">response</span> <span class="n">objects</span> <span class="k">for</span> <span class="n">you</span><span class="o">.</span>  <span class="n">If</span> <span class="n">you</span> <span class="n">explicitly</span> <span class="n">want</span> <span class="n">to</span> <span class="n">do</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span>
+<span class="n">the</span> <span class="p">:</span><span class="n">meth</span><span class="p">:</span><span class="sb">`~flask.make_response`</span> <span class="n">function</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">modify</span> <span class="n">it</span><span class="o">.</span>
+
+<span class="n">Sometimes</span> <span class="n">you</span> <span class="n">might</span> <span class="n">want</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">a</span> <span class="n">cookie</span> <span class="n">at</span> <span class="n">a</span> <span class="n">point</span> <span class="n">where</span> <span class="n">the</span> <span class="n">response</span>
+<span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span> <span class="n">yet</span><span class="o">.</span>  <span class="n">This</span> <span class="ow">is</span> <span class="n">possible</span> <span class="n">by</span> <span class="n">utilizing</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`deferred-callbacks`</span> <span class="n">pattern</span><span class="o">.</span>
+
+<span class="n">For</span> <span class="n">this</span> <span class="n">also</span> <span class="n">see</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`about-responses`</span><span class="o">.</span>
+
+<span class="n">Redirects</span> <span class="ow">and</span> <span class="n">Errors</span>
+<span class="o">--------------------</span>
+
+<span class="n">To</span> <span class="n">redirect</span> <span class="n">a</span> <span class="n">user</span> <span class="n">to</span> <span class="n">another</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">use</span> <span class="n">the</span> <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.redirect`</span>
+<span class="n">function</span><span class="p">;</span> <span class="n">to</span> <span class="n">abort</span> <span class="n">a</span> <span class="n">request</span> <span class="n">early</span> <span class="k">with</span> <span class="n">an</span> <span class="n">error</span> <span class="n">code</span><span class="p">,</span> <span class="n">use</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.abort`</span> <span class="n">function</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">abort</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">))</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
+        <span class="n">this_is_never_executed</span><span class="p">()</span>
+
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">rather</span> <span class="n">pointless</span> <span class="n">example</span> <span class="n">because</span> <span class="n">a</span> <span class="n">user</span> <span class="n">will</span> <span class="n">be</span> <span class="n">redirected</span> <span class="kn">from</span>
+<span class="nn">the</span> <span class="nn">index</span> <span class="nn">to</span> <span class="nn">a</span> <span class="nn">page</span> <span class="nn">they</span> <span class="nn">cannot</span> <span class="nn">access</span> <span class="p">(</span><span class="mi">401</span> <span class="n">means</span> <span class="n">access</span> <span class="n">denied</span><span class="p">)</span> <span class="n">but</span> <span class="n">it</span>
+<span class="n">shows</span> <span class="n">how</span> <span class="n">that</span> <span class="n">works</span><span class="o">.</span>
+
+<span class="n">By</span> <span class="n">default</span> <span class="n">a</span> <span class="n">black</span> <span class="ow">and</span> <span class="n">white</span> <span class="n">error</span> <span class="n">page</span> <span class="ow">is</span> <span class="n">shown</span> <span class="k">for</span> <span class="n">each</span> <span class="n">error</span> <span class="n">code</span><span class="o">.</span>  <span class="n">If</span>
+<span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">customize</span> <span class="n">the</span> <span class="n">error</span> <span class="n">page</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">meth</span><span class="p">:</span><span class="sb">`~flask.Flask.errorhandler`</span> <span class="n">decorator</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+    <span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">page_not_found</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;page_not_found.html&#39;</span><span class="p">),</span> <span class="mi">404</span>
+
+<span class="n">Note</span> <span class="n">the</span> <span class="sb">``</span><span class="mi">404</span><span class="sb">``</span> <span class="n">after</span> <span class="n">the</span> <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.render_template`</span> <span class="n">call</span><span class="o">.</span>  <span class="n">This</span>
+<span class="n">tells</span> <span class="n">Flask</span> <span class="n">that</span> <span class="n">the</span> <span class="n">status</span> <span class="n">code</span> <span class="n">of</span> <span class="n">that</span> <span class="n">page</span> <span class="n">should</span> <span class="n">be</span> <span class="mi">404</span> <span class="n">which</span> <span class="n">means</span>
+<span class="ow">not</span> <span class="n">found</span><span class="o">.</span>  <span class="n">By</span> <span class="n">default</span> <span class="mi">200</span> <span class="ow">is</span> <span class="n">assumed</span> <span class="n">which</span> <span class="n">translates</span> <span class="n">to</span><span class="p">:</span> <span class="nb">all</span> <span class="n">went</span> <span class="n">well</span><span class="o">.</span>
+
+<span class="n">See</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`error-handlers`</span> <span class="k">for</span> <span class="n">more</span> <span class="n">details</span><span class="o">.</span>
+
+<span class="o">..</span> <span class="n">_about</span><span class="o">-</span><span class="n">responses</span><span class="p">:</span>
+
+<span class="n">About</span> <span class="n">Responses</span>
+<span class="o">---------------</span>
+
+<span class="n">The</span> <span class="k">return</span> <span class="n">value</span> <span class="kn">from</span> <span class="nn">a</span> <span class="nn">view</span> <span class="nn">function</span> <span class="nn">is</span> <span class="nn">automatically</span> <span class="nn">converted</span> <span class="nn">into</span> <span class="nn">a</span>
+<span class="n">response</span> <span class="nb">object</span> <span class="k">for</span> <span class="n">you</span><span class="o">.</span>  <span class="n">If</span> <span class="n">the</span> <span class="k">return</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">string</span> <span class="n">it</span><span class="s1">&#39;s converted</span>
+<span class="n">into</span> <span class="n">a</span> <span class="n">response</span> <span class="nb">object</span> <span class="k">with</span> <span class="n">the</span> <span class="n">string</span> <span class="k">as</span> <span class="n">response</span> <span class="n">body</span><span class="p">,</span> <span class="n">a</span> <span class="sb">``</span><span class="mi">200</span> <span class="n">OK</span><span class="sb">``</span>
+<span class="n">status</span> <span class="n">code</span> <span class="ow">and</span> <span class="n">a</span> <span class="p">:</span><span class="n">mimetype</span><span class="p">:</span><span class="sb">`text/html`</span> <span class="n">mimetype</span><span class="o">.</span>  <span class="n">The</span> <span class="n">logic</span> <span class="n">that</span> <span class="n">Flask</span> <span class="n">applies</span> <span class="n">to</span>
+<span class="n">converting</span> <span class="k">return</span> <span class="n">values</span> <span class="n">into</span> <span class="n">response</span> <span class="n">objects</span> <span class="ow">is</span> <span class="k">as</span> <span class="n">follows</span><span class="p">:</span>
+
+<span class="mf">1.</span>  <span class="n">If</span> <span class="n">a</span> <span class="n">response</span> <span class="nb">object</span> <span class="n">of</span> <span class="n">the</span> <span class="n">correct</span> <span class="nb">type</span> <span class="ow">is</span> <span class="n">returned</span> <span class="n">it</span><span class="s1">&#39;s directly</span>
+    <span class="n">returned</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nn">view.</span>
+<span class="mf">2.</span>  <span class="n">If</span> <span class="n">it</span><span class="s1">&#39;s a string, a response object is created with that data and the</span>
+    <span class="n">default</span> <span class="n">parameters</span><span class="o">.</span>
+<span class="mf">3.</span>  <span class="n">If</span> <span class="n">a</span> <span class="nb">tuple</span> <span class="ow">is</span> <span class="n">returned</span> <span class="n">the</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">tuple</span> <span class="n">can</span> <span class="n">provide</span> <span class="n">extra</span>
+    <span class="n">information</span><span class="o">.</span>  <span class="n">Such</span> <span class="n">tuples</span> <span class="n">have</span> <span class="n">to</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">form</span> <span class="sb">``</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span>
+    <span class="n">headers</span><span class="p">)</span><span class="sb">``</span> <span class="ow">or</span> <span class="sb">``</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span><span class="sb">``</span> <span class="n">where</span> <span class="n">at</span> <span class="n">least</span> <span class="n">one</span> <span class="n">item</span> <span class="n">has</span>
+    <span class="n">to</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">tuple</span><span class="o">.</span>  <span class="n">The</span> <span class="sb">``</span><span class="n">status</span><span class="sb">``</span> <span class="n">value</span> <span class="n">will</span> <span class="n">override</span> <span class="n">the</span> <span class="n">status</span> <span class="n">code</span>
+    <span class="ow">and</span> <span class="sb">``</span><span class="n">headers</span><span class="sb">``</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="nb">list</span> <span class="ow">or</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="n">additional</span> <span class="n">header</span> <span class="n">values</span><span class="o">.</span>
+<span class="mf">4.</span>  <span class="n">If</span> <span class="n">none</span> <span class="n">of</span> <span class="n">that</span> <span class="n">works</span><span class="p">,</span> <span class="n">Flask</span> <span class="n">will</span> <span class="n">assume</span> <span class="n">the</span> <span class="k">return</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">a</span>
+    <span class="n">valid</span> <span class="n">WSGI</span> <span class="n">application</span> <span class="ow">and</span> <span class="n">convert</span> <span class="n">that</span> <span class="n">into</span> <span class="n">a</span> <span class="n">response</span> <span class="nb">object</span><span class="o">.</span>
+
+<span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">get</span> <span class="n">hold</span> <span class="n">of</span> <span class="n">the</span> <span class="n">resulting</span> <span class="n">response</span> <span class="nb">object</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">view</span>
+<span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">the</span> <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.make_response`</span> <span class="n">function</span><span class="o">.</span>
+
+<span class="n">Imagine</span> <span class="n">you</span> <span class="n">have</span> <span class="n">a</span> <span class="n">view</span> <span class="n">like</span> <span class="n">this</span><span class="p">::</span>
+
+    <span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">not_found</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;error.html&#39;</span><span class="p">),</span> <span class="mi">404</span>
+
+<span class="n">You</span> <span class="n">just</span> <span class="n">need</span> <span class="n">to</span> <span class="n">wrap</span> <span class="n">the</span> <span class="k">return</span> <span class="n">expression</span> <span class="k">with</span>
+<span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.make_response`</span> <span class="ow">and</span> <span class="n">get</span> <span class="n">the</span> <span class="n">response</span> <span class="nb">object</span> <span class="n">to</span> <span class="n">modify</span> <span class="n">it</span><span class="p">,</span> <span class="n">then</span>
+<span class="k">return</span> <span class="n">it</span><span class="p">::</span>
+
+    <span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">not_found</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;error.html&#39;</span><span class="p">),</span> <span class="mi">404</span><span class="p">)</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X-Something&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;A value&#39;</span>
+        <span class="k">return</span> <span class="n">resp</span>
+
+<span class="o">..</span> <span class="n">_sessions</span><span class="p">:</span>
+
+<span class="n">Sessions</span>
+<span class="o">--------</span>
+
+<span class="n">In</span> <span class="n">addition</span> <span class="n">to</span> <span class="n">the</span> <span class="n">request</span> <span class="nb">object</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">also</span> <span class="n">a</span> <span class="n">second</span> <span class="nb">object</span> <span class="n">called</span>
+<span class="p">:</span><span class="n">class</span><span class="p">:</span><span class="sb">`~flask.session`</span> <span class="n">which</span> <span class="n">allows</span> <span class="n">you</span> <span class="n">to</span> <span class="n">store</span> <span class="n">information</span> <span class="n">specific</span> <span class="n">to</span> <span class="n">a</span>
+<span class="n">user</span> <span class="kn">from</span> <span class="nn">one</span> <span class="nn">request</span> <span class="nn">to</span> <span class="nn">the</span> <span class="nn">next.</span>  <span class="nn">This</span> <span class="nn">is</span> <span class="nn">implemented</span> <span class="nn">on</span> <span class="nn">top</span> <span class="nn">of</span> <span class="nn">cookies</span>
+<span class="k">for</span> <span class="n">you</span> <span class="ow">and</span> <span class="n">signs</span> <span class="n">the</span> <span class="n">cookies</span> <span class="n">cryptographically</span><span class="o">.</span>  <span class="n">What</span> <span class="n">this</span> <span class="n">means</span> <span class="ow">is</span> <span class="n">that</span>
+<span class="n">the</span> <span class="n">user</span> <span class="n">could</span> <span class="n">look</span> <span class="n">at</span> <span class="n">the</span> <span class="n">contents</span> <span class="n">of</span> <span class="n">your</span> <span class="n">cookie</span> <span class="n">but</span> <span class="ow">not</span> <span class="n">modify</span> <span class="n">it</span><span class="p">,</span>
+<span class="n">unless</span> <span class="n">they</span> <span class="n">know</span> <span class="n">the</span> <span class="n">secret</span> <span class="n">key</span> <span class="n">used</span> <span class="k">for</span> <span class="n">signing</span><span class="o">.</span>
+
+<span class="n">In</span> <span class="n">order</span> <span class="n">to</span> <span class="n">use</span> <span class="n">sessions</span> <span class="n">you</span> <span class="n">have</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">a</span> <span class="n">secret</span> <span class="n">key</span><span class="o">.</span>  <span class="n">Here</span> <span class="ow">is</span> <span class="n">how</span>
+<span class="n">sessions</span> <span class="n">work</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">escape</span><span class="p">,</span> <span class="n">request</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="c1"># Set the secret key to some random bytes. Keep this really secret!</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;_5#y2L&quot;F4Q8z</span><span class="se">\n\xec</span><span class="s1">]/&#39;</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+        <span class="k">if</span> <span class="s1">&#39;username&#39;</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;Logged in as </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">escape</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="s1">&#39;You are not logged in&#39;</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            &lt;form method=&quot;post&quot;&gt;</span>
+<span class="s1">                &lt;p&gt;&lt;input type=text name=username&gt;</span>
+<span class="s1">                &lt;p&gt;&lt;input type=submit value=Login&gt;</span>
+<span class="s1">            &lt;/form&gt;</span>
+<span class="s1">        &#39;&#39;&#39;</span>
+
+    <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/logout&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
+        <span class="c1"># remove the username from the session if it&#39;s there</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+
+<span class="n">The</span> <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.escape`</span> <span class="n">mentioned</span> <span class="n">here</span> <span class="n">does</span> <span class="n">escaping</span> <span class="k">for</span> <span class="n">you</span> <span class="k">if</span> <span class="n">you</span> <span class="n">are</span>
+<span class="ow">not</span> <span class="n">using</span> <span class="n">the</span> <span class="n">template</span> <span class="n">engine</span> <span class="p">(</span><span class="k">as</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">example</span><span class="p">)</span><span class="o">.</span>
+
+<span class="o">..</span> <span class="n">admonition</span><span class="p">::</span> <span class="n">How</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">good</span> <span class="n">secret</span> <span class="n">keys</span>
+
+    <span class="n">A</span> <span class="n">secret</span> <span class="n">key</span> <span class="n">should</span> <span class="n">be</span> <span class="k">as</span> <span class="n">random</span> <span class="k">as</span> <span class="n">possible</span><span class="o">.</span> <span class="n">Your</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">has</span>
+    <span class="n">ways</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">pretty</span> <span class="n">random</span> <span class="n">data</span> <span class="n">based</span> <span class="n">on</span> <span class="n">a</span> <span class="n">cryptographic</span> <span class="n">random</span>
+    <span class="n">generator</span><span class="o">.</span> <span class="n">Use</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">quickly</span> <span class="n">generate</span> <span class="n">a</span> <span class="n">value</span> <span class="k">for</span>
+    <span class="p">:</span><span class="n">attr</span><span class="p">:</span><span class="sb">`Flask.secret_key`</span> <span class="p">(</span><span class="ow">or</span> <span class="p">:</span><span class="n">data</span><span class="p">:</span><span class="sb">`SECRET_KEY`</span><span class="p">)::</span>
+
+        <span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;import os; print(os.urandom(16))&#39;</span>
+        <span class="sa">b</span><span class="s1">&#39;_5#y2L&quot;F4Q8z</span><span class="se">\n\xec</span><span class="s1">]/&#39;</span>
+
+<span class="n">A</span> <span class="n">note</span> <span class="n">on</span> <span class="n">cookie</span><span class="o">-</span><span class="n">based</span> <span class="n">sessions</span><span class="p">:</span> <span class="n">Flask</span> <span class="n">will</span> <span class="n">take</span> <span class="n">the</span> <span class="n">values</span> <span class="n">you</span> <span class="n">put</span> <span class="n">into</span> <span class="n">the</span>
+<span class="n">session</span> <span class="nb">object</span> <span class="ow">and</span> <span class="n">serialize</span> <span class="n">them</span> <span class="n">into</span> <span class="n">a</span> <span class="n">cookie</span><span class="o">.</span>  <span class="n">If</span> <span class="n">you</span> <span class="n">are</span> <span class="n">finding</span> <span class="n">some</span>
+<span class="n">values</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">persist</span> <span class="n">across</span> <span class="n">requests</span><span class="p">,</span> <span class="n">cookies</span> <span class="n">are</span> <span class="n">indeed</span> <span class="n">enabled</span><span class="p">,</span> <span class="ow">and</span> <span class="n">you</span> <span class="n">are</span>
+<span class="ow">not</span> <span class="n">getting</span> <span class="n">a</span> <span class="n">clear</span> <span class="n">error</span> <span class="n">message</span><span class="p">,</span> <span class="n">check</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">page</span>
+<span class="n">responses</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">the</span> <span class="n">size</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">web</span> <span class="n">browsers</span><span class="o">.</span>
+
+<span class="n">Besides</span> <span class="n">the</span> <span class="n">default</span> <span class="n">client</span><span class="o">-</span><span class="n">side</span> <span class="n">based</span> <span class="n">sessions</span><span class="p">,</span> <span class="k">if</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">handle</span>
+<span class="n">sessions</span> <span class="n">on</span> <span class="n">the</span> <span class="n">server</span><span class="o">-</span><span class="n">side</span> <span class="n">instead</span><span class="p">,</span> <span class="n">there</span> <span class="n">are</span> <span class="n">several</span>
+<span class="n">Flask</span> <span class="n">extensions</span> <span class="n">that</span> <span class="n">support</span> <span class="n">this</span><span class="o">.</span>
+
+<span class="n">Message</span> <span class="n">Flashing</span>
+<span class="o">----------------</span>
+
+<span class="n">Good</span> <span class="n">applications</span> <span class="ow">and</span> <span class="n">user</span> <span class="n">interfaces</span> <span class="n">are</span> <span class="nb">all</span> <span class="n">about</span> <span class="n">feedback</span><span class="o">.</span>  <span class="n">If</span> <span class="n">the</span> <span class="n">user</span>
+<span class="n">does</span> <span class="ow">not</span> <span class="n">get</span> <span class="n">enough</span> <span class="n">feedback</span> <span class="n">they</span> <span class="n">will</span> <span class="n">probably</span> <span class="n">end</span> <span class="n">up</span> <span class="n">hating</span> <span class="n">the</span>
+<span class="n">application</span><span class="o">.</span>  <span class="n">Flask</span> <span class="n">provides</span> <span class="n">a</span> <span class="n">really</span> <span class="n">simple</span> <span class="n">way</span> <span class="n">to</span> <span class="n">give</span> <span class="n">feedback</span> <span class="n">to</span> <span class="n">a</span>
+<span class="n">user</span> <span class="k">with</span> <span class="n">the</span> <span class="n">flashing</span> <span class="n">system</span><span class="o">.</span>  <span class="n">The</span> <span class="n">flashing</span> <span class="n">system</span> <span class="n">basically</span> <span class="n">makes</span> <span class="n">it</span>
+<span class="n">possible</span> <span class="n">to</span> <span class="n">record</span> <span class="n">a</span> <span class="n">message</span> <span class="n">at</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">a</span> <span class="n">request</span> <span class="ow">and</span> <span class="n">access</span> <span class="n">it</span> <span class="n">on</span> <span class="n">the</span> <span class="nb">next</span>
+<span class="p">(</span><span class="ow">and</span> <span class="n">only</span> <span class="n">the</span> <span class="nb">next</span><span class="p">)</span> <span class="n">request</span><span class="o">.</span>  <span class="n">This</span> <span class="ow">is</span> <span class="n">usually</span> <span class="n">combined</span> <span class="k">with</span> <span class="n">a</span> <span class="n">layout</span>
+<span class="n">template</span> <span class="n">to</span> <span class="n">expose</span> <span class="n">the</span> <span class="n">message</span><span class="o">.</span>
+
+<span class="n">To</span> <span class="n">flash</span> <span class="n">a</span> <span class="n">message</span> <span class="n">use</span> <span class="n">the</span> <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.flash`</span> <span class="n">method</span><span class="p">,</span> <span class="n">to</span> <span class="n">get</span> <span class="n">hold</span> <span class="n">of</span> <span class="n">the</span>
+<span class="n">messages</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`~flask.get_flashed_messages`</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">also</span>
+<span class="n">available</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">templates</span><span class="o">.</span>  <span class="n">Check</span> <span class="n">out</span> <span class="n">the</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`message-flashing-pattern`</span>
+<span class="k">for</span> <span class="n">a</span> <span class="n">full</span> <span class="n">example</span><span class="o">.</span>
+
+<span class="n">Logging</span>
+<span class="o">-------</span>
+
+<span class="o">..</span> <span class="n">versionadded</span><span class="p">::</span> <span class="mf">0.3</span>
+
+<span class="n">Sometimes</span> <span class="n">you</span> <span class="n">might</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">situation</span> <span class="n">where</span> <span class="n">you</span> <span class="n">deal</span> <span class="k">with</span> <span class="n">data</span> <span class="n">that</span>
+<span class="n">should</span> <span class="n">be</span> <span class="n">correct</span><span class="p">,</span> <span class="n">but</span> <span class="n">actually</span> <span class="ow">is</span> <span class="ow">not</span><span class="o">.</span>  <span class="n">For</span> <span class="n">example</span> <span class="n">you</span> <span class="n">may</span> <span class="n">have</span> <span class="n">some</span> <span class="n">client</span><span class="o">-</span><span class="n">side</span>
+<span class="n">code</span> <span class="n">that</span> <span class="n">sends</span> <span class="n">an</span> <span class="n">HTTP</span> <span class="n">request</span> <span class="n">to</span> <span class="n">the</span> <span class="n">server</span> <span class="n">but</span> <span class="n">it</span><span class="s1">&#39;s obviously</span>
+<span class="n">malformed</span><span class="o">.</span>  <span class="n">This</span> <span class="n">might</span> <span class="n">be</span> <span class="n">caused</span> <span class="n">by</span> <span class="n">a</span> <span class="n">user</span> <span class="n">tampering</span> <span class="k">with</span> <span class="n">the</span> <span class="n">data</span><span class="p">,</span> <span class="ow">or</span> <span class="n">the</span>
+<span class="n">client</span> <span class="n">code</span> <span class="n">failing</span><span class="o">.</span>  <span class="n">Most</span> <span class="n">of</span> <span class="n">the</span> <span class="n">time</span> <span class="n">it</span><span class="s1">&#39;s okay to reply with ``400 Bad</span>
+<span class="n">Request</span><span class="sb">``</span> <span class="ow">in</span> <span class="n">that</span> <span class="n">situation</span><span class="p">,</span> <span class="n">but</span> <span class="n">sometimes</span> <span class="n">that</span> <span class="n">won</span><span class="s1">&#39;t do and the code has</span>
+<span class="n">to</span> <span class="k">continue</span> <span class="n">working</span><span class="o">.</span>
+
+<span class="n">You</span> <span class="n">may</span> <span class="n">still</span> <span class="n">want</span> <span class="n">to</span> <span class="n">log</span> <span class="n">that</span> <span class="n">something</span> <span class="n">fishy</span> <span class="n">happened</span><span class="o">.</span>  <span class="n">This</span> <span class="ow">is</span> <span class="n">where</span>
+<span class="n">loggers</span> <span class="n">come</span> <span class="ow">in</span> <span class="n">handy</span><span class="o">.</span>  <span class="n">As</span> <span class="n">of</span> <span class="n">Flask</span> <span class="mf">0.3</span> <span class="n">a</span> <span class="n">logger</span> <span class="ow">is</span> <span class="n">preconfigured</span> <span class="k">for</span> <span class="n">you</span>
+<span class="n">to</span> <span class="n">use</span><span class="o">.</span>
+
+<span class="n">Here</span> <span class="n">are</span> <span class="n">some</span> <span class="n">example</span> <span class="n">log</span> <span class="n">calls</span><span class="p">::</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;A value for debugging&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;A warning occurred (</span><span class="si">%d</span><span class="s1"> apples)&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;An error occurred&#39;</span><span class="p">)</span>
+
+<span class="n">The</span> <span class="n">attached</span> <span class="p">:</span><span class="n">attr</span><span class="p">:</span><span class="sb">`~flask.Flask.logger`</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">standard</span> <span class="n">logging</span>
+<span class="p">:</span><span class="n">class</span><span class="p">:</span><span class="sb">`~logging.Logger`</span><span class="p">,</span> <span class="n">so</span> <span class="n">head</span> <span class="n">over</span> <span class="n">to</span> <span class="n">the</span> <span class="n">official</span> <span class="err">`</span><span class="n">logging</span>
+<span class="n">documentation</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">library</span><span class="o">/</span><span class="n">logging</span><span class="o">.</span><span class="n">html</span><span class="o">&gt;</span><span class="err">`</span><span class="n">_</span> <span class="k">for</span> <span class="n">more</span>
+<span class="n">information</span><span class="o">.</span>
+
+<span class="n">Read</span> <span class="n">more</span> <span class="n">on</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`application-errors`</span><span class="o">.</span>
+
+<span class="n">Hooking</span> <span class="ow">in</span> <span class="n">WSGI</span> <span class="n">Middlewares</span>
+<span class="o">---------------------------</span>
+
+<span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">add</span> <span class="n">a</span> <span class="n">WSGI</span> <span class="n">middleware</span> <span class="n">to</span> <span class="n">your</span> <span class="n">application</span> <span class="n">you</span> <span class="n">can</span> <span class="n">wrap</span> <span class="n">the</span>
+<span class="n">internal</span> <span class="n">WSGI</span> <span class="n">application</span><span class="o">.</span>  <span class="n">For</span> <span class="n">example</span> <span class="k">if</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">use</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span>
+<span class="n">middlewares</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nn">Werkzeug</span> <span class="nn">package</span> <span class="nn">to</span> <span class="nn">work</span> <span class="nn">around</span> <span class="nn">bugs</span> <span class="nn">in</span> <span class="nn">lighttpd</span><span class="p">,</span> <span class="n">you</span>
+<span class="n">can</span> <span class="n">do</span> <span class="n">it</span> <span class="n">like</span> <span class="n">this</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">werkzeug.contrib.fixers</span> <span class="kn">import</span> <span class="n">LighttpdCGIRootFix</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">wsgi_app</span> <span class="o">=</span> <span class="n">LighttpdCGIRootFix</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">wsgi_app</span><span class="p">)</span>
+
+<span class="n">Using</span> <span class="n">Flask</span> <span class="n">Extensions</span>
+<span class="o">----------------------</span>
+
+<span class="n">Extensions</span> <span class="n">are</span> <span class="n">packages</span> <span class="n">that</span> <span class="n">help</span> <span class="n">you</span> <span class="n">accomplish</span> <span class="n">common</span> <span class="n">tasks</span><span class="o">.</span> <span class="n">For</span>
+<span class="n">example</span><span class="p">,</span> <span class="n">Flask</span><span class="o">-</span><span class="n">SQLAlchemy</span> <span class="n">provides</span> <span class="n">SQLAlchemy</span> <span class="n">support</span> <span class="n">that</span> <span class="n">makes</span> <span class="n">it</span> <span class="n">simple</span>
+<span class="ow">and</span> <span class="n">easy</span> <span class="n">to</span> <span class="n">use</span> <span class="k">with</span> <span class="n">Flask</span><span class="o">.</span>
+
+<span class="n">For</span> <span class="n">more</span> <span class="n">on</span> <span class="n">Flask</span> <span class="n">extensions</span><span class="p">,</span> <span class="n">have</span> <span class="n">a</span> <span class="n">look</span> <span class="n">at</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`extensions`</span><span class="o">.</span>
+
+<span class="n">Deploying</span> <span class="n">to</span> <span class="n">a</span> <span class="n">Web</span> <span class="n">Server</span>
+<span class="o">-------------------------</span>
+
+<span class="n">Ready</span> <span class="n">to</span> <span class="n">deploy</span> <span class="n">your</span> <span class="n">new</span> <span class="n">Flask</span> <span class="n">app</span><span class="err">?</span> <span class="n">Go</span> <span class="n">to</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`deployment`</span><span class="o">.</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../12.installation/" title="安装" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                安装
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../15.templating/" title="Templates" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Templates
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

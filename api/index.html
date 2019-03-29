@@ -1,0 +1,2522 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>API - Flask Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#api" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Flask Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Flask Docs
+            </span>
+            <span class="md-header-nav__topic">
+              API
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="欢迎来到 Flask" class="md-tabs__link md-tabs__link--active">
+        欢迎来到 Flask
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../deploying/" title="Deploying" class="md-tabs__link">
+          Deploying
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../patterns/" title="Patterns" class="md-tabs__link">
+          Patterns
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Flask Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Flask Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="欢迎来到 Flask" class="md-nav__link">
+      欢迎来到 Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../10.foreword/" title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../11.advanced_foreword/" title="有经验的程序员的前言" class="md-nav__link">
+      有经验的程序员的前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../12.installation/" title="安装" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../13.quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../15.templating/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        API
+      </label>
+    
+    <a href="./" title="API" class="md-nav__link md-nav__link--active">
+      API
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-object" title="Application Object" class="md-nav__link">
+    Application Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-objects" title="Blueprint Objects" class="md-nav__link">
+    Blueprint Objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incoming-request-data" title="Incoming Request Data" class="md-nav__link">
+    Incoming Request Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-objects" title="Response Objects" class="md-nav__link">
+    Response Objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessions" title="Sessions" class="md-nav__link">
+    Sessions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-interface" title="Session Interface" class="md-nav__link">
+    Session Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-client" title="Test Client" class="md-nav__link">
+    Test Client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-cli-runner" title="Test CLI Runner" class="md-nav__link">
+    Test CLI Runner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-globals" title="Application Globals" class="md-nav__link">
+    Application Globals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-functions-and-classes" title="Useful Functions and Classes" class="md-nav__link">
+    Useful Functions and Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-flashing" title="Message Flashing" class="md-nav__link">
+    Message Flashing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-support" title="JSON Support" class="md-nav__link">
+    JSON Support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-rendering" title="Template Rendering" class="md-nav__link">
+    Template Rendering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream-helpers" title="Stream Helpers" class="md-nav__link">
+    Stream Helpers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-internals" title="Useful Internals" class="md-nav__link">
+    Useful Internals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" title="Signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-based-views" title="Class-Based Views" class="md-nav__link">
+    Class-Based Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-route-registrations" title="URL Route Registrations" class="md-nav__link">
+    URL Route Registrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-function-options" title="View Function Options" class="md-nav__link">
+    View Function Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface" title="Command Line Interface" class="md-nav__link">
+    Command Line Interface
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../appcontext/" title="Appcontext" class="md-nav__link">
+      Appcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../becomingbig/" title="Becoming Big" class="md-nav__link">
+      Becoming Big
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blueprints/" title="Modular Applications with Blueprints" class="md-nav__link">
+      Modular Applications with Blueprints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Cli" class="md-nav__link">
+      Cli
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../config/" title="Configuration Handling" class="md-nav__link">
+      Configuration Handling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design Decisions in Flask" class="md-nav__link">
+      Design Decisions in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandling/" title="Application Errors" class="md-nav__link">
+      Application Errors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensiondev/" title="Flask Extension Development" class="md-nav__link">
+      Flask Extension Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
+      Extensions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../htmlfaq/" title="HTML/XHTML FAQ" class="md-nav__link">
+      HTML/XHTML FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../latexindex/" title="Latexindex" class="md-nav__link">
+      Latexindex
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reqcontext/" title="Reqcontext" class="md-nav__link">
+      Reqcontext
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security/" title="Security Considerations" class="md-nav__link">
+      Security Considerations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../server/" title="Development Server" class="md-nav__link">
+      Development Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../shell/" title="Working with the Shell" class="md-nav__link">
+      Working with the Shell
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styleguide/" title="Pocoo Styleguide" class="md-nav__link">
+      Pocoo Styleguide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing Flask Applications" class="md-nav__link">
+      Testing Flask Applications
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../unicode/" title="Unicode in Flask" class="md-nav__link">
+      Unicode in Flask
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../upgrading/" title="Upgrading to Newer Releases" class="md-nav__link">
+      Upgrading to Newer Releases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../views/" title="Pluggable Views" class="md-nav__link">
+      Pluggable Views
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Deploying
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Deploying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/cgi/" title="CGI" class="md-nav__link">
+      CGI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/fastcgi/" title="Fastcgi" class="md-nav__link">
+      Fastcgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/mod_wsgi/" title="Mod wsgi" class="md-nav__link">
+      Mod wsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/uwsgi/" title="Uwsgi" class="md-nav__link">
+      Uwsgi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploying/wsgi-standalone/" title="Wsgi standalone" class="md-nav__link">
+      Wsgi standalone
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/apierrors/" title="Implementing API Exceptions" class="md-nav__link">
+      Implementing API Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appdispatch/" title="Appdispatch" class="md-nav__link">
+      Appdispatch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/appfactories/" title="Appfactories" class="md-nav__link">
+      Appfactories
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/celery/" title="Celery Background Tasks" class="md-nav__link">
+      Celery Background Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/deferredcallbacks/" title="Deferredcallbacks" class="md-nav__link">
+      Deferredcallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/distribute/" title="Distribute" class="md-nav__link">
+      Distribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/errorpages/" title="Errorpages" class="md-nav__link">
+      Errorpages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fabric/" title="Fabric" class="md-nav__link">
+      Fabric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/favicon/" title="Adding a favicon" class="md-nav__link">
+      Adding a favicon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/fileuploads/" title="Fileuploads" class="md-nav__link">
+      Fileuploads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/flashing/" title="Flashing" class="md-nav__link">
+      Flashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/jquery/" title="AJAX with jQuery" class="md-nav__link">
+      AJAX with jQuery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/lazyloading/" title="Lazily Loading Views" class="md-nav__link">
+      Lazily Loading Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/methodoverrides/" title="Adding HTTP Method Overrides" class="md-nav__link">
+      Adding HTTP Method Overrides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongoengine/" title="MongoDB with MongoEngine" class="md-nav__link">
+      MongoDB with MongoEngine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/mongokit/" title="Mongokit" class="md-nav__link">
+      Mongokit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/requestchecksum/" title="Request Content Checksums" class="md-nav__link">
+      Request Content Checksums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/singlepageapplications/" title="Single-Page Applications" class="md-nav__link">
+      Single-Page Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlalchemy/" title="Sqlalchemy" class="md-nav__link">
+      Sqlalchemy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/streaming/" title="Streaming Contents" class="md-nav__link">
+      Streaming Contents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/subclassing/" title="Subclassing Flask" class="md-nav__link">
+      Subclassing Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/templateinheritance/" title="Templateinheritance" class="md-nav__link">
+      Templateinheritance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/urlprocessors/" title="Using URL Processors" class="md-nav__link">
+      Using URL Processors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/viewdecorators/" title="View Decorators" class="md-nav__link">
+      View Decorators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../patterns/wtforms/" title="Form Validation with WTForms" class="md-nav__link">
+      Form Validation with WTForms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/blog/" title="Blog" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/database/" title="Database" class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/deploy/" title="Deploy to Production" class="md-nav__link">
+      Deploy to Production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/factory/" title="Factory" class="md-nav__link">
+      Factory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/install/" title="Make the Project Installable" class="md-nav__link">
+      Make the Project Installable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/layout/" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/next/" title="Keep Developing!" class="md-nav__link">
+      Keep Developing!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/static/" title="Static Files" class="md-nav__link">
+      Static Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/tests/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/views/" title="Views" class="md-nav__link">
+      Views
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-object" title="Application Object" class="md-nav__link">
+    Application Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-objects" title="Blueprint Objects" class="md-nav__link">
+    Blueprint Objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incoming-request-data" title="Incoming Request Data" class="md-nav__link">
+    Incoming Request Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-objects" title="Response Objects" class="md-nav__link">
+    Response Objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessions" title="Sessions" class="md-nav__link">
+    Sessions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-interface" title="Session Interface" class="md-nav__link">
+    Session Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-client" title="Test Client" class="md-nav__link">
+    Test Client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-cli-runner" title="Test CLI Runner" class="md-nav__link">
+    Test CLI Runner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-globals" title="Application Globals" class="md-nav__link">
+    Application Globals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-functions-and-classes" title="Useful Functions and Classes" class="md-nav__link">
+    Useful Functions and Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-flashing" title="Message Flashing" class="md-nav__link">
+    Message Flashing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-support" title="JSON Support" class="md-nav__link">
+    JSON Support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-rendering" title="Template Rendering" class="md-nav__link">
+    Template Rendering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream-helpers" title="Stream Helpers" class="md-nav__link">
+    Stream Helpers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-internals" title="Useful Internals" class="md-nav__link">
+    Useful Internals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" title="Signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-based-views" title="Class-Based Views" class="md-nav__link">
+    Class-Based Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-route-registrations" title="URL Route Registrations" class="md-nav__link">
+    URL Route Registrations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-function-options" title="View Function Options" class="md-nav__link">
+    View Function Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface" title="Command Line Interface" class="md-nav__link">
+    Command Line Interface
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
+<p>.. module:: flask</p>
+<p>This part of the documentation covers all the interfaces of Flask. For
+parts where Flask depends on external libraries, we document the most
+important right here and provide links to the canonical documentation.</p>
+<h2 id="application-object">Application Object<a class="headerlink" href="#application-object" title="Permanent link">&para;</a></h2>
+<p>.. autoclass:: Flask
+:members:
+:inherited-members:</p>
+<h2 id="blueprint-objects">Blueprint Objects<a class="headerlink" href="#blueprint-objects" title="Permanent link">&para;</a></h2>
+<p>.. autoclass:: Blueprint
+:members:
+:inherited-members:</p>
+<h2 id="incoming-request-data">Incoming Request Data<a class="headerlink" href="#incoming-request-data" title="Permanent link">&para;</a></h2>
+<p>.. autoclass:: Request
+:members:
+:inherited-members:</p>
+<p>.. attribute:: environ</p>
+<div class="codehilite"><pre><span></span>  The underlying WSGI environment.
+</pre></div>
+
+
+<p>.. attribute:: path
+.. attribute:: full_path
+.. attribute:: script_root
+.. attribute:: url
+.. attribute:: base_url
+.. attribute:: url_root</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">Provides</span> <span class="nt">different</span> <span class="nt">ways</span> <span class="nt">to</span> <span class="nt">look</span> <span class="nt">at</span> <span class="nt">the</span> <span class="nt">current</span> <span class="err">`</span><span class="nt">IRI</span>
+  <span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">https</span><span class="o">://</span><span class="nt">tools</span><span class="p">.</span><span class="nc">ietf</span><span class="p">.</span><span class="nc">org</span><span class="o">/</span><span class="nt">html</span><span class="o">/</span><span class="nt">rfc3987</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span><span class="err">`</span><span class="nt">_</span><span class="o">.</span>  <span class="nt">Imagine</span> <span class="nt">your</span> <span class="nt">application</span> <span class="nt">is</span>
+  <span class="nt">listening</span> <span class="nt">on</span> <span class="nt">the</span> <span class="nt">following</span> <span class="nt">application</span> <span class="nt">root</span><span class="o">::</span>
+
+      <span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">example</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">myapplication</span>
+
+  <span class="nt">And</span> <span class="nt">a</span> <span class="nt">user</span> <span class="nt">requests</span> <span class="nt">the</span> <span class="nt">following</span> <span class="nt">URI</span><span class="o">::</span>
+
+      <span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">example</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">myapplication</span><span class="o">/%</span><span class="nt">CF</span><span class="o">%</span><span class="nt">80</span><span class="o">/</span><span class="nt">page</span><span class="p">.</span><span class="nc">html</span><span class="o">?</span><span class="nt">x</span><span class="o">=</span><span class="nt">y</span>
+
+  <span class="nt">In</span> <span class="nt">this</span> <span class="nt">case</span> <span class="nt">the</span> <span class="nt">values</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">above</span> <span class="nt">mentioned</span> <span class="nt">attributes</span> <span class="nt">would</span> <span class="nt">be</span>
+  <span class="nt">the</span> <span class="nt">following</span><span class="o">:</span>
+
+  <span class="o">=============</span> <span class="o">======================================================</span>
+  <span class="err">`</span><span class="nt">path</span><span class="err">`</span>        <span class="err">``</span><span class="nt">u</span><span class="s1">&#39;/π/page.html&#39;</span><span class="err">``</span>
+  <span class="err">`</span><span class="nt">full_path</span><span class="err">`</span>   <span class="err">``</span><span class="nt">u</span><span class="s1">&#39;/π/page.html?x=y&#39;</span><span class="err">``</span>
+  <span class="err">`</span><span class="nt">script_root</span><span class="err">`</span> <span class="err">``</span><span class="nt">u</span><span class="s1">&#39;/myapplication&#39;</span><span class="err">``</span>
+  <span class="err">`</span><span class="nt">base_url</span><span class="err">`</span>    <span class="err">``</span><span class="nt">u</span><span class="s1">&#39;http://www.example.com/myapplication/π/page.html&#39;</span><span class="err">``</span>
+  <span class="err">`</span><span class="nt">url</span><span class="err">`</span>         <span class="err">``</span><span class="nt">u</span><span class="s1">&#39;http://www.example.com/myapplication/π/page.html?x=y&#39;</span><span class="err">``</span>
+  <span class="err">`</span><span class="nt">url_root</span><span class="err">`</span>    <span class="err">``</span><span class="nt">u</span><span class="s1">&#39;http://www.example.com/myapplication/&#39;</span><span class="err">``</span>
+  <span class="o">=============</span> <span class="o">======================================================</span>
+</pre></div>
+
+
+<p>.. attribute:: request</p>
+<p>To access incoming request data, you can use the global <code>request</code>
+object. Flask parses incoming request data for you and gives you
+access to it through that global object. Internally Flask makes
+sure that you always get the correct data for the active thread if you
+are in a multithreaded environment.</p>
+<p>This is a proxy. See :ref:<code>notes-on-proxies</code> for more information.</p>
+<p>The request object is an instance of a :class:<code>~werkzeug.wrappers.Request</code>
+subclass and provides all of the attributes Werkzeug defines. This
+just shows a quick overview of the most important ones.</p>
+<h2 id="response-objects">Response Objects<a class="headerlink" href="#response-objects" title="Permanent link">&para;</a></h2>
+<p>.. autoclass:: flask.Response
+:members: set_cookie, max_cookie_size, data, mimetype, is_json, get_json</p>
+<p>.. attribute:: headers</p>
+<div class="codehilite"><pre><span></span>  A :class:`~werkzeug.datastructures.Headers` object representing the response headers.
+</pre></div>
+
+
+<p>.. attribute:: status</p>
+<div class="codehilite"><pre><span></span>  A string with a response status.
+</pre></div>
+
+
+<p>.. attribute:: status_code</p>
+<div class="codehilite"><pre><span></span>  The response status as integer.
+</pre></div>
+
+
+<h2 id="sessions">Sessions<a class="headerlink" href="#sessions" title="Permanent link">&para;</a></h2>
+<p>If you have set :attr:<code>Flask.secret_key</code> (or configured it from
+:data:<code>SECRET_KEY</code>) you can use sessions in Flask applications. A session makes
+it possible to remember information from one request to another. The way Flask
+does this is by using a signed cookie. The user can look at the session
+contents, but can't modify it unless they know the secret key, so make sure to
+set that to something complex and unguessable.</p>
+<p>To access the current session you can use the :class:<code>session</code> object:</p>
+<p>.. class:: session</p>
+<p>The session object works pretty much like an ordinary dict, with the
+difference that it keeps track of modifications.</p>
+<p>This is a proxy. See :ref:<code>notes-on-proxies</code> for more information.</p>
+<p>The following attributes are interesting:</p>
+<p>.. attribute:: new</p>
+<div class="codehilite"><pre><span></span>  ``True`` if the session is new, ``False`` otherwise.
+</pre></div>
+
+
+<p>.. attribute:: modified</p>
+<div class="codehilite"><pre><span></span>  ``True`` if the session object detected a modification.  Be advised
+  that modifications on mutable structures are not picked up
+  automatically, in that situation you have to explicitly set the
+  attribute to ``True`` yourself.  Here an example::
+
+      # this change is not picked up because a mutable object (here
+      # a list) is changed.
+      session[&#39;objects&#39;].append(42)
+      # so mark it as modified yourself
+      session.modified = True
+</pre></div>
+
+
+<p>.. attribute:: permanent</p>
+<div class="codehilite"><pre><span></span>  If set to ``True`` the session lives for
+  :attr:`~flask.Flask.permanent_session_lifetime` seconds.  The
+  default is 31 days.  If set to ``False`` (which is the default) the
+  session will be deleted when the user closes the browser.
+</pre></div>
+
+
+<h2 id="session-interface">Session Interface<a class="headerlink" href="#session-interface" title="Permanent link">&para;</a></h2>
+<p>.. versionadded:: 0.8</p>
+<p>The session interface provides a simple way to replace the session
+implementation that Flask is using.</p>
+<p>.. currentmodule:: flask.sessions</p>
+<p>.. autoclass:: SessionInterface
+:members:</p>
+<p>.. autoclass:: SecureCookieSessionInterface
+:members:</p>
+<p>.. autoclass:: SecureCookieSession
+:members:</p>
+<p>.. autoclass:: NullSession
+:members:</p>
+<p>.. autoclass:: SessionMixin
+:members:</p>
+<p>.. admonition:: Notice</p>
+<p>The <code>PERMANENT_SESSION_LIFETIME</code> config key can also be an integer
+starting with Flask 0.8. Either catch this down yourself or use
+the :attr:<code>~flask.Flask.permanent_session_lifetime</code> attribute on the
+app which converts the result to an integer automatically.</p>
+<h2 id="test-client">Test Client<a class="headerlink" href="#test-client" title="Permanent link">&para;</a></h2>
+<p>.. currentmodule:: flask.testing</p>
+<p>.. autoclass:: FlaskClient
+:members:</p>
+<h2 id="test-cli-runner">Test CLI Runner<a class="headerlink" href="#test-cli-runner" title="Permanent link">&para;</a></h2>
+<p>.. currentmodule:: flask.testing</p>
+<p>.. autoclass:: FlaskCliRunner
+:members:</p>
+<h2 id="application-globals">Application Globals<a class="headerlink" href="#application-globals" title="Permanent link">&para;</a></h2>
+<p>.. currentmodule:: flask</p>
+<p>To share data that is valid for one request only from one function to
+another, a global variable is not good enough because it would break in
+threaded environments. Flask provides you with a special object that
+ensures it is only valid for the active request and that will return
+different values for each request. In a nutshell: it does the right
+thing, like it does for :class:<code>request</code> and :class:<code>session</code>.</p>
+<p>.. data:: g</p>
+<div class="codehilite"><pre><span></span><span class="nt">A</span> <span class="nt">namespace</span> <span class="nt">object</span> <span class="nt">that</span> <span class="nt">can</span> <span class="nt">store</span> <span class="nt">data</span> <span class="nt">during</span> <span class="nt">an</span>
+<span class="p">:</span><span class="nd">doc</span><span class="o">:</span><span class="err">`</span><span class="nt">application</span> <span class="nt">context</span> <span class="o">&amp;</span><span class="nt">lt</span><span class="o">;/</span><span class="nt">appcontext</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span><span class="err">`</span><span class="o">.</span> <span class="nt">This</span> <span class="nt">is</span> <span class="nt">an</span> <span class="nt">instance</span> <span class="nt">of</span>
+<span class="p">:</span><span class="nd">attr</span><span class="o">:</span><span class="err">`</span><span class="nt">Flask</span><span class="p">.</span><span class="nc">app_ctx_globals_class</span><span class="err">`</span><span class="o">,</span> <span class="nt">which</span> <span class="nt">defaults</span> <span class="nt">to</span>
+<span class="p">:</span><span class="nd">class</span><span class="o">:</span><span class="err">`</span><span class="nt">ctx</span><span class="p">.</span><span class="nc">_AppCtxGlobals</span><span class="err">`</span><span class="o">.</span>
+
+<span class="nt">This</span> <span class="nt">is</span> <span class="nt">a</span> <span class="nt">good</span> <span class="nt">place</span> <span class="nt">to</span> <span class="nt">store</span> <span class="nt">resources</span> <span class="nt">during</span> <span class="nt">a</span> <span class="nt">request</span><span class="o">.</span> <span class="nt">During</span>
+<span class="nt">testing</span><span class="o">,</span> <span class="nt">you</span> <span class="nt">can</span> <span class="nt">use</span> <span class="nt">the</span> <span class="p">:</span><span class="nd">ref</span><span class="o">:</span><span class="err">`</span><span class="nt">faking-resources</span><span class="err">`</span> <span class="nt">pattern</span> <span class="nt">to</span>
+<span class="nt">pre-configure</span> <span class="nt">such</span> <span class="nt">resources</span><span class="o">.</span>
+
+<span class="nt">This</span> <span class="nt">is</span> <span class="nt">a</span> <span class="nt">proxy</span><span class="o">.</span> <span class="nt">See</span> <span class="p">:</span><span class="nd">ref</span><span class="o">:</span><span class="err">`</span><span class="nt">notes-on-proxies</span><span class="err">`</span> <span class="nt">for</span> <span class="nt">more</span> <span class="nt">information</span><span class="o">.</span>
+
+<span class="o">..</span> <span class="nt">versionchanged</span><span class="o">::</span> <span class="nt">0</span><span class="p">.</span><span class="nc">10</span>
+    <span class="nt">Bound</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">application</span> <span class="nt">context</span> <span class="nt">instead</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">request</span> <span class="nt">context</span><span class="o">.</span>
+</pre></div>
+
+
+<p>.. autoclass:: flask.ctx._AppCtxGlobals
+:members:</p>
+<h2 id="useful-functions-and-classes">Useful Functions and Classes<a class="headerlink" href="#useful-functions-and-classes" title="Permanent link">&para;</a></h2>
+<p>.. data:: current_app</p>
+<div class="codehilite"><pre><span></span><span class="n">A</span> <span class="n">proxy</span> <span class="n">to</span> <span class="n">the</span> <span class="n">application</span> <span class="n">handling</span> <span class="n">the</span> <span class="n">current</span> <span class="n">request</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span>
+<span class="n">useful</span> <span class="n">to</span> <span class="n">access</span> <span class="n">the</span> <span class="n">application</span> <span class="n">without</span> <span class="n">needing</span> <span class="n">to</span> <span class="kn">import</span> <span class="nn">it</span><span class="o">,</span> <span class="nn">or</span> <span class="nn">if</span>
+<span class="n">it</span> <span class="n">can</span><span class="s1">&#39;t be imported, such as when using the application factory</span>
+<span class="n">pattern</span> <span class="ow">or</span> <span class="ow">in</span> <span class="n">blueprints</span> <span class="ow">and</span> <span class="n">extensions</span><span class="o">.</span>
+
+<span class="n">This</span> <span class="ow">is</span> <span class="n">only</span> <span class="n">available</span> <span class="n">when</span> <span class="n">an</span>
+<span class="p">:</span><span class="n">doc</span><span class="p">:</span><span class="sb">`application context &amp;lt;/appcontext&amp;gt;`</span> <span class="ow">is</span> <span class="n">pushed</span><span class="o">.</span> <span class="n">This</span> <span class="n">happens</span>
+<span class="n">automatically</span> <span class="n">during</span> <span class="n">requests</span> <span class="ow">and</span> <span class="n">CLI</span> <span class="n">commands</span><span class="o">.</span> <span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">controlled</span>
+<span class="n">manually</span> <span class="k">with</span> <span class="p">:</span><span class="n">meth</span><span class="p">:</span><span class="sb">`~flask.Flask.app_context`</span><span class="o">.</span>
+
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">proxy</span><span class="o">.</span> <span class="n">See</span> <span class="p">:</span><span class="n">ref</span><span class="p">:</span><span class="sb">`notes-on-proxies`</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+</pre></div>
+
+
+<p>.. autofunction:: has_request_context</p>
+<p>.. autofunction:: copy_current_request_context</p>
+<p>.. autofunction:: has_app_context</p>
+<p>.. autofunction:: url_for</p>
+<p>.. autofunction:: abort</p>
+<p>.. autofunction:: redirect</p>
+<p>.. autofunction:: make_response</p>
+<p>.. autofunction:: after_this_request</p>
+<p>.. autofunction:: send_file</p>
+<p>.. autofunction:: send_from_directory</p>
+<p>.. autofunction:: safe_join</p>
+<p>.. autofunction:: escape</p>
+<p>.. autoclass:: Markup
+:members: escape, unescape, striptags</p>
+<h2 id="message-flashing">Message Flashing<a class="headerlink" href="#message-flashing" title="Permanent link">&para;</a></h2>
+<p>.. autofunction:: flash</p>
+<p>.. autofunction:: get_flashed_messages</p>
+<h2 id="json-support">JSON Support<a class="headerlink" href="#json-support" title="Permanent link">&para;</a></h2>
+<p>.. module:: flask.json</p>
+<p>Flask uses <code>simplejson</code> for the JSON implementation. Since simplejson
+is provided by both the standard library as well as extension, Flask will
+try simplejson first and then fall back to the stdlib json module. On top
+of that it will delegate access to the current application's JSON encoders
+and decoders for easier customization.</p>
+<p>So for starters instead of doing::</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">simplejson</span> <span class="kn">as</span> <span class="nn">json</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+
+
+<p>You can instead just do this::</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">json</span>
+</pre></div>
+
+
+<p>For usage examples, read the :mod:<code>json</code> documentation in the standard
+library. The following extensions are by default applied to the stdlib's
+JSON module:</p>
+<ol>
+<li><code>datetime</code> objects are serialized as :rfc:<code>822</code> strings.</li>
+<li>Any object with an <code>__html__</code> method (like :class:<code>~flask.Markup</code>)
+    will have that method called and then the return value is serialized
+    as string.</li>
+</ol>
+<p>The :func:<code>~htmlsafe_dumps</code> function of this json module is also available
+as a filter called <code>|tojson</code> in Jinja2. Note that in versions of Flask prior
+to Flask 0.10, you must disable escaping with <code>|safe</code> if you intend to use
+<code>|tojson</code> output inside <code>script</code> tags. In Flask 0.10 and above, this
+happens automatically (but it's harmless to include <code>|safe</code> anyway).</p>
+<p>.. sourcecode:: html+jinja</p>
+<div class="codehilite"><pre><span></span><span class="x">&amp;lt;script type=text/javascript&amp;gt;</span>
+<span class="x">    doSomethingWith(</span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">tojson</span><span class="o">|</span><span class="nf">safe</span> <span class="cp">}}</span><span class="x">);</span>
+<span class="x">&amp;lt;/script&amp;gt;</span>
+</pre></div>
+
+
+<p>.. admonition:: Auto-Sort JSON Keys</p>
+<div class="codehilite"><pre><span></span>The configuration variable ``JSON_SORT_KEYS`` (:ref:`config`) can be
+set to false to stop Flask from auto-sorting keys.  By default sorting
+is enabled and outside of the app context sorting is turned on.
+
+Notice that disabling key sorting can cause issues when using content
+based HTTP caches and Python&#39;s hash randomization feature.
+</pre></div>
+
+
+<p>.. autofunction:: jsonify</p>
+<p>.. autofunction:: dumps</p>
+<p>.. autofunction:: dump</p>
+<p>.. autofunction:: loads</p>
+<p>.. autofunction:: load</p>
+<p>.. autoclass:: JSONEncoder
+:members:</p>
+<p>.. autoclass:: JSONDecoder
+:members:</p>
+<p>.. automodule:: flask.json.tag</p>
+<h2 id="template-rendering">Template Rendering<a class="headerlink" href="#template-rendering" title="Permanent link">&para;</a></h2>
+<p>.. currentmodule:: flask</p>
+<p>.. autofunction:: render_template</p>
+<p>.. autofunction:: render_template_string</p>
+<p>.. autofunction:: get_template_attribute</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>.. autoclass:: Config
+:members:</p>
+<h2 id="stream-helpers">Stream Helpers<a class="headerlink" href="#stream-helpers" title="Permanent link">&para;</a></h2>
+<p>.. autofunction:: stream_with_context</p>
+<h2 id="useful-internals">Useful Internals<a class="headerlink" href="#useful-internals" title="Permanent link">&para;</a></h2>
+<p>.. autoclass:: flask.ctx.RequestContext
+:members:</p>
+<p>.. data:: _request_ctx_stack</p>
+<div class="codehilite"><pre><span></span><span class="n">The</span> <span class="n">internal</span> <span class="p">:</span><span class="n">class</span><span class="p">:</span><span class="sb">`~werkzeug.local.LocalStack`</span> <span class="n">that</span> <span class="n">holds</span>
+<span class="p">:</span><span class="n">class</span><span class="p">:</span><span class="sb">`~flask.ctx.RequestContext`</span> <span class="n">instances</span><span class="o">.</span> <span class="n">Typically</span><span class="p">,</span> <span class="n">the</span>
+<span class="p">:</span><span class="n">data</span><span class="p">:</span><span class="sb">`request`</span> <span class="ow">and</span> <span class="p">:</span><span class="n">data</span><span class="p">:</span><span class="sb">`session`</span> <span class="n">proxies</span> <span class="n">should</span> <span class="n">be</span> <span class="n">accessed</span>
+<span class="n">instead</span> <span class="n">of</span> <span class="n">the</span> <span class="n">stack</span><span class="o">.</span> <span class="n">It</span> <span class="n">may</span> <span class="n">be</span> <span class="n">useful</span> <span class="n">to</span> <span class="n">access</span> <span class="n">the</span> <span class="n">stack</span> <span class="ow">in</span>
+<span class="n">extension</span> <span class="n">code</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">following</span> <span class="n">attributes</span> <span class="n">are</span> <span class="n">always</span> <span class="n">present</span> <span class="n">on</span> <span class="n">each</span> <span class="n">layer</span> <span class="n">of</span> <span class="n">the</span>
+<span class="n">stack</span><span class="p">:</span>
+
+<span class="sb">`app`</span>
+  <span class="n">the</span> <span class="n">active</span> <span class="n">Flask</span> <span class="n">application</span><span class="o">.</span>
+
+<span class="sb">`url_adapter`</span>
+  <span class="n">the</span> <span class="n">URL</span> <span class="n">adapter</span> <span class="n">that</span> <span class="n">was</span> <span class="n">used</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">request</span><span class="o">.</span>
+
+<span class="sb">`request`</span>
+  <span class="n">the</span> <span class="n">current</span> <span class="n">request</span> <span class="nb">object</span><span class="o">.</span>
+
+<span class="sb">`session`</span>
+  <span class="n">the</span> <span class="n">active</span> <span class="n">session</span> <span class="nb">object</span><span class="o">.</span>
+
+<span class="sb">`g`</span>
+  <span class="n">an</span> <span class="nb">object</span> <span class="k">with</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">attributes</span> <span class="n">of</span> <span class="n">the</span> <span class="p">:</span><span class="n">data</span><span class="p">:</span><span class="sb">`flask.g`</span> <span class="nb">object</span><span class="o">.</span>
+
+<span class="sb">`flashes`</span>
+  <span class="n">an</span> <span class="n">internal</span> <span class="n">cache</span> <span class="k">for</span> <span class="n">the</span> <span class="n">flashed</span> <span class="n">messages</span><span class="o">.</span>
+
+<span class="n">Example</span> <span class="n">usage</span><span class="p">::</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">_request_ctx_stack</span>
+
+    <span class="k">def</span> <span class="nf">get_session</span><span class="p">():</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">session</span>
+</pre></div>
+
+
+<p>.. autoclass:: flask.ctx.AppContext
+:members:</p>
+<p>.. data:: _app_ctx_stack</p>
+<div class="codehilite"><pre><span></span>The internal :class:`~werkzeug.local.LocalStack` that holds
+:class:`~flask.ctx.AppContext` instances. Typically, the
+:data:`current_app` and :data:`g` proxies should be accessed instead
+of the stack. Extensions can access the contexts on the stack as a
+namespace to store data.
+
+.. versionadded:: 0.9
+</pre></div>
+
+
+<p>.. autoclass:: flask.blueprints.BlueprintSetupState
+:members:</p>
+<h2 id="signals">Signals<a class="headerlink" href="#signals" title="Permanent link">&para;</a></h2>
+<p>.. versionadded:: 0.6</p>
+<p>.. data:: signals.signals_available</p>
+<p><code>True</code> if the signaling system is available. This is the case
+when <code>blinker</code>_ is installed.</p>
+<p>The following signals exist in Flask:</p>
+<p>.. data:: template_rendered</p>
+<p>This signal is sent when a template was successfully rendered. The
+signal is invoked with the instance of the template as <code>template</code>
+and the context as dictionary (named <code>context</code>).</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">log_template_renders</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Rendering template &quot;</span><span class="si">%s</span><span class="s1">&quot; with context </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="n">template</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s1">&#39;string template&#39;</span><span class="p">,</span>
+                            <span class="n">context</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">template_rendered</span>
+    <span class="n">template_rendered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">log_template_renders</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>.. data:: flask.before_render_template
+:noindex:</p>
+<p>This signal is sent before template rendering process. The
+signal is invoked with the instance of the template as <code>template</code>
+and the context as dictionary (named <code>context</code>).</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">log_template_renders</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Rendering template &quot;</span><span class="si">%s</span><span class="s1">&quot; with context </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="n">template</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s1">&#39;string template&#39;</span><span class="p">,</span>
+                            <span class="n">context</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">before_render_template</span>
+    <span class="n">before_render_template</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">log_template_renders</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>.. data:: request_started</p>
+<p>This signal is sent when the request context is set up, before
+any request processing happens. Because the request context is already
+bound, the subscriber can access the request with the standard global
+proxies such as :class:<code>~flask.request</code>.</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">log_request</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Request context is set up&#39;</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request_started</span>
+    <span class="n">request_started</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">log_request</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>.. data:: request_finished</p>
+<p>This signal is sent right before the response is sent to the client.
+It is passed the response to be sent named <code>response</code>.</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">log_response</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Request context is about to close down.  &#39;</span>
+                            <span class="s1">&#39;Response: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request_finished</span>
+    <span class="n">request_finished</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">log_response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>.. data:: got_request_exception</p>
+<p>This signal is sent when an exception happens during request processing.
+It is sent <em>before</em> the standard exception handling kicks in and even
+in debug mode, where no exception handling happens. The exception
+itself is passed to the subscriber as <code>exception</code>.</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">log_exception</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Got exception during processing: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">exception</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">got_request_exception</span>
+    <span class="n">got_request_exception</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">log_exception</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>.. data:: request_tearing_down</p>
+<p>This signal is sent when the request is tearing down. This is always
+called, even if an exception is caused. Currently functions listening
+to this signal are called after the regular teardown handlers, but this
+is not something you can rely on.</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">close_db_connection</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request_tearing_down</span>
+    <span class="n">request_tearing_down</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">close_db_connection</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>As of Flask 0.9, this will also be passed an <code>exc</code> keyword argument
+that has a reference to the exception that caused the teardown if
+there was one.</p>
+<p>.. data:: appcontext_tearing_down</p>
+<p>This signal is sent when the app context is tearing down. This is always
+called, even if an exception is caused. Currently functions listening
+to this signal are called after the regular teardown handlers, but this
+is not something you can rely on.</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">close_db_connection</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">appcontext_tearing_down</span>
+    <span class="n">appcontext_tearing_down</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">close_db_connection</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This will also be passed an <code>exc</code> keyword argument that has a reference
+to the exception that caused the teardown if there was one.</p>
+<p>.. data:: appcontext_pushed</p>
+<p>This signal is sent when an application context is pushed. The sender
+is the application. This is usually useful for unittests in order to
+temporarily hook in information. For instance it can be used to
+set a resource early onto the <code>g</code> object.</p>
+<p>Example usage::</p>
+<div class="codehilite"><pre><span></span>    <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">appcontext_pushed</span>
+
+    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">user_set</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="k">with</span> <span class="n">appcontext_pushed</span><span class="o">.</span><span class="n">connected_to</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+            <span class="k">yield</span>
+</pre></div>
+
+
+<p>And in the testcode::</p>
+<div class="codehilite"><pre><span></span>    def test_user_me(self):
+        with user_set(app, &#39;john&#39;):
+            c = app.test_client()
+            resp = c.get(&#39;/users/me&#39;)
+            assert resp.data == &#39;username=john&#39;
+</pre></div>
+
+
+<p>.. versionadded:: 0.10</p>
+<p>.. data:: appcontext_popped</p>
+<p>This signal is sent when an application context is popped. The sender
+is the application. This usually falls in line with the
+:data:<code>appcontext_tearing_down</code> signal.</p>
+<p>.. versionadded:: 0.10</p>
+<p>.. data:: message_flashed</p>
+<p>This signal is sent when the application is flashing a message. The
+messages is sent as <code>message</code> keyword argument and the category as
+<code>category</code>.</p>
+<p>Example subscriber::</p>
+<div class="codehilite"><pre><span></span>    <span class="n">recorded</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">recorded</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">message</span><span class="p">,</span> <span class="n">category</span><span class="p">))</span>
+
+    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">message_flashed</span>
+    <span class="n">message_flashed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+
+<p>.. versionadded:: 0.10</p>
+<p>.. class:: signals.Namespace</p>
+<p>An alias for :class:<code>blinker.base.Namespace</code> if blinker is available,
+otherwise a dummy class that creates fake signals. This class is
+available for Flask extensions that want to provide the same fallback
+system as Flask itself.</p>
+<p>.. method:: signal(name, doc=None)</p>
+<div class="codehilite"><pre><span></span>  Creates a new signal for this namespace if blinker is available,
+  otherwise returns a fake signal that has a send method that will
+  do nothing but will fail with a :exc:`RuntimeError` for all other
+  operations, including connecting.
+</pre></div>
+
+
+<p>.. _blinker: https://pypi.org/project/blinker/</p>
+<h2 id="class-based-views">Class-Based Views<a class="headerlink" href="#class-based-views" title="Permanent link">&para;</a></h2>
+<p>.. versionadded:: 0.7</p>
+<p>.. currentmodule:: None</p>
+<p>.. autoclass:: flask.views.View
+:members:</p>
+<p>.. autoclass:: flask.views.MethodView
+:members:</p>
+<h2 id="url-route-registrations">URL Route Registrations<a class="headerlink" href="#url-route-registrations" title="Permanent link">&para;</a></h2>
+<p>Generally there are three ways to define rules for the routing system:</p>
+<ol>
+<li>You can use the :meth:<code>flask.Flask.route</code> decorator.</li>
+<li>You can use the :meth:<code>flask.Flask.add_url_rule</code> function.</li>
+<li>You can directly access the underlying Werkzeug routing system
+    which is exposed as :attr:<code>flask.Flask.url_map</code>.</li>
+</ol>
+<p>Variable parts in the route can be specified with angular brackets
+(<code>/user/&lt;username&gt;</code>). By default a variable part in the URL accepts any
+string without a slash however a different converter can be specified as
+well by using <code>&lt;converter:name&gt;</code>.</p>
+<p>Variable parts are passed to the view function as keyword arguments.</p>
+<p>The following converters are available:</p>
+<p>=========== ===============================================
+<code>string</code> accepts any text without a slash (the default)
+<code>int</code> accepts integers
+<code>float</code> like <code>int</code> but for floating point values
+<code>path</code> like the default but also accepts slashes
+<code>any</code> matches one of the items provided
+<code>uuid</code> accepts UUID strings
+=========== ===============================================</p>
+<p>Custom converters can be defined using :attr:<code>flask.Flask.url_map</code>.</p>
+<p>Here are some examples::</p>
+<div class="codehilite"><pre><span></span><span class="p">@</span><span class="k">app</span><span class="p">.</span><span class="nc">route</span><span class="o">(</span><span class="s1">&#39;/&#39;</span><span class="o">)</span>
+<span class="nt">def</span> <span class="nt">index</span><span class="o">():</span>
+    <span class="nt">pass</span>
+
+<span class="p">@</span><span class="k">app</span><span class="p">.</span><span class="nc">route</span><span class="o">(</span><span class="s1">&#39;/&amp;lt;username&amp;gt;&#39;</span><span class="o">)</span>
+<span class="nt">def</span> <span class="nt">show_user</span><span class="o">(</span><span class="nt">username</span><span class="o">):</span>
+    <span class="nt">pass</span>
+
+<span class="p">@</span><span class="k">app</span><span class="p">.</span><span class="nc">route</span><span class="o">(</span><span class="s1">&#39;/post/&amp;lt;int:post_id&amp;gt;&#39;</span><span class="o">)</span>
+<span class="nt">def</span> <span class="nt">show_post</span><span class="o">(</span><span class="nt">post_id</span><span class="o">):</span>
+    <span class="nt">pass</span>
+</pre></div>
+
+
+<p>An important detail to keep in mind is how Flask deals with trailing
+slashes. The idea is to keep each URL unique so the following rules
+apply:</p>
+<ol>
+<li>If a rule ends with a slash and is requested without a slash by the
+   user, the user is automatically redirected to the same page with a
+   trailing slash attached.</li>
+<li>If a rule does not end with a trailing slash and the user requests the
+   page with a trailing slash, a 404 not found is raised.</li>
+</ol>
+<p>This is consistent with how web servers deal with static files. This
+also makes it possible to use relative link targets safely.</p>
+<p>You can also define multiple rules for the same function. They have to be
+unique however. Defaults can also be specified. Here for example is a
+definition for a URL that accepts an optional page::</p>
+<div class="codehilite"><pre><span></span><span class="p">@</span><span class="k">app</span><span class="p">.</span><span class="nc">route</span><span class="o">(</span><span class="s1">&#39;/users/&#39;</span><span class="o">,</span> <span class="nt">defaults</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;page&#39;</span><span class="o">:</span> <span class="nt">1</span><span class="p">}</span><span class="o">)</span>
+<span class="p">@</span><span class="k">app</span><span class="p">.</span><span class="nc">route</span><span class="o">(</span><span class="s1">&#39;/users/page/&amp;lt;int:page&amp;gt;&#39;</span><span class="o">)</span>
+<span class="nt">def</span> <span class="nt">show_users</span><span class="o">(</span><span class="nt">page</span><span class="o">):</span>
+    <span class="nt">pass</span>
+</pre></div>
+
+
+<p>This specifies that <code>/users/</code> will be the URL for page one and
+<code>/users/page/N</code> will be the URL for page <code>N</code>.</p>
+<p>If a URL contains a default value, it will be redirected to its simpler
+form with a 301 redirect. In the above example, <code>/users/page/1</code> will
+be redirected to <code>/users/</code>. If your route handles <code>GET</code> and <code>POST</code>
+requests, make sure the default route only handles <code>GET</code>, as redirects
+can't preserve form data. ::</p>
+<p>@app.route('/region/', defaults={'id': 1})
+@app.route('/region/<id>', methods=['GET', 'POST'])
+def region(id):
+pass</p>
+<p>Here are the parameters that :meth:<code>~flask.Flask.route</code> and
+:meth:<code>~flask.Flask.add_url_rule</code> accept. The only difference is that
+with the route parameter the view function is defined with the decorator
+instead of the <code>view_func</code> parameter.</p>
+<p>=============== ==========================================================
+<code>rule</code> the URL rule as string
+<code>endpoint</code> the endpoint for the registered URL rule. Flask itself
+assumes that the name of the view function is the name
+of the endpoint if not explicitly stated.
+<code>view_func</code> the function to call when serving a request to the
+provided endpoint. If this is not provided one can
+specify the function later by storing it in the
+:attr:<code>~flask.Flask.view_functions</code> dictionary with the
+endpoint as key.
+<code>defaults</code> A dictionary with defaults for this rule. See the
+example above for how defaults work.
+<code>subdomain</code> specifies the rule for the subdomain in case subdomain
+matching is in use. If not specified the default
+subdomain is assumed.
+<code>**options</code> the options to be forwarded to the underlying
+:class:<code>~werkzeug.routing.Rule</code> object. A change to
+Werkzeug is handling of method options. methods is a list
+of methods this rule should be limited to (<code>GET</code>, <code>POST</code>
+etc.). By default a rule just listens for <code>GET</code> (and
+implicitly <code>HEAD</code>). Starting with Flask 0.6, <code>OPTIONS</code> is
+implicitly added and handled by the standard request
+handling. They have to be specified as keyword arguments.
+=============== ==========================================================</p>
+<h2 id="view-function-options">View Function Options<a class="headerlink" href="#view-function-options" title="Permanent link">&para;</a></h2>
+<p>For internal usage the view functions can have some attributes attached to
+customize behavior the view function would normally not have control over.
+The following attributes can be provided optionally to either override
+some defaults to :meth:<code>~flask.Flask.add_url_rule</code> or general behavior:</p>
+<ul>
+<li>
+<p><code>__name__</code>: The name of a function is by default used as endpoint. If
+  endpoint is provided explicitly this value is used. Additionally this
+  will be prefixed with the name of the blueprint by default which
+  cannot be customized from the function itself.</p>
+</li>
+<li>
+<p><code>methods</code>: If methods are not provided when the URL rule is added,
+  Flask will look on the view function object itself if a <code>methods</code>
+  attribute exists. If it does, it will pull the information for the
+  methods from there.</p>
+</li>
+<li>
+<p><code>provide_automatic_options</code>: if this attribute is set Flask will
+  either force enable or disable the automatic implementation of the
+  HTTP <code>OPTIONS</code> response. This can be useful when working with
+  decorators that want to customize the <code>OPTIONS</code> response on a per-view
+  basis.</p>
+</li>
+<li>
+<p><code>required_methods</code>: if this attribute is set, Flask will always add
+  these methods when registering a URL rule even if the methods were
+  explicitly overridden in the <code>route()</code> call.</p>
+</li>
+</ul>
+<p>Full example::</p>
+<div class="codehilite"><pre><span></span>def index():
+    if request.method == &#39;OPTIONS&#39;:
+        # custom options handling here
+        ...
+    return &#39;Hello World!&#39;
+index.provide_automatic_options = False
+index.methods = [&#39;GET&#39;, &#39;OPTIONS&#39;]
+
+app.add_url_rule(&#39;/&#39;, index)
+</pre></div>
+
+
+<p>.. versionadded:: 0.8
+The <code>provide_automatic_options</code> functionality was added.</p>
+<h2 id="command-line-interface">Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permanent link">&para;</a></h2>
+<p>.. currentmodule:: flask.cli</p>
+<p>.. autoclass:: FlaskGroup
+:members:</p>
+<p>.. autoclass:: AppGroup
+:members:</p>
+<p>.. autoclass:: ScriptInfo
+:members:</p>
+<p>.. autofunction:: load_dotenv</p>
+<p>.. autofunction:: with_appcontext</p>
+<p>.. autofunction:: pass_script_info</p>
+<p>Marks a function so that an instance of :class:<code>ScriptInfo</code> is passed
+as first argument to the click callback.</p>
+<p>.. autodata:: run_command</p>
+<p>.. autodata:: shell_command</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../15.templating/" title="Templates" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Templates
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../appcontext/" title="Appcontext" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Appcontext
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
